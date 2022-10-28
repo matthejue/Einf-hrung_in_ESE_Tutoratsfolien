@@ -62,7 +62,7 @@ jobs:
           apk add make
           cd 'Tutorat${{ github.event.inputs.exercise_class_nr }}'
           cp 'Tutorat${{ github.event.inputs.exercise_class_nr }}.tex' 'Tutorat${{ github.event.inputs.exercise_class_nr }}a.tex'
-          sed -i "s/\\\def\\\pascal{0}/\\\def\\\pascal{1}/" 'Tutorat${{ github.event.inputs.exercise_class_nr }}a.tex'
+          sed -i 's/\\\def\\\pascal{0}/\\\def\\\pascal{1}/' 'Tutorat${{ github.event.inputs.exercise_class_nr }}a.tex'
           make 'Tutorat${{ github.event.inputs.exercise_class_nr }}a.pdf'
       continue-on-error: true
     - name: Push log file
