@@ -31,7 +31,7 @@ jobs:
         destination_branch: 'main'
         user_email: 'matthejue@gmail.com'
         user_name: 'matthejue'
-        commit_message: 'updated log'
+        commit_message: 'updated log for Juergen'
     - name: Push test file
       uses: dmnemec/copy_file_to_another_repo_action@main
       env:
@@ -43,7 +43,7 @@ jobs:
         destination_branch: 'main'
         user_email: 'matthejue@gmail.com'
         user_name: 'matthejue'
-        commit_message: 'updated pdf'
+        commit_message: 'updated pdf for Juergen'
 
   # # Pascal
   build_for_pascal:
@@ -72,7 +72,7 @@ jobs:
         destination_branch: 'main'
         user_email: 'matthejue@gmail.com'
         user_name: 'matthejue'
-        commit_message: 'updated log'
+        commit_message: 'updated log for Pascal'
     - name: Push test file
       uses: dmnemec/copy_file_to_another_repo_action@main
       env:
@@ -84,4 +84,4 @@ jobs:
         destination_branch: 'main'
         user_email: 'matthejue@gmail.com'
         user_name: 'matthejue'
-        commit_message: 'updated pdf'
+        commit_message: 'updated pdf for Pascal'
