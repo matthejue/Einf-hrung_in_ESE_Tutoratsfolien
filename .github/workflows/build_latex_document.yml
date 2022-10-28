@@ -45,32 +45,43 @@ jobs:
         user_name: 'matthejue'
         commit_message: 'updated pdf'
 
-    # # Pascal
-    # - uses: matthejue/texlive-action-personal-copy/full@master
-    #   with:
-    #     run: |
-    #       apk add make
-    #       "make" "Main.pdf"
-    #   continue-on-error: true
-    # - name: Push log file
-    #   uses: dmnemec/copy_file_to_another_repo_action@main
-    #   env:
-    #     API_TOKEN_GITHUB: ${{ secrets.UPLOAD_TO_REPO }}
-    #   with:
-    #     source_file: 'Main.log'
-    #     destination_repo: 'matthejue/Bachelorarbeit_Praesentation_out'
-    #     destination_folder: ''
-    #     user_email: 'matthejue@gmail.com'
-    #     user_name: 'matthejue'
-    #     commit_message: 'updated log'
-    # - name: Push test file
-    #   uses: dmnemec/copy_file_to_another_repo_action@main
-    #   env:
-    #     API_TOKEN_GITHUB: ${{ secrets.UPLOAD_TO_REPO }}
-    #   with:
-    #     source_file: 'Main.pdf'
-    #     destination_repo: 'matthejue/Bachelorarbeit_Praesentation_out'
-    #     destination_folder: ''
-    #     user_email: 'matthejue@gmail.com'
-    #     user_name: 'matthejue'
-    #     commit_message: 'updated pdf'
+  # # Pascal
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - uses: xu-cheng/texlive-action/full@v1
+      with:
+        run: |
+          apk add make
+          cd Tutorat1
+          cp Tutorat1.tex Tutorat1a.tex
+          sed -i "s/\\\def\\\pascal{0}/\\\def\\\pascal{1}/" Tutorat1a.tex
+          make Tutorat1a.pdf
+      continue-on-error: true
+    - name: Push log file
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.UPLOAD_TO_REPO }}
+      with:
+        source_file: 'Tutorat1/Tutorat1a.log'
+        destination_repo: 'matthejue/Einfuehrung_in_ESE_Tutoratsfolien_out'
+        destination_folder: ''
+        destination_branch: 'main'
+        user_email: 'matthejue@gmail.com'
+        user_name: 'matthejue'
+        commit_message: 'updated log'
+    - name: Push test file
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.UPLOAD_TO_REPO }}
+      with:
+        source_file: 'Tutorat1/Tutorat1a.pdf'
+        destination_repo: 'matthejue/Einfuehrung_in_ESE_Tutoratsfolien_out'
+        destination_folder: ''
+        destination_branch: 'main'
+        user_email: 'matthejue@gmail.com'
+        user_name: 'matthejue'
+        commit_message: 'updated pdf'
