@@ -23,6 +23,9 @@ jobs:
           apk add make
           cd 'Tutorat${{ github.event.inputs.exercise_class_nr }}'
           make 'Tutorat${{ github.event.inputs.exercise_class_nr }}.pdf'
+          cp 'Tutorat${{ github.event.inputs.exercise_class_nr }}.tex' 'Tutorat${{ github.event.inputs.exercise_class_nr }}a.tex'
+          sed -i 's/\\\def\\\pascal{0}/\\\def\\\pascal{1}/' 'Tutorat${{ github.event.inputs.exercise_class_nr }}a.tex'
+          make 'Tutorat${{ github.event.inputs.exercise_class_nr }}a.pdf'
       continue-on-error: true
     - name: Push log file
       uses: dmnemec/copy_file_to_another_repo_action@main
@@ -48,23 +51,7 @@ jobs:
         user_email: 'matthejue@gmail.com'
         user_name: 'matthejue'
         commit_message: 'updated pdf for Juergen'
-
-  # # Pascal
-  build_for_pascal:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - uses: xu-cheng/texlive-action/full@v1
-      with:
-        run: |
-          apk add make
-          cd 'Tutorat${{ github.event.inputs.exercise_class_nr }}'
-          cp 'Tutorat${{ github.event.inputs.exercise_class_nr }}.tex' 'Tutorat${{ github.event.inputs.exercise_class_nr }}a.tex'
-          sed -i 's/\\\def\\\pascal{0}/\\\def\\\pascal{1}/' 'Tutorat${{ github.event.inputs.exercise_class_nr }}a.tex'
-          make 'Tutorat${{ github.event.inputs.exercise_class_nr }}a.pdf'
-      continue-on-error: true
+    # pascal
     - name: Push log file
       uses: dmnemec/copy_file_to_another_repo_action@main
       env:
