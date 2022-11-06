@@ -3,9 +3,9 @@
 % ./Design.tex
 % ./Deklarationen.tex
 
-\section{Exercise 1 - Memory Addresses}
+\section{Task 1 - Memory Addresses}
 
-\begin{frame}[fragile]{Exercise 1 - Memory Addresses}{Exercise 1.1}
+\begin{frame}{Task 1 - Memory Addresses}{Task 1.1}
   \begin{solution}
     \begin{columns}
       \begin{column}{0.2\textwidth}
@@ -21,7 +21,7 @@
   \end{solution}
 \end{frame}
 
-\begin{frame}{Exercise 1 - Memory Addresses}{Exercise 1.1}
+\begin{frame}{Task 1 - Memory Addresses}{Task 1.1}
   \begin{solution}
     \begin{columns}
       \begin{column}{0.4\textwidth}
@@ -40,19 +40,50 @@
   \end{solution}
 \end{frame}
 
-\begin{frame}{Exercise 1 - Memory Addresses}{Exercise 1.1}
+\begin{frame}[allowframebreaks]{Task 1 - Memory Addresses}{Task 1.1}
   \begin{solution}
     \begin{columns}
       \begin{column}{0.4\paperwidth}
         \centering
         \includegraphics[width=0.3\paperwidth]{./figures/port_module.png}
         \includegraphics[width=0.3\paperwidth]{./figures/port2.png}
+        \includegraphics[height=0.2\paperheight]{./figures/2_5.png}
       \end{column}
       \begin{column}{0.6\paperwidth}
         \begin{itemize}
           \item $0x4000\_4C00 + 0x0003 = 0x4000\_4C03$
+          \item 6th last significant bit $\Rightarrow$ $0b0010\_0000$
         \end{itemize}
       \end{column}
     \end{columns}
+  \end{solution}
+  \begin{Sidenote}
+    \begin{itemize}
+      \item 003h is an alternative way to wite 0x0003
+    \end{itemize}
+  \end{Sidenote}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Task 1 - Memory Addresses}{Task 1.1}
+  \begin{solution}
+    \begin{columns}
+      \begin{column}{0.3\paperwidth}
+        \centering
+        \includegraphics[height=0.4\paperheight]{./figures/code.png}
+        \includegraphics[height=0.4\paperheight]{./figures/rom.png}
+
+      \end{column}
+      \begin{column}{0.7\paperwidth}
+        \includegraphics[height=0.1\paperheight]{./figures/rom2.png}
+        \includegraphics[height=0.2\paperheight]{./figures/rom3.png}
+      \end{column}
+    \end{columns}
+    \begin{itemize}
+      \item $0x020F\_FFFF - 0x0200\_0000 + 1 = 0x0010\_0000$.
+      \item $16^5 = {(2^4)}^5 = 2^{4\cdot 5} = 2^{20}$
+    \end{itemize}
+  \end{solution}
+  \begin{solution}
+
   \end{solution}
 \end{frame}
