@@ -64,7 +64,7 @@
   \end{Sidenote}
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Task 1 - Memory Addresses}{Task 1.1}
+\begin{frame}[allowframebreaks]{Task 1 - Memory Addresses}{Task 1.1\vspace{0.25cm}}
   \begin{solution}
     \begin{columns}
       \begin{column}{0.3\paperwidth}
@@ -74,16 +74,25 @@
 
       \end{column}
       \begin{column}{0.7\paperwidth}
-        \includegraphics[height=0.1\paperheight]{./figures/rom2.png}
-        \includegraphics[height=0.2\paperheight]{./figures/rom3.png}
+        \includegraphics[height=0.095\paperheight]{./figures/rom2.png}
+        \includegraphics[height=0.25\paperheight]{./figures/rom3.png}
       \end{column}
     \end{columns}
     \begin{itemize}
       \item $0x020F\_FFFF - 0x0200\_0000 + 1 = 0x0010\_0000$.
-      \item $16^5 = {(2^4)}^5 = 2^{4\cdot 5} = 2^{20}$
+      \item $16^5 = {(2^4)}^5 = 2^{4\cdot 5} = 2^{20} \text{addresses}$
     \end{itemize}
   \end{solution}
   \begin{solution}
-
+    \begin{itemize}
+      \item each address location corresponds to \alert{one byte} $\Rightarrow$ \alert{addressable memory space} is $2^{20} Byte$ or $1 MiB$.
+      \item number of 4-byte words is a \alert{quarter} of that, which is $\frac{2^{20} Byte}{2^2} = 2^{18} words = 2^8 Kiwords= 256 Kiwords$
+    \end{itemize}
   \end{solution}
+  \begin{Sidenote}
+    \begin{itemize}
+      \item developer can not write to these addresses, only the manufacturer can (ROM = \alert{R}ead-\alert{o}nly \alert{m}emory)
+      \item the MSP432P401x MCUs supports 32KB of ROM, and the rest of the 1MByte ROM region is reserved for \alert{future upgrades}
+    \end{itemize}
+  \end{Sidenote}
 \end{frame}
