@@ -84,19 +84,20 @@ after title={\hspace{0.2cm}\includegraphics[height=3mm]{./figures/lupe.png}}
 % │ Beamer Blocks │
 % └───────────────┘
 
-\newcounter{custom}[section]
+\newcounter{task}
+\setcounter{task}{1}
 
 % https://tex.stackexchange.com/questions/309463/beamer-numerating-theorems-and-color-of-block
 \setbeamertemplate{theorems}[numbered]
 
 % https://tex.stackexchange.com/questions/152565/define-a-new-block-environment-in-latex-beamer
-\renewenvironment<>{custom}[1]{%
-  \setbeamercolor{block title}{fg=white,bg=PrimaryColor}%
-\begin{block}#2{Custom \arabic{section}{.}\thecustom:\enspace\ignorespaces #1 \notebook}}{\end{block}\stepcounter{custom}}
-
-\newenvironment<>{acustom}[1]{%
+\renewenvironment<>{task}[1][]{%
   \setbeamercolor{block title}{fg=white,bg=SecondaryColor}%
-\begin{block}#2{Custom \thesection{.}\arabic{custom}:\enspace\ignorespaces #1 \anotebook}\itshape}{\end{block}\stepcounter{custom}}
+\begin{block}#2{Task \thesection{.}\thetask:\enspace\ignorespaces #1 \notebook}}{\end{block}}
+
+\newenvironment<>{solution}[1][]{%
+  \setbeamercolor{block title}{fg=white,bg=PrimaryColor}%
+\begin{block}#2{Solution \alph{task}:\enspace\ignorespaces #1 \anotebook}\itshape}{\end{block}\stepcounter{task}}
 
 % https://stackoverflow.com/questions/34274267/how-can-i-number-theorems-definitions-etc-etc-consecutively-in-latex-without
 \newtheorem{customtheorem}{Custom Theorem}[section]
