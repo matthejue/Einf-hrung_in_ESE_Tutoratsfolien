@@ -1,4 +1,5 @@
 \def\pascal{0}
+\def\preview{1}
 
 \input{./content_Tutorat1/Packete}
 \input{./content_Tutorat1/Design}
@@ -6,6 +7,9 @@
 
 \includeonly{
   ./content_Tutorat1/Aufgabe1,
+  ./content_Tutorat1/Aufgabe2,
+  ./content_Tutorat1/Aufgabe3,
+  ./content_Tutorat1/Bonus,
 }
 
 \begin{document}
@@ -23,26 +27,29 @@
 \end{withoutheadline}
 
 \include{./content_Tutorat1/Aufgabe1}
+\include{./content_Tutorat1/Aufgabe2}
+\include{./content_Tutorat1/Aufgabe3}
+\include{./content_Tutorat1/Bonus}
 
-\section{Literatur}
-
-\begin{frame}{Bücher}
-  \printbibliography[type=book,heading=subbibliography,title={Bücher}]
-\end{frame}
-
-\begin{frame}{Artikel}
-  \printbibliography[type=article,heading=subbibliography,title={Artikel}]
-\end{frame}
-
-\begin{frame}{Vorlesungen}
-  \printbibliography[type=unpublished,heading=subbibliography,title={Vorlesungen}]
-\end{frame}
-
-\begin{frame}{Online}
-  \printbibliography[type=online,heading=subbibliography,title={Online}]
-\end{frame}
-
-\begin{frame}{Sonstiges}
-  \printbibliography[nottype=book, nottype=article, nottype=online, nottype=unpublished,heading=subbibliography,keyword=wikikeyword,title={Sonstige Quellen}]
-\end{frame}
+% \section{Literatur}
+%
+% \begin{frame}{Bücher}
+%   \printbibliography[type=book,heading=subbibliography,title={Bücher}]
+% \end{frame}
+%
+% \begin{frame}{Artikel}
+%   \printbibliography[type=article,heading=subbibliography,title={Artikel}]
+% \end{frame}
+%
+% \begin{frame}{Vorlesungen}
+%   \printbibliography[type=unpublished,heading=subbibliography,title={Vorlesungen}]
+% \end{frame}
+%
+% \begin{frame}{Online}
+%   \printbibliography[type=online,heading=subbibliography,title={Online}]
+% \end{frame}
+%
+% \begin{frame}{Sonstiges}
+%   \printbibliography[nottype=book, nottype=article, nottype=online, nottype=unpublished,heading=subbibliography,keyword=wikikeyword,title={Sonstige Quellen}]
+% \end{frame}
 \end{document}

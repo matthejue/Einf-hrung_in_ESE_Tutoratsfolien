@@ -1,0 +1,78 @@
+%!Tex Root = ../Tutorat1.tex
+% ./Packete.tex
+% ./Design.tex
+% ./Deklarationen.tex
+% ./Aufgabe1.tex
+% ./Aufgabe2.tex
+% ./Bonus.tex
+
+\section{Bonus}
+
+\begin{frame}[fragile,allowframebreaks]{Bonus}{Hexadecimal System}
+  \begin{itemize}
+    \item \alert{Example:}
+  \end{itemize}
+  \begin{dmath}
+    \begin{aligned}
+      \underline{beef}_{16} &= 11 * 16^3 + 14 * 16^2 + 14 * 16^1 + 15 * 16^0 \\
+      &= 11 * 4096 + 14 * 256 + 14 * 16 + 15 \\
+      &= 48879
+    \end{aligned}
+  \end{dmath}
+
+  \centering
+  \begin{itemize}
+    \item \alert{Hex $\Rightarrow$ Bin:}
+  \end{itemize}
+  \begin{terminal}
+     D    4    F    6    6    E
+  1101 0100 1111 0110 0110 1110
+  \end{terminal}
+  \begin{itemize}
+    \item \alert{Bin $\Rightarrow$ Hex:}
+  \end{itemize}
+  \begin{terminal}
+  1101 0100 1111 0110 0110 1110
+     D    4    F    6    6    E
+  \end{terminal}
+
+  \begin{itemize}
+    \item \alert{All Bin and Hex assigned:}
+  \end{itemize}
+  \begin{terminal}
+  0    1    2    3    4    5    6    7    8    9
+  ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+  0000 0001 0010 0011 0100 0101 0110 0111 1000 1001
+
+  A    B    C    D    E    F
+  ---- ---- ---- ---- ---- ----
+  1010 1011 1100 1101 1110 1111
+  \end{terminal}
+  \begin{itemize}
+    \item it is so \alert{easy to convert} between both because $16 = 2^4$.
+    \item \alert{Example:}
+      \begin{dmath}
+        $c_{16} = 1 \cdot 10^1 5 \cdot 10^0$
+      \end{dmath}
+      \begin{dmath}
+        $12_{10} = 1 \cdot 10^1 5 \cdot 10^0$
+      \end{dmath}
+      \begin{dmath}
+        $1100_{10} = 2^3 2^2 2^1 2^0$
+      \end{dmath}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  % https://tex.stackexchange.com/questions/190988/beamer-replace-one-word-with-another
+  \begin{itemize}
+    \item How many bits will a hex number with 5 symbols have in binary system?
+      \begin{itemize}
+        \item[$\square$] 10
+        \item[$\square$] 15
+        \alt<2>{\item[$\blacksquare$]}{\item[$\square$]} 20
+        \item[$\square$] 16
+      \end{itemize}
+    \item<2>{\alert{Example:} 0xF\_FFFF = 0b1111\_1111\_1111\_1111\_1111}
+  \end{itemize}
+\end{frame}

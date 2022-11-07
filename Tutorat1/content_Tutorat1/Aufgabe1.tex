@@ -2,6 +2,9 @@
 % ./Packete.tex
 % ./Design.tex
 % ./Deklarationen.tex
+% ./Aufgabe2.tex
+% ./Aufgabe3.tex
+% ./Bonus.tex
 
 \section{Task 1 - Memory Addresses}
 
@@ -40,6 +43,7 @@
   \end{solution}
 \end{frame}
 
+\if\preview0{
 \begin{frame}[allowframebreaks]{Task 1 - Memory Addresses}{Task 1.1}
   \begin{solution}
     \begin{columns}
@@ -96,6 +100,7 @@
     \end{itemize}
   \end{Sidenote}
 \end{frame}
+}\fi
 
 \begin{frame}{Task 1 - Memory Addresses}{Task 1.2\vspace{0.25cm}}
   \begin{figure}
@@ -110,14 +115,15 @@
     \item $u$ \alert{row} select bits and $w$ \alert{column} select bits
     \item \alert{we need:}
     \begin{itemize}
-      \item $2(u+w)$ memory cells
+      \item $2^{(u+w)}$ memory cells
       \item one $u$-bit decoder
-      \item one $2w$-to-$1$ multiplexer
-      \item $2w$ sense amplifiers
+      \item one $2^w$-to-$1$ multiplexer
+      \item $2^w$ sense amplifiers
     \end{itemize}
   \end{itemize}
 \end{frame}
 
+\if\preview0{
 \begin{frame}[allowframebreaks]{Task 1 - Memory Addresses}{Task 1.2\vspace{0.25cm}}
   \begin{itemize}
     \item \alert{memory cell area:}
@@ -167,3 +173,4 @@
     \caption{Different SRAM implementations}
  \end{table}
 \end{frame}
+}\fi

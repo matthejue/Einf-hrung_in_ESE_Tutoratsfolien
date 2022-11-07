@@ -2,23 +2,29 @@
 % ./Packete.tex
 % ./Design.tex
 % ./Deklarationen.tex
+% ./Aufgabe1.tex
+% ./Aufgabe3.tex
+% ./Bonus.tex
 
 \section{Task 2 - Communication}
+
+\setcounter{task}{1}
 
 \begin{frame}[fragile]{Task 2 - Communication}{Task 2}
   \begin{solution}
     \begin{columns}
       \begin{column}{0.8\textwidth}
         \begin{itemize}
-          \item Baudrate of 115200 bits/s
-          \item We require 16 clock periods to sample 1 bit
-          \item Required clock frequency = 115200 bits/s $\cdot$ 16/bits
+          \item Baudrate of $115200 \frac{bits}{s}$
+          \item We require 16 clock periods to sample $1 bit$
+          \item Required clock frequency = $115200 \frac{bits}{s} \cdot \frac{16}{bits} = 1.8432 MHz$
         \end{itemize}
       \end{column}
     \end{columns}
   \end{solution}
 \end{frame}
 
+\if\preview0{
 \begin{frame}[fragile]{Task 2 - Communication}{Task 2}
   \begin{solution}
     \begin{columns}
@@ -58,3 +64,4 @@
     \end{columns}
   \end{solution}
 \end{frame}
+\fi
