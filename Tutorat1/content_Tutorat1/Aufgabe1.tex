@@ -96,3 +96,74 @@
     \end{itemize}
   \end{Sidenote}
 \end{frame}
+
+\begin{frame}{Task 1 - Memory Addresses}{Task 1.2\vspace{0.25cm}}
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.6\paperheight]{./figures/sram.png}
+    \caption{SRAM-cell array}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Task 1 - Memory Addresses}{Task 1.2\vspace{0.25cm}}
+  \begin{itemize}
+    \item $u$ \alert{row} select bits and $w$ \alert{column} select bits
+    \item \alert{we need:}
+    \begin{itemize}
+      \item $2(u+w)$ memory cells
+      \item one $u$-bit decoder
+      \item one $2w$-to-$1$ multiplexer
+      \item $2w$ sense amplifiers
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Task 1 - Memory Addresses}{Task 1.2\vspace{0.25cm}}
+  \begin{itemize}
+    \item \alert{memory cell area:}
+    \begin{itemize}
+      \item for a $8$-\alert{bit address}, we need $28$ \alert{memory cells}.
+      \item $C=2^8 \cdot A_{\mathrm{mem}}=2^8 \cdot 6=1536$.
+    \end{itemize}
+    \item \alert{$u$-bit decoder area:}
+    \begin{itemize}
+      \item for activating one of the $2^u$ \alert{word lines}.
+      \item we construct a $k$-bit decoder using $2$ \alert{smaller decoders} and $2^k$ $2$-input \alert{AND gates}.
+      \item the \alert{smaller decoders} should be of size $\frac{k}{2}$ if $k$ is \alert{even}, or of sizes $\frac{k + 1}{2}$ and $\frac{k - 1}{2}$ if $k$ is \alert{odd}.
+      \item $D(k)= \begin{cases}A_{\mathrm{NOT}} & \text { if } k=1 \\ 2 \cdot D\left(\frac{k}{2}\right)+A_{\mathrm{AND}} \cdot 2^k & \text { if } k>1 \text { and } k \text { is even } \\ D\left(\frac{k-1}{2}\right)+D\left(\frac{k+1}{2}\right)+A_{\mathrm{AND}} \cdot 2^k & \text { if } k>1 \text { and } k \text { is odd }\end{cases}$
+    \end{itemize}
+    \item \alert{$2w$-to-$1$ multiplexer area:}
+    \begin{itemize}
+      \item  for selecting one of the $2^w$ \alert{bit lines}.
+      \item  we can construct a $2^k$-to-$1$ \alert{multiplexer} for any $k$ using two $2^{k-1}$-to-$1$ \alert{multiplexers} and one $2$-to-$1$ \alert{multiplexer}.
+      \item $M(k)= \begin{cases}A_{\operatorname{mux}} & \text { if } k=1 \\ 2 \cdot M(k-1)+A_{\operatorname{mux}} & \text { otherwise }\end{cases}$.
+    \end{itemize}
+    \item \alert{single sense amplifier area:}
+    \begin{itemize}
+      \item for each of the $w$ \alert{column bit lines}
+      \item $S(w)=2^w \cdot A_{\text {sense}}$
+    \end{itemize}
+    \item there are $8$ possible \alert{implementations} for $u$ and $w$
+    \item the area \alert{excluding} the memory cells: D(u) + M (w) + S(w)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Task 1 - Memory Addresses}{Task 1.2\vspace{0.25cm}}
+  \centering
+ \begin{table}
+   \begin{tabular}{|c|c||c|c|c|c|}
+      \hline$u$ & $w$ & Decoder $D(u)$ & Multiplexer $M(w)$ & Sense Amp $S(w)$ & Total \\
+      \hline \hline 0 & 8 & 0 & 1020 & 1280 & 2300 \\
+      \hline 1 & 7 & 1 & 508 & 640 & 1149 \\
+      \hline 2 & 6 & 6 & 252 & 320 & 578 \\
+      \hline 3 & 5 & 15 & 124 & 160 & 299 \\
+      \hline 4 & 4 & 28 & 60 & 80 & 168 \\
+      \hline 5 & 3 & 53 & 28 & 40 & 121 \\
+      \hline 6 & 2 & 94 & 12 & 20 & 126 \\
+      \hline 7 & 1 & 171 & 4 & 10 & 185 \\
+      \hline 8 & 0 & 312 & 0 & 5 & 317 \\
+      \hline
+    \end{tabular}
+    \caption{Different SRAM implementations}
+ \end{table}
+\end{frame}
