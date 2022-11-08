@@ -12,13 +12,13 @@
   \begin{itemize}
     \item \alert{Example:}
   \end{itemize}
-  \begin{dmath}
+  \begin{dmath*}
     \begin{aligned}
-      \underline{beef}_{16} &= 11 * 16^3 + 14 * 16^2 + 14 * 16^1 + 15 * 16^0 \\
-      &= 11 * 4096 + 14 * 256 + 14 * 16 + 15 \\
+      \underline{beef}_{16} &= 11 \cdot 16^3 + 14 \cdot 16^2 + 14 \cdot 16^1 + 15 \cdot 16^0 \\
+      &= 11 \cdot 4096 + 14 \cdot 256 + 14 \cdot 16 + 15 \\
       &= 48879
     \end{aligned}
-  \end{dmath}
+  \end{dmath*}
 
   \centering
   \begin{itemize}
@@ -37,7 +37,7 @@
   \end{terminal}
 
   \begin{itemize}
-    \item \alert{All Bin and Hex assigned:}
+    \item \alert{all Bin and Hex assigned:}
   \end{itemize}
   \begin{terminal}
   0    1    2    3    4    5    6    7    8    9
@@ -49,17 +49,19 @@
   1010 1011 1100 1101 1110 1111
   \end{terminal}
   \begin{itemize}
-    \item it is so \alert{easy to convert} between both because $16 = 2^4$.
-    \item \alert{Example:}
-      \begin{dmath}
-        $c_{16} = 1 \cdot 10^1 5 \cdot 10^0$
-      \end{dmath}
-      \begin{dmath}
-        $12_{10} = 1 \cdot 10^1 5 \cdot 10^0$
-      \end{dmath}
-      \begin{dmath}
-        $1100_{10} = 2^3 2^2 2^1 2^0$
-      \end{dmath}
+    \item \alert{Derivation:}
+    \begin{itemize}
+      \item $\begin{aligned}[t]
+          a4_{16} &= 10 \cdot 16^1 + 4 \cdot 16^0 \\
+                  &= 10 \cdot {(2^4)}^1 + 4 \cdot {(2^4)}^0 \\
+                  &= 1010_2 \cdot 2^4 + 0100_2 \cdot 1 \\
+                  &= (1000_2 \cdot 2^4 + 10_2 \cdot 2^4) + (100_2 \cdot 2^0) \\
+                  &= (1 \cdot 2^7 + 1 \cdot 2^5) + (1 \cdot 2^2) \\
+                  &= 1010\_0100_{2}
+        \end{aligned}$
+      \item \alert{idea:} shifting a number works in hexadecimal system $1a_{16} \cdot 10^2_{16} = 1a00$ decimal system $17 \cdot 10^2 = 1700$ and binary system $11_2 \cdot 10_2^2 = 1100_2$ quite similar.
+      \item but beacuse $16 = 2^4$ the \alert{hexadecimal} and \alert{binary system} are particulary easy to convert into each other.
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -73,6 +75,7 @@
         \alt<2>{\item[$\blacksquare$]}{\item[$\square$]} 20
         \item[$\square$] 16
       \end{itemize}
-    \item<2>{\alert{Example:} 0xF\_FFFF = 0b1111\_1111\_1111\_1111\_1111}
+    \item<2>\alert{example:} 0xa\_aaaa = 0b1010\_1010\_1010\_1010\_1010
+    \item<2>the \alert{binary number} has $4$ times as many bits because $16=2^4$
   \end{itemize}
 \end{frame}
