@@ -16,7 +16,7 @@
       \begin{column}{0.8\textwidth}
         \begin{itemize}
           \item Computation time C for the event: $\frac{100}{48 \cdot 10^6 Hz} = 2.0833\mu s$
-          \item The maximum response time in the worst case is $P + C$. This time can not exceed our deadline of $10 \mu s$
+          \item The maximum response time in the worst case is $P + C$. This time should not exceed our deadline of $10 \mu s$
           \item Therefore, we have $P + 2.0833\mu s \leq 10\mu s \Longleftrightarrow P \leq 7.9167\mu s$
           \item Since our polling period may not be shorter than the computation time we obtain $P \geq 2.0833\mu s$. Therefore, our range is $P \in [2.0833\mu s, 7.9167\mu s]$
         \end{itemize}

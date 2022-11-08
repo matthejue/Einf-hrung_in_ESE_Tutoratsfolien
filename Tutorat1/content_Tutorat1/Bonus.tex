@@ -8,19 +8,29 @@
 
 \section{Bonus}
 
-\begin{frame}[fragile,allowframebreaks]{Bonus}{Hexadecimal System}
+\begin{frame}[fragile,allowframebreaks]{Bonus}{Hexadecimal System\vspace{0.5cm}}
   \begin{itemize}
-    \item \alert{Example:}
+    \item \alert{Example:} $\begin{aligned}[t]
+        \underline{beef}_{16} &= 11 \cdot 16^3 + 14 \cdot 16^2 + 14 \cdot 16^1 + 15 \cdot 16^0 \\
+        &= 11 \cdot 4096 + 14 \cdot 256 + 14 \cdot 16 + 15 \\
+        &= 48879
+      \end{aligned}$
   \end{itemize}
-  \begin{dmath*}
-    \begin{aligned}
-      \underline{beef}_{16} &= 11 \cdot 16^3 + 14 \cdot 16^2 + 14 \cdot 16^1 + 15 \cdot 16^0 \\
-      &= 11 \cdot 4096 + 14 \cdot 256 + 14 \cdot 16 + 15 \\
-      &= 48879
-    \end{aligned}
-  \end{dmath*}
 
   \centering
+  \begin{itemize}
+    \item \alert{all Bin and Hex assigned:}
+  \end{itemize}
+  \begin{terminal}
+  0    1    2    3    4    5    6    7    8    9
+  ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+  0000 0001 0010 0011 0100 0101 0110 0111 1000 1001
+
+  A    B    C    D    E    F
+  ---- ---- ---- ---- ---- ----
+  1010 1011 1100 1101 1110 1111
+  \end{terminal}
+  \framebreak
   \begin{itemize}
     \item \alert{Hex $\Rightarrow$ Bin:}
   \end{itemize}
@@ -35,19 +45,8 @@
   1101 0100 1111 0110 0110 1110
      D    4    F    6    6    E
   \end{terminal}
-
-  \begin{itemize}
-    \item \alert{all Bin and Hex assigned:}
-  \end{itemize}
-  \begin{terminal}
-  0    1    2    3    4    5    6    7    8    9
-  ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
-  0000 0001 0010 0011 0100 0101 0110 0111 1000 1001
-
-  A    B    C    D    E    F
-  ---- ---- ---- ---- ---- ----
-  1010 1011 1100 1101 1110 1111
-  \end{terminal}
+  % https://tex.stackexchange.com/questions/13380/explicit-frame-break-with-beamer-class
+  \framebreak
   \begin{itemize}
     \item \alert{Derivation:}
     \begin{itemize}
@@ -65,7 +64,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Bonus}{Quiz question}
   % https://tex.stackexchange.com/questions/190988/beamer-replace-one-word-with-another
   \begin{itemize}
     \item How many bits will a hex number with 5 symbols have in binary system?
