@@ -1,0 +1,67 @@
+%!Tex Root = ../Tutorat1.tex
+% ./Packete.tex
+% ./Design.tex
+% ./Deklarationen.tex
+% ./Aufgabe1.tex
+% ./Aufgabe3.tex
+% ./Bonus.tex
+
+\section{Task 2 - Communication}
+
+\setcounter{task}{1}
+
+\begin{frame}[fragile]{Task 2 - Communication}{Task 2}
+  \begin{solution}
+    \begin{columns}
+      \begin{column}{0.8\textwidth}
+        \begin{itemize}
+          \item Baudrate of $115200 \frac{bits}{s}$
+          \item We require 16 clock periods to sample $1 bit$
+          \item Required clock frequency = $115200 \frac{bits}{s} \cdot \frac{16}{bits} = 1.8432 MHz$
+        \end{itemize}
+      \end{column}
+    \end{columns}
+  \end{solution}
+\end{frame}
+
+\if\preview0{
+\begin{frame}[fragile]{Task 2 - Communication}{Task 2}
+  \begin{solution}
+    \begin{columns}
+      \begin{column}{0.8\textwidth}
+        \begin{itemize}
+          \item We have a 48MHz clock and want to reduce it with division factor x
+          \item Our goal speed is 1.8432 MHz
+          \item The ration between the given and required clock is $\frac{48MHz}{1.8432MHz} = 26.04167$
+        \end{itemize}
+      \end{column}
+    \end{columns}
+  \end{solution}
+\end{frame}
+
+\begin{frame}[fragile]{Task 2 - Communication}{Task 2}
+  \begin{solution}
+    \begin{columns}
+      \begin{column}{0.8\textwidth}
+        \begin{itemize}
+          \item For each byte of actual data we send: 1 start bit + 8 data bits + 1 parity bit + 2 stop bits = 12 bits
+          \item We have a total of 10MB = $10 \cdot 2^{20}$ bytes of data to send
+          \item This takes $\frac{(10 \cdot 2^{20} \cdot 12)bits}{115200bits/s} = 1092.27s$ time
+        \end{itemize}
+      \end{column}
+    \end{columns}
+  \end{solution}
+\end{frame}
+
+\begin{frame}[fragile]{Task 2 - Communication}{Task 2}
+  \begin{solution}
+    \begin{columns}
+      \begin{column}{0.8\textwidth}
+        \begin{itemize}
+          \item WIP
+        \end{itemize}
+      \end{column}
+    \end{columns}
+  \end{solution}
+\end{frame}
+\fi

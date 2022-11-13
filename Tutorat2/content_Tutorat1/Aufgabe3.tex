@@ -8,30 +8,6 @@
 
 \section{Task 3 - Interrupt and Polling}
 
-\begin{frame}{Interrupts and Polling}{Repetition}
-  \begin{itemize}
-    \item \alert{utilization $u$:} average percentage the processor is busy
-    \item \alert{computation $c$:} processing time for handling the event
-    \item \alert{overhead $h$:} time overhead for handling the interrupt
-    \item \alert{period $P$:} polling period
-    \item \alert{inter-arrival time $T$:} minimal time between two events
-    \item \alert{deadline $D$:} maximal time between event arrival and finishing event processing with $D \le T$.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Interrupts and Polling}{Repetition}
-  \begin{itemize}
-    \item \alert{Constraints for polling-based processing:} $2c \le P+c \le D \le T$
-    \item \alert{Constraints for interrupt-based processing:} $h+c \le D\le T$
-  \end{itemize}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.2\paperwidth]{./figures/polling_based.png}
-    \includegraphics[width=0.2\paperwidth]{./figures/interrupt_based.png}
-    \includegraphics[width=0.2\paperwidth]{./figures/deadline.png}
-  \end{figure}
-\end{frame}
-
 \setcounter{task}{1}
 
 \begin{frame}[fragile]{Task 3 - Interrupts and Polling}{Task 3}
@@ -39,8 +15,8 @@
     \begin{columns}
       \begin{column}{0.8\textwidth}
         \begin{itemize}
-          \item Computation time $c$ for the event: $\frac{100}{48 \cdot 10^6 Hz} = 2.0833\mu s$
-          \item The maximum response time in the worst case is $P + c$. This time should not exceed our deadline of $10 \mu s$
+          \item Computation time C for the event: $\frac{100}{48 \cdot 10^6 Hz} = 2.0833\mu s$
+          \item The maximum response time in the worst case is $P + C$. This time should not exceed our deadline of $10 \mu s$
           \item Therefore, we have $P + 2.0833\mu s \leq 10\mu s \Longleftrightarrow P \leq 7.9167\mu s$
           \item Since our polling period may not be shorter than the computation time we obtain $P \geq 2.0833\mu s$. Therefore, our range is $P \in [2.0833\mu s, 7.9167\mu s]$
         \end{itemize}
@@ -61,7 +37,7 @@
       \begin{column}{0.8\textwidth}
         \begin{itemize}
           \item In this setting, the worst case occurs if an interrupt delays our event computation.
-          \item Our maximum response time is $P + c + h$ where $h$ is the overhead time required to process the interrupt.
+          \item Our maximum response time is $P + C + H$ where $H$ is the overhead time required to process the interrupt.
           \item Because our event takes 100 cycles, and the time between two interrupts is 140 cycles, there can be at most one interrupt within the processing of our event.
           \item Thus, we require 40 more cycles in the worst case, taking $\frac{40}{48 \cdot 10^6Hz} = 0.8333\mu s$
           \item Calculating the range like in (a), we obtain $P \in [2.9167\mu s, 7.0833\mu s]$

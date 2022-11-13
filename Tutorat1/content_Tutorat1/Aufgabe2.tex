@@ -53,15 +53,43 @@
   \end{solution}
 \end{frame}
 
-\begin{frame}[fragile]{Task 2 - Communication}{Task 2}
+\begin{frame}[fragile, allowframebreaks]{Task 2 - Communication}{Task 2}
+  \begin{solutionnoinc}
+    \begin{itemize}
+      \item \alert{transmission rates sender and receiver with unknown clock frequency $F_r$:}
+      \begin{itemize}
+        \item $r_s=\frac{48 \cdot 10^6}{16 \cdot 26} \mathrm{~Hz}, \quad r_r=\frac{F_r}{16 \cdot 26}$
+      \end{itemize}
+      \item \alert{the sender transmits the $k$th symbol during time:}
+      \begin{itemize}
+        \item $\left(\frac{(k-1)}{r_s}, \frac{k}{r_s}\right)$
+      \end{itemize}
+      \item \alert{receiver samples the $k$th symbol at time:}
+      \begin{itemize}
+        \item $\frac{k-0.5}{r_r}$
+      \end{itemize}
+      \item \alert{For correct reception of the kth symbol, it has to be constant for a clock cycle before and after the sample time:}
+      \begin{itemize}
+        \item $\left(\frac{k-0.5}{r_r}+\frac{1}{r_r \cdot 16}, \frac{k-0.5}{r_r}-\frac{1}{r_r \cdot 16}\right)$
+      \end{itemize}
+    \end{itemize}
+  \end{solutionnoinc}
+
   \begin{solution}
-    \begin{columns}
-      \begin{column}{0.8\textwidth}
-        \begin{itemize}
-          \item WIP
-        \end{itemize}
-      \end{column}
-    \end{columns}
+    \begin{itemize}
+      \item \alert{If receiver is slower than the sender, the second stop bit is ‘critical’. To be sampled correctly, it has to be sampled before the second stop bit ends:}
+      \begin{itemize}
+        \item $\begin{aligned}[t] \frac{12-0.5}{r_r}+\frac{1}{r_r \cdot 16} & \leq \frac{12}{r_s} \\ r_r & \geq \frac{11.5 \cdot 16+1}{12 \cdot 16} \cdot r_s = \frac{\frac{11.5 \cdot 16+1}{12 \cdot 16} \cdot 48 \cdot 10^6}{16 \cdot 26} \mathrm{~Hz}=\frac{\boxed{46.25 \mathrm{MHz}}}{16 \cdot 26} \end{aligned}$
+      \end{itemize}
+      \item \alert{If receiver is faster than the sender, the first stop is ‘critical’. To be sampled correctly, it has to be sampled after the start of the first stop bit:}
+      \begin{itemize}
+        \item $\begin{aligned}[t] \frac{11-0.5}{r_r}-\frac{1}{r_r \cdot 16} & \geq \frac{10}{r_s} \\ r_r & \leq \frac{10.5 \cdot 16-1}{10 \cdot 16} \cdot r_s= \frac{\frac{10.5 \cdot 16-1}{10 \cdot 16} \cdot 48 \cdot 10^6}{16 \cdot 26} \mathrm{~Hz}=\frac{\boxed{50.1 \mathrm{MHz}}}{16 \cdot 26} \end{aligned}$
+      \end{itemize}
+      \item \alert{Combining these two inequalities, we get the valid range of clock frequencies for the receiver:}
+      \begin{itemize}
+        \item $46.25 \mathrm{MHz} \leq F_r \leq 50.1 \mathrm{MHz}$
+      \end{itemize}
+    \end{itemize}
   \end{solution}
 \end{frame}
-\fi
+% \fi
