@@ -27,7 +27,8 @@
         \item the \alert{maximal polling period} is $P = D-c$, the \alert{minimal polling period} is $P = c$
       \end{itemize}
     \item \alert{Constraints for interrupt-based processing:} $h+c \le D\le T$
-    \item only if $2c \le D < h+c$ \alert{polling is possible}
+    % \item only if $2c \le D < h+c$ \alert{polling is possible}
+    % \item only if $h+c \le D < 2c$ \alert{interrupt is possible}
   \end{itemize}
   \begin{figure}
     \centering
@@ -53,7 +54,7 @@
 
 \begin{frame}{Solution a:}{Task 3}
   \centering
-  \includegraphics[height=0.4\paperheight]{figures/task3-a.png}
+  \includegraphics[height=0.35\paperheight]{figures/task3-a.png}
 \end{frame}
 
 \if\preview0{
@@ -101,5 +102,11 @@
           \item The feasible range for the polling period is $P \in [4.583\mu s, 5.147\mu s]$
         \end{itemize}
   \end{solution}
+\end{frame}
+
+\begin{frame}{Task 3 - Interrupts and Polling}{Task 3}
+  \begin{figure}
+    \includegraphics[height=0.35\paperheight]{./figures/3_2.png}
+  \end{figure}
 \end{frame}
 \fi
