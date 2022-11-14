@@ -56,20 +56,20 @@
       \begin{column}{0.6\paperwidth}
         \begin{itemize}
           \item $0x4000\_4C00 + 0x0003 = 0x4000\_4C03$
-          \item 6th last significant bit $\Rightarrow$ $0b0010\_0000$
+          \item 6th least significant bit $\Rightarrow$ $0b0010\_0000$
         \end{itemize}
       \end{column}
     \end{columns}
   \end{solution}
   \begin{Sidenote}
     \begin{itemize}
-      \item 003h is an alternative way to wite 0x0003
+      \item 003h is an alternative way to write 0x0003
     \end{itemize}
   \end{Sidenote}
 \end{frame}
 
 \begin{frame}[allowframebreaks]{Task 1 - Memory Map}{Task 1.1\vspace{0.25cm}}
-  \begin{solution}
+  \begin{solutionnoinc}
     \begin{columns}
       \begin{column}{0.3\paperwidth}
         \centering
@@ -86,7 +86,7 @@
       \item $0x020F\_FFFF - 0x0200\_0000 + 1 = 0x0010\_0000$.
       \item $16^5 = {(2^4)}^5 = 2^{4\cdot 5} = 2^{20} \text{addresses}$
     \end{itemize}
-  \end{solution}
+  \end{solutionnoinc}
   \begin{solution}
     \begin{itemize}
       \item each address location corresponds to \alert{one byte} $\Rightarrow$ \alert{addressable memory space} is $2^{20} Byte$ or $1 MiB$.
@@ -142,7 +142,7 @@
   \begin{itemize}
     \item \alert{memory cell area:}
     \begin{itemize}
-      \item for a $8$-\alert{bit address}, we need $28$ \alert{memory cells}.
+      \item for a $8$-\alert{bit address}, we need $2^8$ \alert{memory cells}.
       \item $C=2^8 \cdot A_{\mathrm{mem}}=2^8 \cdot 6=1536$.
     \end{itemize}
     \item \alert{$u$-bit decoder area:}
