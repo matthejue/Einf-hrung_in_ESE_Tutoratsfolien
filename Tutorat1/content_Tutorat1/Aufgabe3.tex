@@ -97,7 +97,7 @@
   \begin{solution}
         \begin{itemize}
           \item Assuming the largest feasible value of E, we have $k = \frac{240 - 100}{40} = 3.5$
-          \item This means at most 3 interrupts can be processed fully during the processing of one event. In total this takes $\frac{100 + 40 \cdot 3}{40} = 4.583\mu s$ time.
+          \item This means at most 3 interrupts can be processed fully during the processing of one event. In total this takes $\frac{100 + 40 \cdot 3}{48\cdot 10^6} = 4.583\mu s$ time.
           \item The minimum feasible time between two interrupts is $T = 4.583\mu s/3 = 1.528\mu s$
           \item The feasible range for the polling period is $P \in [4.583\mu s, 5.147\mu s]$
         \end{itemize}

@@ -28,7 +28,7 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="2.1946698"
-     inkscape:cx="89.307286"
+     inkscape:cx="74.043031"
      inkscape:cy="183.39889"
      inkscape:window-width="1906"
      inkscape:window-height="1020"
@@ -505,7 +505,7 @@
        id="path294-7-7-2" />
     <path
        style="fill:#a991cc;fill-opacity:1;stroke:#5e3072;stroke-width:0.449;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1-3-53-5-7)"
-       d="m 22.073473,52.32559 v 5.087504"
+       d="M 22.073473,57.897706 V 52.810202"
        id="path294-7-7-2-3" />
     <text
        xml:space="preserve"
@@ -520,7 +520,7 @@
          y="28.161331">event</tspan></text>
     <path
        style="fill:#a991cc;fill-opacity:1;stroke:#5e3072;stroke-width:0.449;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1-3-53-5-7-2)"
-       d="m 22.595346,28.759113 v 5.087504"
+       d="M 22.595346,80.405849 V 75.318345"
        id="path294-7-7-2-3-7" />
     <text
        xml:space="preserve"
@@ -535,7 +535,7 @@
          y="74.290825">event</tspan></text>
     <path
        style="fill:#a991cc;fill-opacity:1;stroke:#5e3072;stroke-width:0.449;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1-3-53-5-7-2-0)"
-       d="m 22.542106,74.888604 v 5.087504"
+       d="M 22.542106,34.276358 V 29.188854"
        id="path294-7-7-2-3-7-0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.169;stroke-dasharray:0.169, 0.169;stroke-dashoffset:0"
