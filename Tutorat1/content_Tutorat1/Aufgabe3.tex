@@ -61,10 +61,10 @@
 \begin{frame}[fragile]{Task 3 - Interrupts and Polling}{Task 3}
   \begin{solutionnoinc}
         \begin{itemize}
-          \item In this setting, the worst case occurs if an interrupt delays our event computation.
-          \item Our maximum response time is $P + c + h$ where $h$ is the overhead time required to process the interrupt.
-          \item Because our event takes 100 cycles, and the time between two interrupts is 140 cycles, there can be at most one interrupt within the processing of our event.
-          \item Thus, we require 40 more cycles in the worst case, taking $\frac{40}{48 \cdot 10^6Hz} = 0.8333\mu s$
+          \item In this setting, the worst case occurs if an \alert{interrupt} delays our event computation.
+          \item Our maximum response time is $P + c + h$ where $h$ is the \alert{overhead time} required to process the interrupt.
+          \item Because our event takes 100 cycles, and the minimum time between two interrupts is not less than 140 cycles, there can be \alert{at most} one interrupt within the processing of our event.
+          \item Thus, we might require 40 more cycles in the worst case, taking $\frac{40}{48 \cdot 10^6Hz} = 0.8333\mu s$.
         \end{itemize}
   \end{solutionnoinc}
 \end{frame}
