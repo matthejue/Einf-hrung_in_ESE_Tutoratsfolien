@@ -6,9 +6,9 @@
 
 \begin{frame}{TT Cyclic Executive Scheduling}{Why scheduling?}
     \begin{itemize}
-        \item In many embedded systems, correct timing is a matter of \textbf{correctness}, not performance.
-        \item Hard real-time systems can be often found in safety-critical applications. If an answer arrives too late within such a system, the consequences can be a \textbf{catastrophe}.
-        \item We want to analyse our systems under a worst case assumption. We need to prove that our system can meet certain deadlines \textbf{reliably} and \textbf{without} statistical arguments.
+        \item In many embedded systems, correct timing is a matter of \alert{correctness}, not performance.
+        \item Hard real-time systems can be often found in safety-critical applications. If an answer arrives too late within such a system, the consequences can be a \alert{catastrophe}.
+        \item We want to analyse our systems under a worst case assumption. We need to prove that our system can meet certain deadlines \alert{reliably} and \alert{without} statistical arguments.
         \item Given tasks and their deadlines, we now want to find a suitable arrangement of these periodic tasks such that the system can process them while keeping all their constraints in mind. (Or if not possible, we want to find out why not!)
     \end{itemize}
 \end{frame}
