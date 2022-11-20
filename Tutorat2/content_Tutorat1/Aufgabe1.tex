@@ -1,96 +1,54 @@
 %!Tex Root = ../Tutorat2.tex
 
-\section{Exercise sheet 2}
+\section{Task 1}
 
 \setcounter{task}{1}
 
-\begin{frame}{TT Cyclic Executive Scheduling}{Why scheduling?}
-    \begin{itemize}
-        \item In many embedded systems, correct timing is a matter of \alert{correctness}, not performance.
-        \item Hard real-time systems can be often found in safety-critical applications. If an answer arrives too late within such a system, the consequences can be a \alert{catastrophe}.
-        \item We want to analyse our systems under a worst case assumption. We need to prove that our system can meet certain deadlines \alert{reliably} and \alert{without} statistical arguments.
-        \item Given tasks and their deadlines, we now want to find a suitable arrangement of these periodic tasks such that the system can process them while keeping all their constraints in mind. (Or if not possible, we want to find out why not!)
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{TT Cyclic Executive Scheduling}{Recap: Definitions}
-    \begin{itemize}
-        \item $\Gamma:$ set of all periodic tasks
-        \item $\tau_i:$ one particular periodic task (the i-th)
-        \item $\tau_{i,j}:$ the $j$th instance of task $i$
-        \item $r_{i,j}:$ release time of $j$th instance of task $i$
-        \item $d_{i,j}:$ absolute deadline of the $j$th instance of task $i$
-        \item $\Phi_i:$ phase of task $i$
-        \item $D_i:$ relative deadline of task $i$
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{TT Cyclic Executive Scheduling}{Recap: Definitions}
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.5]{figures/task_instance.png}
-    \caption{View on a single task}
-    \label{instanceView}
-\end{figure}
-\end{frame}
-
-\begin{frame}{TT Cyclic Executive Scheduling}{Recap: Three assumptions}
-\begin{enumerate}
-    \item The instances of a periodic task are regularly activated at a constant rate. The interval between two consecutive activations is called period. The release times satisfy $r_{i,j} = \Phi_i + (j-1)T_i$
-    \item All instances have the same worst case execution time $C_i$ (also written as $WCET(i)$)
-    \item All instances of a periodic task have the same relative deadline $D_i$. Therefore the absolute deadlines satisfy $d_{i,j} = \Phi_i + (j-1)T_i + D_i$
-\end{enumerate}
-\end{frame}
-
-\begin{frame}{TT Cyclic Executive Scheduling}{Example Schedule}
-Given $P = 12$ and $f = 4$. Given the table below, find a possible frame assignment
-\begin{center}
-    \begin{tabular}{|c||c|c|c|c|c|}
-    \hline
-    $\Gamma$ & $T_i$ & $\Phi_i$ & $D_i$ & $C_i$ & frame\\
-    \hline
-    $\tau_1$ & 12 & 2 & 8 & 2.8 & \\
-    \hline
-    $\tau_2$ & 12 & 3 & 9 & 3 &\\
-    \hline
-    $\tau_3$ & 4 & 0 & 4 & 1 &\\
-    \hline
-\end{tabular}
-\end{center}
-\end{frame}
-
-\begin{frame}{TT Cyclic Executive Scheduling}{Example Schedule}
-\begin{center}
-    \begin{tabular}{|c||c|c|c|c|c|}
-    \hline
-    $\Gamma$ & $T_i$ & $\Phi_i$ & $D_i$ & $C_i$ & frame\\
-    \hline
-    $\tau_1$ & 12 & 2 & 8 & 2.8 & 2\\
-    \hline
-    $\tau_2$ & 12 & 3 & 9 & 3 & 3\\
-    \hline
-    $\tau_3$ & 4 & 0 & 4 & 1 & 1, 2, 3\\
-    \hline
-\end{tabular}
-\end{center}
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.25]{figures/schedule_example.png}
-    \caption{Solution}
-    \label{exampleSolution}
-\end{figure}
-\end{frame}
-
-\begin{frame}{TT Cyclic Executive Scheduling}{Exercise 1: Correctness of a Schedule}
-In exercise 1 of sheet 2 you are asked to determine the feasability of a given schedule. For this, you need to consider the several questions raised in the lecture:
-\begin{enumerate}
-    \item Is $P$ a multiple of all periods $T_i$? Is $P$ a multiple of $f$?
-    \item Is the frame sufficiently long? $\sum\limits_{\{i\ |\ f_{ij}=k\}}C_i \leq f \qquad \forall 1 \leq k \leq \frac{P}{f}$
-    \item Determine offsets such that instances of tasks start after their release time: $\Phi_i = \min\limits_{1\leq j\leq P/T_i} \{(f_{ij}-1)f-(j-1)T_i\} \qquad \forall tasks \ \tau_i$
-    \item Are deadlines respected? $(j-1)T_i + \Phi_i + D_i \geq f_{ij}f \quad \forall tasks\ \tau_i,\ 1 \leq j \leq P/T_i$
-\end{enumerate}
-\end{frame}
-
-\begin{frame}{TT Cyclic Executive Scheduling}{Exercise 2: Finding a Schedule}
-In exercise 2 of sheet 2 you are asked to determine a feasible schedule. For this, you need to determine $P$ and $f$ given all the constraints as shown in the lecture to fill every frame. Exercise 3 is the same task and meant as a bonus exercise for those that want more practice.
+\begin{frame}[allowframebreaks]{Task 1}{Feasibility\vspace{0.5cm}}
+  \begin{enumerate}
+    \item Is the period P a common multiple of all task periods?
+      \begin{itemize}
+        \item Yes, as we see...
+        \begin{figure}
+          \centering
+          \includegraphics[width=0.7\paperwidth]{./figures/task1_table1.png}
+          \caption{A task set and schedule}
+        \end{figure}
+      \end{itemize}
+    \item Is the period P a multiple of the frame f ?
+      \begin{itemize}
+        \item Yes, $15 \cdot f = P$
+      \end{itemize}
+    \item Is the frame f sufficiently long?
+      \begin{itemize}
+        \item Yes. We can see this by drawing the schedule or by adding the execution times per frame...
+      \end{itemize}
+      \begin{figure}
+        \centering
+        \includegraphics[width=0.7\paperwidth]{./figures/task1_schedule.png}
+        \caption{Schedule for Task 1}
+      \end{figure}
+      \begin{figure}
+        \centering
+        \includegraphics[width=0.7\paperwidth]{./figures/task1_table2.png}
+        \caption{Execution time per frame}
+      \end{figure}
+    \item Determine offsets such that instances start after release time.
+      \begin{itemize}
+        \item $\Phi_i=\min _{1 \leq j \leq P / T_i}\left\{\left(f_{i, j}-1\right) f-(j-1) T_i\right\}$
+        \item $\Phi_1=\min \left\{\begin{array}{l}(2-1) 4-(1-1) 15 \\ (5-1) 4-(2-1) 15 \\ (9-1) 4-(3-1) 15 \\ (12-1) 4-(4-1) 15\end{array} \quad \min \left\{\begin{array}{l}4 \\ 1 \\ 2 \\ -1\end{array}=-1\right.\right.$
+        \item $\Phi_2=\min \left\{\begin{array}{l}(1-1) 4-(1-1) 12 \\ (4-1) 4-(2-1) 12 \\ (7-1) 4-(3-1) 12 \\ (10-1) 4-(4-1) 12 \\ (13-1) 4-(5-1) 12\end{array} \quad \min \left\{\begin{array}{l}0 \\ 0 \\ 0 \\ 0 \\ 0\end{array}\right.\right.$
+        \item $\Phi_3=\min \left\{\begin{array}{l}(1-1) 4-(1-1) 10 \\ (3-1) 4-(2-1) 10 \\ (6-1) 4-(3-1) 10 \\ (8-1) 4-(4-1) 10 \\ (11-1) 4-(5-1) 10 \\ (13-1) 4-(6-1) 10\end{array} \quad=\min \left\{\begin{array}{l}0 \\ -2 \\ 0 \\ -2 \\ 0 \\ -2\end{array}\right.\right.$
+        \item $\Phi_4=\min \left\{\begin{array}{l}(2-1) 4-(1-1) 6 \\ (3-1) 4-(2-1) 6 \\ (5-1) 4-(3-1) 6 \\ (6-1) 4-(4-1) 6 \\ (8-1) 4-(5-1) 6 \\ (11-1) 4-(7-1) 6 \\ (12-1) 4-(8-1) 6 \\ (14-1) 4-(9-1) 6 \\ (15-1) 4-(10-1) 6\end{array} \quad=\min \left\{\begin{array}{l}4 \\ 2 \\ 2 \\ 4 \\ 4 \\ 2 \\ 4 \\ 2\end{array}\right.\right.$
+      \end{itemize}
+    \item Are deadlines respected?
+      \begin{itemize}
+        \item Yes...
+        \item $(j-1) T_i+\Phi_i+D_i \geq f_{i, j} f \quad \forall i, 1 \leq j \leq P / T_i$
+        \item $\left\{\begin{array}{l}(1-1) 15-1+9=8 \geq 8=2 \cdot 4 \\ (2-1) 15-1+9=23 \geq 20=5 \cdot 4 \\ (3-1) 15-1+9=38 \geq 36=9 \cdot 4 \\ (4-1) 15-1+9=53 \geq 48=12 \cdot 4\end{array}\right.$
+        \item $\left\{\begin{array}{l}(1-1) 12+0+4=4 \geq 4=1 \cdot 4 \\ (2-1) 12+0+4=16 \geq 16=4 \cdot 4 \\ (3-1) 12+0+4=28 \geq 28=7 \cdot 4 \\ (4-1) 12+0+4=40 \geq 40=10 \cdot 4 \\ (5-1) 12+0+4=52 \geq 52=13 \cdot 4\end{array}\right.$
+        \item $\left\{\begin{array}{l}(1-1) 10-2+6=4 \geq 4=1 \cdot 4 \\ (2-1) 10-2+6=14 \geq 12=3 \cdot 4 \\ (3-1) 10-2+6=24 \geq 24=6 \cdot 4 \\ (4-1) 10-2+6=34 \geq 32=8 \cdot 4 \\ (5-1) 10-2+6=44 \geq 44=11 \cdot 4 \\ (6-1) 10-2+6=54 \geq 52=13 \cdot 4\end{array}\right.$
+        \item $\left\{\begin{array}{l}(1-1) 6+2+6=8 \geq 8=2 \cdot 4 \\ (2-1) 6+2+6=14 \geq 12=3 \cdot 4 \\ (3-1) 6+2+6=20 \geq 20=5 \cdot 4 \\ (4-1) 6+2+6=26 \geq 24=6 \cdot 4 \\ (5-1) 6+2+6=32 \geq 32=8 \cdot 4 \\ (6-1) 6+2+6=38 \geq 36=9 \cdot 4 \\ (7-1) 6+2+6=44 \geq 44=11 \cdot 4 \\ (8-1) 6+2+6=50 \geq 48=12 \cdot 4 \\ (9-1) 6+2+6=56 \geq 56=14 \cdot 4 \\ (10-1) 6+2+6=62 \geq 60=15 \cdot 4\end{array}\right.$
+      \end{itemize}
+  \end{enumerate}
 \end{frame}

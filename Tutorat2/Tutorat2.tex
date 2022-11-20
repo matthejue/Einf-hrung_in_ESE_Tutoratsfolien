@@ -26,6 +26,143 @@
   \end{frame}
 \end{withoutheadline}
 
+\section{Organisation}
+
+\if\pascal0{
+  \begin{frame}[allowframebreaks, fragile]{Organisation}{The last exercise class}
+    \begin{itemize}
+      \item \alert{Correction:} in Task 1.2 the $k$ in $M(k)$ is \alert{not} the number of input lines to select from with the select lines, it's the number of \alert{select lines} $2^k$ unlike I said in the last exercise class \Walley
+        \begin{itemize}
+          \item a multiplexer that selects from 3 lines can be constructed but it doesn't rly make sense for a company to sell such circuits, so we always talk about $2^k$-to-1 multiplexers
+          \item $M(k)= \begin{cases}A_{\operatorname{mux}} = 4 & \text { if } k=1 \\ 2 \cdot M(k-1)+A_{\operatorname{mux}} & \text { otherwise }\end{cases}$.
+        \end{itemize}
+    \end{itemize}
+    \begin{figure}
+      \centering
+      \includegraphics[height=0.5\paperheight]{./figures/4_to_1_multiplexer.png}
+    \end{figure}
+    \begin{itemize}
+      \item \alert{Questions about Jobs and Projects:} \url{nes-lab.org}
+         \begin{itemize}
+           \item click on \smalltt{Jobs} and \smalltt{Theses}
+        \end{itemize}
+      \item \alert{Question:} Why does the \alert{ROM} get addressed in \alert{bytes}?
+        \begin{itemize}
+          \item it is correct that in a \alert{32-Bit architecture} most of the things are 32-Bit like the \alert{registers}, the \alert{data paths} are all 32 bit wide etc. but there's no reason this always has to be the case
+          \item e.g. in the AT\&T Syntax of the $X_{86\_64}$ instruction set you can for example write \inlinebox{movl %eax, -4(%ebp)} and this will execute \key{\%ebp - 4 \leftarrow \%eax}, it will write the content of the \inlinebox{%eax}-register to the byte addressed memory address \inlinebox{%ebp - 4} of the main memory
+        \end{itemize}
+      \item \alert{feedback for me:} \url{https://forms.gle/f3YN8EFrZ1vsfPoC6}
+      \begin{figure}
+        \centering
+        \includegraphics[height=0.3\paperheight]{./figures/feedback.png}
+      \end{figure}
+    \end{itemize}
+  \end{frame}
+}\fi
+
+\section{Overview over Scheduling}
+
+\setcounter{task}{1}
+
+\begin{frame}{TT Cyclic Executive Scheduling}{Why scheduling?}
+    \begin{itemize}
+        \item In many embedded systems, correct timing is a matter of \alert{correctness}, not performance.
+        \item Hard real-time systems can be often found in safety-critical applications. If an answer arrives too late within such a system, the consequences can be a \alert{catastrophe}.
+        \item We want to analyse our systems under a worst case assumption. We need to prove that our system can meet certain deadlines \alert{reliably} and \alert{without} statistical arguments.
+        \item Given tasks and their deadlines, we now want to find a suitable arrangement of these periodic tasks such that the system can process them while keeping all their constraints in mind. (Or if not possible, we want to find out why not!)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{TT Cyclic Executive Scheduling}{Recap: Definitions}
+    \begin{itemize}
+        \item $\Gamma:$ set of all periodic tasks
+        \item $\tau_i:$ one particular periodic task (the i-th)
+        \item $\tau_{i,j}:$ the $j$th instance of task $i$
+        \item $r_{i,j}:$ release time of $j$th instance of task $i$
+        \item $d_{i,j}:$ absolute deadline of the $j$th instance of task $i$
+        \item $\Phi_i:$ phase of task $i$
+        \item $D_i:$ relative deadline of task $i$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{TT Cyclic Executive Scheduling}{Recap: Definitions}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{figures/task_instance.png}
+    \caption{View on a single task}
+    \label{instanceView}
+\end{figure}
+\end{frame}
+
+\begin{frame}{TT Cyclic Executive Scheduling}{Recap: Three assumptions}
+\begin{enumerate}
+    \item The instances of a periodic task are regularly activated at a constant rate. The interval between two consecutive activations is called period. The release times satisfy $r_{i,j} = \Phi_i + (j-1)T_i$
+    \item All instances have the same worst case execution time $C_i$ (also written as $WCET(i)$)
+    \item All instances of a periodic task have the same relative deadline $D_i$. Therefore the absolute deadlines satisfy $d_{i,j} = \Phi_i + (j-1)T_i + D_i$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{TT Cyclic Executive Scheduling}{Example Schedule}
+Given $P = 12$ and $f = 4$. Given the table below, find a possible frame assignment
+\begin{center}
+    \begin{tabular}{|c||c|c|c|c|c|}
+    \hline
+    $\Gamma$ & $T_i$ & $\Phi_i$ & $D_i$ & $C_i$ & frame\\
+    \hline
+    $\tau_1$ & 12 & 2 & 8 & 2.8 & \\
+    \hline
+    $\tau_2$ & 12 & 3 & 9 & 3 &\\
+    \hline
+    $\tau_3$ & 4 & 0 & 4 & 1 &\\
+    \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}{TT Cyclic Executive Scheduling}{Example Schedule}
+\begin{center}
+    \begin{tabular}{|c||c|c|c|c|c|}
+    \hline
+    $\Gamma$ & $T_i$ & $\Phi_i$ & $D_i$ & $C_i$ & frame\\
+    \hline
+    $\tau_1$ & 12 & 2 & 8 & 2.8 & 2\\
+    \hline
+    $\tau_2$ & 12 & 3 & 9 & 3 & 3\\
+    \hline
+    $\tau_3$ & 4 & 0 & 4 & 1 & 1, 2, 3\\
+    \hline
+\end{tabular}
+\end{center}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.25]{figures/schedule_example.png}
+    \caption{Solution}
+    \label{exampleSolution}
+\end{figure}
+\end{frame}
+
+\if\preview1{
+\begin{frame}[allowframebreaks]{TT Cyclic Executive Scheduling}{Exercise 1: Correctness of a Schedule}
+In exercise 1 of sheet 2 you are asked to determine the feasability of a given schedule. For this, you need to consider the several questions raised in the lecture:
+\begin{enumerate}
+    \item Is $P$ a multiple of all periods $T_i$? Is $P$ a multiple of $f$?
+    \item Is the frame sufficiently long? $\sum\limits_{\{i\ |\ f_{ij}=k\}}C_i \leq f \qquad \forall 1 \leq k \leq \frac{P}{f}$
+    \item Determine offsets such that instances of tasks start after their release time: $\Phi_i = \min\limits_{1\leq j\leq P/T_i} \{(f_{ij}-1)f-(j-1)T_i\} \qquad \forall tasks \ \tau_i$
+      \begin{itemize}
+        \item \alert{Task 2:} $\Phi_2 = \underset{1\le j\le 1}{min} \quad \{ (3 -1)\cdot 4 - (1 - 1)\cdot 12\} = \underset{1\le j\le 1}{min} \{8\}$
+      \end{itemize}
+    \item Are deadlines respected? $(j-1)T_i + \Phi_i + D_i \geq f_{ij}f \quad \forall tasks\ \tau_i,\ 1 \leq j \leq P/T_i$
+      \begin{itemize}
+        \item \alert{Task 2:} $3 + 9 + (1-1)\cdot 12 \ge 3 \cdot 4 \Leftrightarrow 12 \ge 12$
+      \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{TT Cyclic Executive Scheduling}{Exercise 2: Finding a Schedule}
+In exercise 2 of sheet 2 you are asked to determine a feasible schedule. For this, you need to determine $P$ and $f$ given all the constraints as shown in the lecture to fill every frame. Exercise 3 is the same task and meant as a bonus exercise for those that want more practice.
+\end{frame}
+}\fi
+
 \include{./content_Tutorat1/Aufgabe1}
 \include{./content_Tutorat1/Aufgabe2}
 \include{./content_Tutorat1/Aufgabe3}
