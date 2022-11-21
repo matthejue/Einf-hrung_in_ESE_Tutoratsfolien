@@ -16,11 +16,16 @@
       \begin{itemize}
         \item $P = lcm(15, 10, 6) = 30$
         \item for $f$ one does have the \alert{constraints}: \enquote{Is the period $P$ a multiple of the frame $f$}, $f \leq T_i, \forall$ tasks $\tau_i$, $f \geq C_i, \forall$ tasks $\tau_i$ and $2 f-\operatorname{gcd}\left(T_i, f\right) \leq D_i \forall$ tasks $\tau_i$ $\rightarrow 3$
-        \item further steps are similiar to solving a \alert{Soduko}
+      \item \alert{Task 1:} $2f-gcd(15, f)\le 3$ and $f\in\{3, 5, 6\}$
+      \begin{itemize}
+        \item $f=3$: $6-3\le 3$ $\checkmark$
+        \item $f=5$: $10-5\le 3$
+        \item $f=6$: $12-3\le 3$
       \end{itemize}
   \end{itemize}
   \begin{figure}
     \includegraphics[width=0.7\paperwidth]{./figures/task2_schedule.png}
     \caption{Schedule for Task 2}
   \end{figure}
+  \end{itemize}
 \end{frame}
