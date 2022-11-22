@@ -49,7 +49,7 @@
         \end{itemize}
       \item \alert{Question:} Why does the \alert{ROM} get addressed in \alert{bytes}?
         \begin{itemize}
-          \item it is correct that in a \alert{32-Bit architecture} most of the things are 32-Bit like the \alert{registers}, the \alert{data paths} are all 32 bit wide etc. but there's no reason this always has to be the case
+          \item it is correct that in a \alert{32-Bit architecture} most of the things are 32-Bit like the \alert{registers}, the \alert{data paths} are all 32 bit wide etc. but there's no reason this always has to be the case. More of a guideline to have everything working easy, but \alert{not mandotory}.
           \item e.g. in the AT\&T Syntax of the $X_{86\_64}$ instruction set you can for example write \inlinebox{movl %eax, -4(%ebp)} and this will execute \key{\%ebp - 4 \leftarrow \%eax}, it will write the content of the \inlinebox{%eax}-register to the byte addressed memory address \inlinebox{%ebp - 4} of the main memory
         \end{itemize}
       \item \alert{feedback for me:} \url{https://forms.gle/f3YN8EFrZ1vsfPoC6}
