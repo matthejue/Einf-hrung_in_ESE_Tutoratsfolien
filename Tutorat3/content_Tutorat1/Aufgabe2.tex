@@ -1,4 +1,4 @@
-%!Tex Root = ../Tutorat4.tex
+%!Tex Root = ../Tutorat3.tex
 % ./Packete.tex
 % ./Design.tex
 % ./Deklarationen.tex
@@ -15,7 +15,29 @@
   \begin{itemize}
     \item is \alert{non-preemptive}
     \item \alert{synchronous task activations}
-    \item $min(D_i),\;\forall J_i\exists t \in J: t\r_i$
+    \item $min(D_i)$ for all remaning among the tasks $J_i$ without successors or whose successors have been all selected in the \alert{precedence graph} that have already \alert{arrived} and \alert{not finished}
+      % select the tasks with the \alert{latest deadline} to be scheduled last.
     \item \alert{minimizes} the \alert{maximum lateness}
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Task 2}{Latest Deadline First}
+  \centering
+  \includegraphics[height=0.7\paperheight]{./figures/2_tab_graph.png}
+\end{frame}
+
+\begin{frame}{Task 2}{Latest Deadline First}
+  \begin{itemize}
+    \item \alert{queue of tasks:}
+  \end{itemize}
+  \centering
+  \includegraphics[width=0.7\textwidth]{./figures/2_empty.png}
+\end{frame}
+
+\begin{frame}{Task 2}{Latest Deadline First}
+  \begin{itemize}
+    \item \alert{queue of tasks:}  $(J_1, J_2, J_3, J_5, J_4, J_6, J_7, J_8)$
+  \end{itemize}
+  \centering
+  \includegraphics[width=0.7\textwidth]{./figures/2_sol.png}
 \end{frame}
