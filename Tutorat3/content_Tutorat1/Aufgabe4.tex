@@ -29,8 +29,8 @@
     \end{enumerate}
     \framebreak
     \item[] \alert{Arrival time} \begin{enumerate}
-        \item Task must start the execution not earlier than its release time: $s_i \geq r_i$
-        \item Task must not start execution earlier than the minimum finishing time of its predecessor(s): $s_i \geq r_j + C_j$
+        \item Task must start the execution not earlier than its release time: $s_j \geq r_j$
+        \item Task must not start execution earlier than the minimum finishing time of its predecessor(s): $s_j \geq r_i + C_i$
         \item[$\rightarrow$] $r_j^* = max(r_j, max(r_i^* + C_i : J_i \rightarrow J_j))$
     \end{enumerate}
 \end{itemize}
