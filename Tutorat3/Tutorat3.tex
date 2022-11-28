@@ -1,0 +1,93 @@
+\def\pascal{0}
+\def\preview{0}
+
+\input{./content_Tutorat1/Packete}
+\input{./content_Tutorat1/Design}
+\input{./content_Tutorat1/Deklarationen}
+
+\includeonly{
+  ./content_Tutorat1/Aufgabe1,
+  ./content_Tutorat1/Aufgabe2,
+  ./content_Tutorat1/Aufgabe3,
+  ./content_Tutorat1/Aufgabe4,
+  ./content_Tutorat1/Bonus,
+}
+
+\begin{document}
+
+\begin{withoutheadline}
+  \begin{withoutfootline}
+    \begin{frame}
+      \titlepagesecond
+    \end{frame}
+  \end{withoutfootline}
+
+  \begin{frame}{Gliederung}
+    \tableofcontents[hideallsubsections]
+  \end{frame}
+\end{withoutheadline}
+
+\section{Organisation}
+
+\if\pascal0{
+  \begin{frame}[allowframebreaks, fragile]{Organisation}
+    \begin{itemize}
+      \item \alert{feedback for me:} \url{https://forms.gle/f3YN8EFrZ1vsfPoC6}
+      \begin{figure}
+        \centering
+        \includegraphics[height=0.3\paperheight]{./figures/feedback.png}
+      \end{figure}
+    \end{itemize}
+  \end{frame}
+}\fi
+
+% \section{Overview over Scheduling}
+%
+% \begin{frame}{TT Cyclic Executive Scheduling}{Recap: Definitions}
+%     \begin{itemize}
+%         \item $\Gamma:$ set of all periodic tasks
+%         \item $\tau_i:$ one particular periodic task (the i-th)
+%         \item $\tau_{i,j}:$ the $j$th instance of task $i$
+%         \item $r_{i,j}:$ release time of $j$th instance of task $i$
+%         \item $d_{i,j}:$ absolute deadline of the $j$th instance of task $i$
+%         \item $\Phi_i:$ phase of task $i$
+%         \item $D_i:$ relative deadline of task $i$
+%     \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{TT Cyclic Executive Scheduling}{Recap: Three assumptions}
+% \begin{enumerate}
+%     \item The instances of a periodic task are regularly activated at a constant rate. The interval between two consecutive activations is called period. The release times satisfy $r_{i,j} = \Phi_i + (j-1)T_i$
+%     \item All instances have the same worst case execution time $C_i$ (also written as $WCET(i)$)
+%     \item All instances of a periodic task have the same relative deadline $D_i$. Therefore the absolute deadlines satisfy $d_{i,j} = \Phi_i + (j-1)T_i + D_i$
+% \end{enumerate}
+% \end{frame}
+
+\include{./content_Tutorat1/Aufgabe1}
+\include{./content_Tutorat1/Aufgabe2}
+\include{./content_Tutorat1/Aufgabe3}
+\include{./content_Tutorat1/Aufgabe4}
+\include{./content_Tutorat1/Bonus}
+
+% \section{Literatur}
+%
+% \begin{frame}{Bücher}
+%   \printbibliography[type=book,heading=subbibliography,title={Bücher}]
+% \end{frame}
+%
+% \begin{frame}{Artikel}
+%   \printbibliography[type=article,heading=subbibliography,title={Artikel}]
+% \end{frame}
+%
+% \begin{frame}{Vorlesungen}
+%   \printbibliography[type=unpublished,heading=subbibliography,title={Vorlesungen}]
+% \end{frame}
+%
+% \begin{frame}{Online}
+%   \printbibliography[type=online,heading=subbibliography,title={Online}]
+% \end{frame}
+%
+% \begin{frame}{Sonstiges}
+%   \printbibliography[nottype=book, nottype=article, nottype=online, nottype=unpublished,heading=subbibliography,keyword=wikikeyword,title={Sonstige Quellen}]
+% \end{frame}
+\end{document}
