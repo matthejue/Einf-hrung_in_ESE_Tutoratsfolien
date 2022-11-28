@@ -10,3 +10,87 @@
 \section{Task 4}
 
 \setcounter{task}{1}
+
+\begin{frame}{Task 4}{EDF*}
+\begin{itemize}
+    \item EDF* is an alternative version of the EDF Algorithmus
+    \item EDF* helps us to schedule Tasks with arbitrary arrival times \alert{\underline{and precedences}}. (contrary to EDF)
+    \item EDF* manages this in polynomial time!
+\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Task 4}{EDF* - Transformation}
+\begin{itemize}
+    \item EDF* transforms the arrival time and deadline of every task in the following way::
+    \item[] \alert{Deadline}: \begin{enumerate}
+        \item Task must finish the execution time within its deadline: $f_i \leq d_i$
+        \item Task must not finish the execution time later than the maximum start time of its successor(s): $f_i \leq d_j - C_j$
+        \item[$\rightarrow$] $d_i^* = min(d_i, min(d_j^* - C_j : J_i \rightarrow J_j))$
+    \end{enumerate}
+    \framebreak
+    \item[] \alert{Arrival time} \begin{enumerate}
+        \item Task must start the execution not earlier than its release time: $s_i \geq r_i$
+        \item Task must not start execution earlier than the minimum finishing time of its predecessor(s): $s_i \geq r_j + C_j$
+        \item[$\rightarrow$] $r_j^* = max(r_j, max(r_i^* + C_i : J_i \rightarrow J_j))$
+    \end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Task 4}{EDF* - Example}
+Given tasks $A, B, C, D, E, F, G$ with precedences $A \rightarrow C$, $B \rightarrow C$, $C \rightarrow E$, $D \rightarrow F$, $B \rightarrow D$, $C \rightarrow F$, $D \rightarrow G$.
+
+All tasks arrive at time $t_0 = 0$, have a common deadline $d = 20$ and the following execution times:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+     \hline
+     & A & B & C & D & E & F & G\\
+     \hline
+     \hline
+     & 3 & 2 & 4 & 3 & 2 & 5 & 1\\
+     \hline
+\end{tabular}
+\end{center}
+We will now prepare the tasks for EDF*
+\end{frame}
+
+\begin{frame}{Task 4}{EDF* - Precedence graph example}
+\begin{itemize}
+    \item Given the precedences $A \rightarrow C$, $B \rightarrow C$, $C \rightarrow E$, $D \rightarrow F$, $B \rightarrow D$, $C \rightarrow F$, $D \rightarrow G$ we first draw the precedence graph: 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Task 4}{EDF* - Precedence graph example}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{figures/precedencegraph}
+    \caption{Task 4: precedence graph}
+    \label{pregraph}
+\end{figure}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Task 4}{EDF* - Transformation example}
+    \begin{itemize}
+        \item $r_A^* = r_A$, $r_B^* = r_B$
+        \item $r_C^* = \max\{r_C,\max\{r_A^* + C_A, r_B^* + C_B\}\} = \max\{0, \max\{3, 2\}\} = 3$
+        \item $r_D^* = \max\{r_D,r_B^* + C_B\} = \max\{0, 2\} = 2$
+        \item $r_F^* = \max\{r_F,\max\{r_C^* + C_C, r_D^* + C_D\}\} = \max\{0, \max\{7, 5\}\} = 7$
+        \item $r_E^* = \max\{r_E,r_C^* + C_C\} = \max\{0, 7\} = 7$
+        \item $r_G^* = \max\{r_G,r_D^* + C_D\} = \max\{0, 5\} = 5$
+    \end{itemize}
+    \framebreak
+    \begin{itemize}
+        \item $d_E^* = d_F^* = d_G^* = 20$
+        \item $d_C^* = \min\{d_C, \min\{d_E^* - C_E, d_F^* - C_F\}\} = \min\{20, \min\{18, 15\}\} = 15$
+        \item $d_D^* = 15$
+        \item $d_A^* = 11$
+        \item $d_B^* = 11$
+    \end{itemize}
+    We now successfully have transformed the problem into one without precedence and can simply use EDF!
+\end{frame}
+\begin{frame}{Task 4}{EDF* - Schedule}
+    \includegraphics[width = 0.9\linewidth]{figures/EDF-star-schedule.png}
+\end{frame}
+
+\begin{frame}{Task 4}{EDF* - Schedule}
+    \includegraphics[width = \linewidth]{figures/edf-star-schedule-2.PNG}
+\end{frame}
