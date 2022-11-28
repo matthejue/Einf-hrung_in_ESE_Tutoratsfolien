@@ -12,19 +12,15 @@
 \setcounter{task}{1}
 
 \begin{frame}{Task 2}{Latest Deadline First}
-  \begin{itemize}
-    \item is \alert{non-preemptive}
-    \item \alert{synchronous task activations}
-    \item $min(D_i)$ for all remaning among the tasks $J_i$ without successors or whose successors have been all selected in the \alert{precedence graph} that have already \alert{arrived} and \alert{not finished}
-      % select the tasks with the \alert{latest deadline} to be scheduled last.
-    \item \alert{minimizes} the \alert{maximum lateness}
-  \end{itemize}
-\end{frame}
-
-
-\begin{frame}{Task 2}{Latest Deadline First}
-  \centering
-  \includegraphics[height=0.7\paperheight]{./figures/2_steps.png}
+  \begin{requirements}
+    \begin{itemize}
+      \item is \alert{non-preemptive}
+      \item \alert{synchronous task activations}
+      \item $min(D_i)$ for all remaning tasks $J_i$ \alert{without successors} or \alert{whose successors} have been all selected in the \alert{precedence graph}
+        % select the tasks with the \alert{latest deadline} to be scheduled last.
+      \item \alert{minimizes} the \alert{maximum lateness}
+    \end{itemize}
+  \end{requirements}
 \end{frame}
 
 \begin{frame}{Task 2}{Latest Deadline First}
@@ -33,8 +29,13 @@
 \end{frame}
 
 \begin{frame}{Task 2}{Latest Deadline First}
+  \centering
+  \includegraphics[height=0.7\paperheight]{./figures/2_steps.png}
+\end{frame}
+
+\begin{frame}{Task 2}{Latest Deadline First}
   \begin{itemize}
-    \item \alert{queue of tasks:}
+    \item \alert{queue of tasks:} (\qquad,\qquad,\qquad,\qquad,\qquad,\qquad,\qquad,\qquad)
   \end{itemize}
   \centering
   \includegraphics[width=0.7\textwidth]{./figures/2_empty.png}
