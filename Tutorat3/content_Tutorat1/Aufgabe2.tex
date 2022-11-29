@@ -24,7 +24,9 @@
     \begin{itemize}
       \item is \alert{non-preemptive}
       \item \alert{synchronous task activations}
-      \item $min(D_i)$ for all tasks $J_i$ without successors or whose successors have been all selected in the \alert{precedence graph}
+      \item tasks are \alert{dependent}, use \alert{precedence graph}, going from \alert{tail} to \alert{head}
+      \item $max(D_i)$ for all tasks $J_i$ \alert{without successors} or whose \alert{successors} have been all selected in the \alert{precedence graph} inserted into the queue to be \alert{executed last}
+      \item at runtime, tasks are extracted from the \alert{head of the queue:} the \alert{first task} inserted in the queue will be \alert{executed last}
         % select the tasks with the \alert{latest deadline} to be scheduled last.
       \item \alert{minimizes} the \alert{maximum lateness}
     \end{itemize}
