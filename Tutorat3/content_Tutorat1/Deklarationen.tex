@@ -96,6 +96,11 @@ after title={\hspace{0.2cm}\includegraphics[height=3mm]{./figures/lupe.png}}
 % https://tex.stackexchange.com/questions/152565/define-a-new-block-environment-in-latex-beamer
 \renewenvironment<>{task}[1][]{%
   \setbeamercolor{block title}{fg=white,bg=SecondaryColor}%
+\begin{block}#2{Task \thesection{.}\thetask:\enspace\ignorespaces #1 \anotebook}}{\end{block}\stepcounter{task}}
+
+% https://tex.stackexchange.com/questions/152565/define-a-new-block-environment-in-latex-beamer
+\renewenvironment<>{tasknoinc}[1][]{%
+  \setbeamercolor{block title}{fg=white,bg=SecondaryColor}%
 \begin{block}#2{Task \thesection{.}\thetask:\enspace\ignorespaces #1 \anotebook}}{\end{block}}
 
 \newenvironment<>{requirements}[1][]{%
@@ -104,7 +109,7 @@ after title={\hspace{0.2cm}\includegraphics[height=3mm]{./figures/lupe.png}}
 
 \newenvironment<>{requirementsnoinc}[1][]{%
   \setbeamercolor{block title}{fg=white,bg=PrimaryColor}%
-\begin{block}#2{Requirements \thesection{.}\thetask:\enspace\ignorespaces #1 \notebook}\itshape}{\end{block}}
+\begin{block}#2{Requirements \thesection{.}\thetask:\enspace\ignorespaces #1 \anotebook}\itshape}{\end{block}}
 
 \newenvironment<>{solution}[1][]{%
   \setbeamercolor{block title}{fg=white,bg=PrimaryColor}%

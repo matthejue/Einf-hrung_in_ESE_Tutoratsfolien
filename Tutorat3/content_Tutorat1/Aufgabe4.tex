@@ -5,6 +5,7 @@
 % ./Aufgabe1.tex
 % ./Aufgabe2.tex
 % ./Aufgabe3.tex
+% ./Aufgabe5.tex
 % ./Bonus.tex
 
 \section{Task 4}
@@ -13,7 +14,7 @@
 
 \if\pascal0{
   \begin{frame}[allowframebreaks]{Task 4}{EDF* - Example}
-    \begin{task}
+    \begin{tasknoinc}
   Given tasks $A, B, C, D, E, F, G$ with precedences $A \rightarrow C$, $B \rightarrow C$, $C \rightarrow E$, $D \rightarrow F$, $B \rightarrow D$, $C \rightarrow F$, $D \rightarrow G$.
 
   All tasks arrive at time $t_0 = 0$, have a common deadline $d = 20$ and the following execution times:
@@ -28,7 +29,7 @@
   \end{tabular}
   \end{center}
   We will now prepare the tasks for EDF*
-  \end{task}
+  \end{tasknoinc}
   \end{frame}
 }\fi
 
@@ -129,10 +130,53 @@ Given the precedences $A \rightarrow C$, $B \rightarrow C$, $C \rightarrow E$, $
  \includegraphics[height=0.2\paperheight]{./figures/4_tab.png}
 \end{frame}
 
+\begin{frame}[allowframebreaks]{Task 4}{EDF* - Schedule}
+  \begin{tasknoinc}
+    \begin{itemize}
+      \item determine a resulting EDF* schedule
+      \item for this schedule, compute the \alert{average of all response times} of the tasks
+    \end{itemize}
+  \end{tasknoinc}
+  \begin{requirementsnoinc}
+    \begin{itemize}
+      \item \alert{Average response time:} $\displaystyle \overline{t_r}=\frac{1}{n} \sum_{i=1}^n\left(f_i-r_i\right)$
+    \end{itemize}
+  \end{requirementsnoinc}
+\end{frame}
+
 \begin{frame}{Task 4}{EDF* - Schedule}
     \includegraphics[width = 0.9\linewidth]{figures/EDF-star-schedule.png}
 \end{frame}
 
 \begin{frame}{Task 4}{EDF* - Schedule}
     \includegraphics[width = \linewidth]{figures/edf-star-schedule-2.PNG}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Task 4}{EDF* - Schedule}
+  \begin{solution}
+  \begin{itemize}
+    \item $\displaystyle \overline{t_r}=\frac{1}{7} \sum_{i=1}^7\left(f_i-r_i\right)=\frac{5+2+12+8+20+18+13}{7}=11.14$
+  \end{itemize}
+  \end{solution}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Task 4}{EDF* - Schedule}
+  \begin{tasknoinc}
+    \begin{itemize}
+      \item additional precedence constraint $E \rightarrow A$
+      \item still a \alert{feasible schedule} for the task set
+    \end{itemize}
+  \end{tasknoinc}
+  \begin{requirementsnoinc}
+    \begin{itemize}
+      \item \aalert{Precedence relations} between tasks can be described through an \alert{acyclic} \aalert{directed graph $G$} where tasks are represented by nodes and precedence relations by arrows. G induces a partial order on the task set.
+    \end{itemize}
+  \end{requirementsnoinc}
+  \begin{solutionnoinc}
+    \begin{itemize}
+      \item No, the task set is no longer schedulable. Under the new conditions, the constraints among tasks A, C
+and E introduce a cycle in the precedence graph.
+      \item As a result, none of the three tasks can be executed as first and therefore, no feasible schedule exists.
+    \end{itemize}
+  \end{solutionnoinc}
 \end{frame}
