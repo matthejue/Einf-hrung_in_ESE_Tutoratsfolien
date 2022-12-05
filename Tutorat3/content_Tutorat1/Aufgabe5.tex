@@ -19,10 +19,10 @@
       \item construct \alert{precedence graph}
     \end{itemize}
   \end{tasknoinc}
-  \begin{solutionnoinc}
+  \begin{solution}
     \centering
     \includegraphics[width=0.3\textwidth]{./figures/5_graph.png}
-  \end{solutionnoinc}
+  \end{solution}
 \end{frame}
 
 \begin{frame}[allowframebreaks]{Task 5}{Earliest Deadline First - Star\vspace{0.5cm}}
@@ -36,5 +36,30 @@
   \begin{solution}
     \centering
     \includegraphics[width=0.5\textwidth]{./figures/5_table_sol.png}
+  \end{solution}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Task 5}{Earliest Deadline First - Start\vspace{0.5cm}}
+  \begin{tasknoinc}
+    \includegraphics[width=\textwidth]{./figures/5_diag.png}
+  \end{tasknoinc}
+  \begin{solution}
+    \includegraphics[width=\textwidth]{./figures/5_diag_sol.png}
+  \end{solution}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Task 5}{Earliest Deadline First - Start\vspace{0.5cm}}
+  \begin{tasknoinc}
+    \begin{itemize}
+      \item Will executing on the \alert{quad-core platform} with the same scheduling rule reduce the completion time of the application?
+        \begin{itemize}
+          \item $4$ cores execute the four ready tasks with earliest deadlines
+        \end{itemize}
+    \end{itemize}
+  \end{tasknoinc}
+  \begin{solution}
+    \begin{itemize}
+      \item No, $J_4$ cannot be started earlier than time $9$. Therefore, the minimum finish time of the application is $12$ (the finish time for the dual core platform)
+    \end{itemize}
   \end{solution}
 \end{frame}
