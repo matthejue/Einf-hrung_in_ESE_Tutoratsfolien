@@ -50,6 +50,47 @@
   \includegraphics[width=\textwidth]{./figures/overview_real_time_scheduling.png}
 \end{frame}
 
+\begin{frame}{Mixed Task Sets}{}
+    \begin{itemize}
+        \item So far: we differentiated between \alert{periodic} and \alert{aperiodic} tasks.
+        \item Now: Consider a \alert{mixed} task set!
+        \item We want to be able to find a schedule when there's both \alert{periodic} and \alert{aperiodic} tasks.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Schedulability tests}{Sufficient? Necesarry?}
+    \begin{itemize}
+        \item We're interested in whether a given problem can be scheduled by algorithms.
+        \item Depending on the algorithm we can derive sufficient and necesarry conditions.
+        \item[]\alert{Sufficient:} If $A \implies B$ then A is a sufficient condition for B.
+        \item[]\alert{Necesarry:} If $B \implies A$ then A is a necesarry condition for B.
+        \item A necesarry and sufficient condition means, both statements are logically equivalent.
+    \end{itemize}
+\end{frame}
+\begin{frame}{Schedulability tests}{Utilization}
+    Different kind of utilizations also play a big role in our analysis. We introduced the \alert{processor utilization factor} $U = \sum\limits_{i=1}^{n}\cfrac{C_i}{T_i}$ and later on $U_s$ as the server utilization.
+
+    (More about servers later)
+\end{frame}
+\begin{frame}{RM - Rate Monotonic Scheduling}{Schedulability}
+\begin{itemize}
+    \item RM is optimal among all fixed-priority assignments in the sense that no other fixed-priority algorithm can schedule a task set that cannot be scheduled by RM.
+    \item As in the lecture, we have $\sum\limits_{i=1}^{n}\cfrac{C_i}{T_i} \leq n(2^{1/n}-1)$ as a \alert{sufficient} but not \alert{necesarry} condition.
+\end{itemize}
+\end{frame}
+\begin{frame}{RM(PS) - Rate Monotonic Polling Server}
+    \begin{itemize}
+        \item One way to handle both periodic and aperiodic tasks is to use a so called server.
+        \item This PS (Polling Server) acts as a periodic task (meaning it is instantiated at regular intervals $T_s$) whose job it is to, once it has the highest priority, serve any pending aperiodic requests within the limits of a server capacity $C_s$.
+        \item Since we introduce yet another periodic task, the schedulability analysis simply is the same as normal $RM$ with one additional task. Again, we have the \alert{sufficient} but not \alert{necesarry} condition: $\cfrac{C_s}{T_s} + \sum\limits_{i=1}^{n}\cfrac{C_i}{T_i} \leq (n+1)(2^{1/(n+1)}-1)$
+    \end{itemize}
+\end{frame}
+
+% \begin{frame}{EDF - Total Bandwidth Server}
+%
+% \end{frame}
+
+
 % \begin{frame}{Overview Aperiodic Task Scheduling}
 %   \begin{itemize}
 %     \item \alert{Lateness:} $L_i = f_i - d_i$
@@ -59,7 +100,7 @@
 %     \end{itemize}
 %   \end{itemize}
 % \end{frame}
-
+% %
 % \begin{frame}{TT Cyclic Executive Scheduling}{Recap: Definitions}
 %     \begin{itemize}
 %         \item $\Gamma:$ set of all periodic tasks
