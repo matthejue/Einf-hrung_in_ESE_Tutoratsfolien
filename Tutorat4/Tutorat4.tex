@@ -50,6 +50,21 @@
   \includegraphics[width=\textwidth]{./figures/overview_real_time_scheduling.png}
 \end{frame}
 
+\begin{frame}[shrink=20]{Overview Aperiodic Task Scheduling}{Acceptance Tests\vspace{0.5cm}}
+    \begin{NiceTabular}{X[1,l]X[2,l]X[2,l]}[rules/color=PrimaryColor] % {\linewidth}{|C|C|L|L|}
+    \CodeBefore
+    \chessboardcolors{white}{BoxColor}
+    \rowcolor{PrimaryColor}{1}
+    \columncolor{PrimaryColor}{1}
+    \Body
+    & \textcolor{white}{Deadline equals period} & \textcolor{white}{Deadline smaller than period}\\
+    \textcolor{white}{static priority} & $\displaystyle\sum_{i=1}^n \frac{C_i}{T_i} \leq n\left(2^{1 / n}-1\right)$ \hspace{2cm} (\alert{sufficient} but \alert{not necessary}) & (1) $\displaystyle\sum_{i=1}^n \frac{C_i}{D_i} \leq n\left(2^{1 / n}-1\right)$ \hspace{2cm} (\alert{sufficient} but \alert{not necessary}) \hspace{2cm} (2) smallest $R_i$ that satisfies $\displaystyle R_i=C_i+\sum_{j=1}^{i-1}\left[\frac{R_i}{T_j}\right] C_j$ for all tasks $i$ and $R_i \le D_i$ \hspace{3cm} (\alert{necessary} and \alert{sufficient}) \\
+    \textcolor{white}{dynamic priority} & $\displaystyle\sum_{i=1}^n \frac{C_i}{T_i}=U \leq 1$ \hspace{2cm} (\alert{necessary} and \alert{sufficient}) & $\rightarrow$ \cite{buttazzo2011hard} \\
+    \bottomrule
+  \end{NiceTabular}
+
+\end{frame}
+
 \begin{frame}{Mixed Task Sets}{}
     \begin{itemize}
         \item So far: we differentiated between \alert{periodic} and \alert{aperiodic} tasks.
@@ -127,11 +142,11 @@
 % \include{./content_Tutorat1/Aufgabe4}
 \include{./content_Tutorat1/Bonus}
 
-% \section{Literatur}
-%
-% \begin{frame}{Bücher}
-%   \printbibliography[type=book,heading=subbibliography,title={Bücher}]
-% \end{frame}
+\section{Literature}
+
+\begin{frame}{Bücher}
+  \printbibliography[type=book,heading=subbibliography,title={Bücher}]
+\end{frame}
 %
 % \begin{frame}{Artikel}
 %   \printbibliography[type=article,heading=subbibliography,title={Artikel}]

@@ -1,3 +1,10 @@
+@book{buttazzo2011hard,
+  title={Hard real-time computing systems: predictable scheduling algorithms and applications},
+  author={Buttazzo, Giorgio C},
+  volume={24},
+  year={2011},
+  publisher={Springer Science \& Business Media}
+}
 
 @online{noauthor_manjaro_2022,
 	title = {manjaro},
@@ -815,41 +822,41 @@ This article uses {EBNF} as specified by the {ISO} for examples applying to all 
 	rights = {Creative Commons Attribution-{ShareAlike} License},
 	url = {https://en.wikipedia.org/w/index.php?title=Earley_parser&oldid=1090848932},
 	abstract = {In computer science, the Earley parser is an algorithm for parsing strings that belong to a given context-free language, though (depending on the variant) it may suffer problems with certain nullable grammars. The algorithm, named after its inventor, Jay Earley, is a chart parser that uses dynamic programming; it is mainly used for parsing in computational linguistics. It was first introduced in his dissertation in 1968 (and later appeared in an abbreviated, more legible, form in a journal).
-Earley parsers are appealing because they can parse all context-free languages, unlike {LR} parsers and {LL} parsers, which are more typically used in compilers but which can only handle restricted classes of languages.  The Earley parser executes in cubic time in the general case 
-  
-    
-      
-        
+Earley parsers are appealing because they can parse all context-free languages, unlike {LR} parsers and {LL} parsers, which are more typically used in compilers but which can only handle restricted classes of languages.  The Earley parser executes in cubic time in the general case
+
+
+
+
           O
-        
+
         (
-        
+
           n
-          
+
             3
-          
-        
+
+
         )
-      
-    
+
+
     \{{\textbackslash}displaystyle \{O\}(n{\textasciicircum}\{3\})\}
-  , where n is the length of the parsed string, quadratic time for unambiguous grammars 
-  
-    
-      
-        
+  , where n is the length of the parsed string, quadratic time for unambiguous grammars
+
+
+
+
           O
-        
+
         (
-        
+
           n
-          
+
             2
-          
-        
+
+
         )
-      
-    
+
+
     \{{\textbackslash}displaystyle \{O\}(n{\textasciicircum}\{2\})\}
   , and linear time for all deterministic context-free grammars. It performs particularly well when the rules are written left-recursively.},
 	booktitle = {Wikipedia},
@@ -940,7 +947,7 @@ Earley parsers are appealing because they can parse all context-free languages, 
 
 Sequenz (hintereinander auszuführende Programmanweisungen)
 Auswahl/Selektion (Verzweigung)
-Wiederholung/Iteration (Schleifen)Die bekannteste Konsequenz dieses Prinzips ist die Vermeidung oder – abhängig von der Programmiersprache – der eingeschränkte und standardisierte Einsatz der Sprunganweisung, des {GOTO}. Das Ergebnis der häufigen Verwendung dieser Anweisungen wird häufig abfällig als Spaghetticode bezeichnet. 
+Wiederholung/Iteration (Schleifen)Die bekannteste Konsequenz dieses Prinzips ist die Vermeidung oder – abhängig von der Programmiersprache – der eingeschränkte und standardisierte Einsatz der Sprunganweisung, des {GOTO}. Das Ergebnis der häufigen Verwendung dieser Anweisungen wird häufig abfällig als Spaghetticode bezeichnet.
 Durch die konsequente Implementierung von Teilprogrammen mit lokaler Sichtbarkeit von Identifikatoren und Kontrollstrukturen vermeiden strukturierte Programme Codewiederholungen, was Vorteile bei der Suche von Programmfehlern mit sich bringt, die Programme kürzer und übersichtlicher macht und daher die Wartung von Software vereinfacht.
 Strukturierte Programmierung ist heute in fast allen Bereichen, in denen professionell Software entwickelt wird, eine Selbstverständlichkeit. Die neueren Programmierparadigmen wie generative Programmierung, aspektorientierte Programmierung oder objektorientierte Programmierung bauen auf der strukturierten Programmierung auf und erweitern oder ergänzen diese.},
 	booktitle = {Wikipedia},
@@ -1168,10 +1175,10 @@ Anders als in der Informatik, in der Sprachen auch den technischen Möglichkeite
 	url = {https://de.wikipedia.org/w/index.php?title=Operatorrangfolge&oldid=223157277},
 	abstract = {Als Operatorrangfolge, -wertigkeit, -priorität oder -präzedenz bezeichnet man in Mathematik, Logik und Informatik eine definierte Halbordnung, in der die Operatoren eines in Infix-Schreibweise vorliegenden Ausdrucks auszuwerten sind.
 Die Operatorrangfolge ist keine Totalordnung, sondern eine Halbordnung, weil es keine strikte Reihenfolge zwischen allen Operatoren geben muss. Es können auch mehrere Operatoren auf demselben Rang stehen. Zum Beispiel ist in der Arithmetik der Rang von Multiplikation und Division gleich, aber höher als der Rang von Addition und Subtraktion („Punktrechnung vor Strichrechnung“).
-Eine Klammerung bietet die Möglichkeit der Bevorrangung eines Teilstücks einer Formel: Der eingeklammerte, also von einem Klammerpaar „( ... )“ eingeschlossene Bereich ist rechnerisch zuerst auszuführen und durch das entsprechende Teilergebnis zu ersetzen. Die Klammerung muss die Operatoren samt ihren nötigen Operanden enthalten. Wird also 
-  
-    
-      
+Eine Klammerung bietet die Möglichkeit der Bevorrangung eines Teilstücks einer Formel: Der eingeklammerte, also von einem Klammerpaar „( ... )“ eingeschlossene Bereich ist rechnerisch zuerst auszuführen und durch das entsprechende Teilergebnis zu ersetzen. Die Klammerung muss die Operatoren samt ihren nötigen Operanden enthalten. Wird also
+
+
+
         a
         ⋅
         (
@@ -1179,46 +1186,46 @@ Eine Klammerung bietet die Möglichkeit der Bevorrangung eines Teilstücks einer
         +
         c
         )
-      
-    
+
+
     \{{\textbackslash}displaystyle a{\textbackslash}cdot (b+c)\}
-   notiert, ist zuerst der Klammerausdruck zu berechnen, also die Summe 
-  
-    
-      
+   notiert, ist zuerst der Klammerausdruck zu berechnen, also die Summe
+
+
+
         (
         b
         +
         c
         )
-      
-    
+
+
     \{{\textbackslash}displaystyle (b+c)\}
-   zu bilden, bevor 
-  
-    
-      
+   zu bilden, bevor
+
+
+
         a
-      
-    
+
+
     \{{\textbackslash}displaystyle a\}
    mit dieser Summe multipliziert wird.
-Durch die Rangfolge kann man explizite Klammerungen sparen. So ist in der Arithmetik 
-  
-    
-      
+Durch die Rangfolge kann man explizite Klammerungen sparen. So ist in der Arithmetik
+
+
+
         a
         +
         b
         ⋅
         c
-      
-    
+
+
     \{{\textbackslash}displaystyle a+b{\textbackslash}cdot c\}
-   gleichbedeutend mit 
-  
-    
-      
+   gleichbedeutend mit
+
+
+
         a
         +
         (
@@ -1226,8 +1233,8 @@ Durch die Rangfolge kann man explizite Klammerungen sparen. So ist in der Arithm
         ⋅
         c
         )
-      
-    
+
+
     \{{\textbackslash}displaystyle a+(b{\textbackslash}cdot c)\}
   , weil der Multiplikationsoperator einen höheren Rang hat. Für andere Anwendungen dieser Operatorsymbole können jedoch andere Rangordnungen definiert sein.
 Bei nicht kommutativen Operatoren bedarf es noch zusätzlicher Konvention darüber, ob gleichrangige Teilausdrücke von links nach rechts oder rechts nach links auszuwerten sind, um die Rechenreihenfolge eindeutig festzulegen.},
@@ -1412,41 +1419,41 @@ Es gibt viele Varianten der Backus-Naur-Form. Die erweiterte Backus-Naur-Form ({
 	rights = {Creative Commons Attribution-{ShareAlike} License},
 	url = {https://en.wikipedia.org/w/index.php?title=Earley_parser&oldid=1090848932},
 	abstract = {In computer science, the Earley parser is an algorithm for parsing strings that belong to a given context-free language, though (depending on the variant) it may suffer problems with certain nullable grammars. The algorithm, named after its inventor, Jay Earley, is a chart parser that uses dynamic programming; it is mainly used for parsing in computational linguistics. It was first introduced in his dissertation in 1968 (and later appeared in an abbreviated, more legible, form in a journal).
-Earley parsers are appealing because they can parse all context-free languages, unlike {LR} parsers and {LL} parsers, which are more typically used in compilers but which can only handle restricted classes of languages.  The Earley parser executes in cubic time in the general case 
-  
-    
-      
-        
+Earley parsers are appealing because they can parse all context-free languages, unlike {LR} parsers and {LL} parsers, which are more typically used in compilers but which can only handle restricted classes of languages.  The Earley parser executes in cubic time in the general case
+
+
+
+
           O
-        
+
         (
-        
+
           n
-          
+
             3
-          
-        
+
+
         )
-      
-    
+
+
     \{{\textbackslash}displaystyle \{O\}(n{\textasciicircum}\{3\})\}
-  , where n is the length of the parsed string, quadratic time for unambiguous grammars 
-  
-    
-      
-        
+  , where n is the length of the parsed string, quadratic time for unambiguous grammars
+
+
+
+
           O
-        
+
         (
-        
+
           n
-          
+
             2
-          
-        
+
+
         )
-      
-    
+
+
     \{{\textbackslash}displaystyle \{O\}(n{\textasciicircum}\{2\})\}
   , and linear time for all deterministic context-free grammars. It performs particularly well when the rules are written left-recursively.},
 	booktitle = {Wikipedia},
@@ -1562,7 +1569,7 @@ Assembler (Nanotechnologie), ein Roboter, der Atome und Moleküle {manipuliertSi
 	title = {Objektcode},
 	rights = {Creative Commons Attribution-{ShareAlike} License},
 	url = {https://de.wikipedia.org/w/index.php?title=Objektcode&oldid=194427842},
-	abstract = {Objektcode ist ein Zwischenergebnis eines Compiler- bzw. Übersetzungsvorgangs von einem Computerprogramm. 
+	abstract = {Objektcode ist ein Zwischenergebnis eines Compiler- bzw. Übersetzungsvorgangs von einem Computerprogramm.
 Einfache Compiler können diesen Schritt überspringen.
 Der Objektcode besteht hauptsächlich aus Maschinencode für die Architektur, für die das Programm übersetzt wurde. Er enthält üblicherweise kompakten und vorgeparsten Code und oft benutzte Programmbibliotheken, die dann mit anderen Objektdateien gebunden werden.
 Das Format eines Objektcodes ist abhängig von Programmiersprache, Compiler und der Maschine. Nach dem Erstellen von Objektcode erfolgt normalerweise das Linken, welches als Ergebnis das fertige, ausführbare Programm liefert.},
@@ -1594,15 +1601,15 @@ Um ein Programmmodul in einem anderen Programm verwenden zu können, müssen die
 	url = {https://de.wikipedia.org/w/index.php?title=Rekursiver_Abstieg&oldid=217102237},
 	abstract = {Rekursiver Abstieg (englisch: recursive descent) ist eine Technik aus dem Compilerbau, die auf direkte Weise (d. h. ohne Tabelle) einen Top-Down-Parser implementiert. Sie zeichnet sich durch geringe Komplexität aus, das Verwenden eines Parsergenerators ist nicht nötig.
 Bei diesem Verfahren kommt jedem Nichtterminalsymbol eine Prozedur zu, welche die Produktionsregel zu diesem Symbol charakterisiert. Erlauben die Produktionsregeln eine Rekursion, dann rufen sich daher auch diese Prozeduren wechselseitig rekursiv auf.
-Ein rekursiver Abstieg kann Backtracking enthalten. Ein Verzicht darauf ist jedoch garantiert, wenn eine {LL}(k)-Grammatik für die zu parsende Sprache gegeben ist. Im Folgenden wird der häufige Fall 
-  
-    
-      
+Ein rekursiver Abstieg kann Backtracking enthalten. Ein Verzicht darauf ist jedoch garantiert, wenn eine {LL}(k)-Grammatik für die zu parsende Sprache gegeben ist. Im Folgenden wird der häufige Fall
+
+
+
         k
         =
         1
-      
-    
+
+
     \{{\textbackslash}displaystyle k=1\}
    angenommen.},
 	booktitle = {Wikipedia},
@@ -1623,34 +1630,34 @@ Eine {LL}(k)-Grammatik (im Gegensatz zu {LF}(k)-Grammatik auch schwache {LL}(k)-
 Eine kontextfreie Grammatik heißt {LL}(k)-Grammatik für eine natürliche Zahl k, wenn jeder Ableitungsschritt eindeutig durch die nächsten k Symbole der Eingabe (Lookahead) bestimmt ist. Das bedeutet, die Frage, welches Nichtterminalsymbol mit welcher Regel als Nächstes expandiert werden soll, kann eindeutig mit Hilfe der nächsten k Symbole der Eingabe bestimmt werden.
 Generell gilt, je größer k gewählt wird, umso mächtiger wird die Sprachklasse, wobei die Ausdrucksstärke von kontextfreien Grammatiken nie erreicht wird. Damit gibt es kontextfreie Sprachen, die für kein k von einer {LL}(k)-Grammatik erzeugt werden.
 
-  
-    
-      
-        
-          
+
+
+
+
+
             L
-          
-        
+
+
         (
-        
+
           L
           L
-        
+
         (
         1
         )
         )
         ⊊
-        
-          
+
+
             L
-          
-        
+
+
         (
-        
+
           L
           L
-        
+
         (
         2
         )
@@ -1658,53 +1665,53 @@ Generell gilt, je größer k gewählt wird, umso mächtiger wird die Sprachklass
         ⊊
         ⋯
         ⊊
-        
-          
+
+
             L
-          
-        
+
+
         (
-        
+
           L
           L
-        
+
         (
         k
         )
         )
         ⊊
-        
-          
+
+
             L
-          
-        
+
+
         (
-        
+
           L
           R
-        
+
         (
         1
         )
         )
         =
-        
-          
+
+
             L
-          
-        
+
+
         (
-        
+
           D
           P
           D
           A
-        
+
         )
-      
-    
+
+
     \{{\textbackslash}displaystyle \{{\textbackslash}mathcal \{L\}\}({\textbackslash}mathrm \{{LL}\} (1)){\textbackslash}subsetneq \{{\textbackslash}mathcal \{L\}\}({\textbackslash}mathrm \{{LL}\} (2)){\textbackslash}subsetneq {\textbackslash}dots {\textbackslash}subsetneq \{{\textbackslash}mathcal \{L\}\}({\textbackslash}mathrm \{{LL}\} (k)){\textbackslash}subsetneq \{{\textbackslash}mathcal \{L\}\}({\textbackslash}mathrm \{{LR}\} (1))=\{{\textbackslash}mathcal \{L\}\}({\textbackslash}mathrm \{{DPDA}\} )\}
-  
+
 Dabei steht {DPDA} für die deterministischen Kellerautomaten. Diese können genau die deterministisch kontextfreien Sprachen erkennen.},
 	booktitle = {Wikipedia},
 	urldate = {2022-09-13},
@@ -1816,48 +1823,48 @@ Techniques such as abstract interpretation, constraint solving, and type systems
 	title = {Kontextfreie Grammatik},
 	rights = {Creative Commons Attribution-{ShareAlike} License},
 	url = {https://de.wikipedia.org/w/index.php?title=Kontextfreie_Grammatik&oldid=213960399},
-	abstract = {In der Theorie der formalen Sprachen ist eine kontextfreie Grammatik (englisch context-free grammar, {CFG}) eine formale Grammatik, die nur solche Ersetzungsregeln enthält, bei denen immer genau ein Nichtterminalsymbol auf eine beliebig lange Folge von Nichtterminal- und Terminalsymbolen abgeleitet wird. Die Ersetzungsregeln haben also die Form 
-  
-    
-      
+	abstract = {In der Theorie der formalen Sprachen ist eine kontextfreie Grammatik (englisch context-free grammar, {CFG}) eine formale Grammatik, die nur solche Ersetzungsregeln enthält, bei denen immer genau ein Nichtterminalsymbol auf eine beliebig lange Folge von Nichtterminal- und Terminalsymbolen abgeleitet wird. Die Ersetzungsregeln haben also die Form
+
+
+
         V
         →
         w
-      
-    
+
+
     \{{\textbackslash}displaystyle V{\textbackslash}rightarrow w\}
-   (mit Nichtterminalsymbol 
-  
-    
-      
+   (mit Nichtterminalsymbol
+
+
+
         V
-      
-    
+
+
     \{{\textbackslash}displaystyle V\}
-   und Zeichenkette 
-  
-    
-      
+   und Zeichenkette
+
+
+
         w
-      
-    
+
+
     \{{\textbackslash}displaystyle w\}
    bestehend aus Nichtterminal- und/oder Terminalsymbolen).
-Weil die linke Seite einer Regel nur aus einem einzigen Nichtterminalsymbol 
-  
-    
-      
+Weil die linke Seite einer Regel nur aus einem einzigen Nichtterminalsymbol
+
+
+
         V
-      
-    
+
+
     \{{\textbackslash}displaystyle V\}
-   besteht, hängt ihre Anwendbarkeit auf eine Zeichenkette nur davon ab, ob das Nichtterminalsymbol 
-  
-    
-      
+   besteht, hängt ihre Anwendbarkeit auf eine Zeichenkette nur davon ab, ob das Nichtterminalsymbol
+
+
+
         V
-      
-    
+
+
     \{{\textbackslash}displaystyle V\}
    in der Zeichenkette vorkommt, nicht aber davon, in welchem Kontext es sich befindet, d. h. welche Zeichen links und/oder rechts davon stehen. Die Regeln sind also kontextfrei.
 Die kontextfreien Grammatiken sind identisch mit den Typ-2-Grammatiken der Chomsky-Hierarchie.},
@@ -1894,10 +1901,10 @@ Die kontextfreien Grammatiken sind identisch mit den Typ-2-Grammatiken der Choms
 	url = {https://de.wikipedia.org/w/index.php?title=Operatorrangfolge&oldid=223157277},
 	abstract = {Als Operatorrangfolge, -wertigkeit, -priorität oder -präzedenz bezeichnet man in Mathematik, Logik und Informatik eine definierte Halbordnung, in der die Operatoren eines in Infix-Schreibweise vorliegenden Ausdrucks auszuwerten sind.
 Die Operatorrangfolge ist keine Totalordnung, sondern eine Halbordnung, weil es keine strikte Reihenfolge zwischen allen Operatoren geben muss. Es können auch mehrere Operatoren auf demselben Rang stehen. Zum Beispiel ist in der Arithmetik der Rang von Multiplikation und Division gleich, aber höher als der Rang von Addition und Subtraktion („Punktrechnung vor Strichrechnung“).
-Eine Klammerung bietet die Möglichkeit der Bevorrangung eines Teilstücks einer Formel: Der eingeklammerte, also von einem Klammerpaar „( ... )“ eingeschlossene Bereich ist rechnerisch zuerst auszuführen und durch das entsprechende Teilergebnis zu ersetzen. Die Klammerung muss die Operatoren samt ihren nötigen Operanden enthalten. Wird also 
-  
-    
-      
+Eine Klammerung bietet die Möglichkeit der Bevorrangung eines Teilstücks einer Formel: Der eingeklammerte, also von einem Klammerpaar „( ... )“ eingeschlossene Bereich ist rechnerisch zuerst auszuführen und durch das entsprechende Teilergebnis zu ersetzen. Die Klammerung muss die Operatoren samt ihren nötigen Operanden enthalten. Wird also
+
+
+
         a
         ⋅
         (
@@ -1905,46 +1912,46 @@ Eine Klammerung bietet die Möglichkeit der Bevorrangung eines Teilstücks einer
         +
         c
         )
-      
-    
+
+
     \{{\textbackslash}displaystyle a{\textbackslash}cdot (b+c)\}
-   notiert, ist zuerst der Klammerausdruck zu berechnen, also die Summe 
-  
-    
-      
+   notiert, ist zuerst der Klammerausdruck zu berechnen, also die Summe
+
+
+
         (
         b
         +
         c
         )
-      
-    
+
+
     \{{\textbackslash}displaystyle (b+c)\}
-   zu bilden, bevor 
-  
-    
-      
+   zu bilden, bevor
+
+
+
         a
-      
-    
+
+
     \{{\textbackslash}displaystyle a\}
    mit dieser Summe multipliziert wird.
-Durch die Rangfolge kann man explizite Klammerungen sparen. So ist in der Arithmetik 
-  
-    
-      
+Durch die Rangfolge kann man explizite Klammerungen sparen. So ist in der Arithmetik
+
+
+
         a
         +
         b
         ⋅
         c
-      
-    
+
+
     \{{\textbackslash}displaystyle a+b{\textbackslash}cdot c\}
-   gleichbedeutend mit 
-  
-    
-      
+   gleichbedeutend mit
+
+
+
         a
         +
         (
@@ -1952,8 +1959,8 @@ Durch die Rangfolge kann man explizite Klammerungen sparen. So ist in der Arithm
         ⋅
         c
         )
-      
-    
+
+
     \{{\textbackslash}displaystyle a+(b{\textbackslash}cdot c)\}
   , weil der Multiplikationsoperator einen höheren Rang hat. Für andere Anwendungen dieser Operatorsymbole können jedoch andere Rangordnungen definiert sein.
 Bei nicht kommutativen Operatoren bedarf es noch zusätzlicher Konvention darüber, ob gleichrangige Teilausdrücke von links nach rechts oder rechts nach links auszuwerten sind, um die Rechenreihenfolge eindeutig festzulegen.},
