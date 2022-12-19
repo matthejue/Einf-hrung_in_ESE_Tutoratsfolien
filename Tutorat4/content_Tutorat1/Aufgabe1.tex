@@ -13,7 +13,18 @@
 \begin{frame}[allowframebreaks]{Task 1}{Earliest Deadline First (EDF) and Total Bandwidth Server (TBS)}
   \begin{tasknoinc}
     \centering
-    \includegraphics[width=0.25\textwidth]{./figures/1_tasks.png}
+    % \includegraphics[width=0.25\textwidth]{./figures/1_tasks.png}
+      \begin{NiceTabular}{X[1,c]X[2,c]X[2,c]X[2,c]}[rules/color=SecondaryColor] % {\linewidth}{|C|C|L|L|}
+        \CodeBefore
+        \chessboardcolors{white}{BoxColor}
+        \rowcolor{SecondaryColor}{1}
+        \columncolor{SecondaryColor}{1}
+        \Body
+        & \textcolor{white}{$\tau_1$} & \textcolor{white}{$\tau_2$} & \textcolor{white}{$\tau_3$} \\
+        \textcolor{white}{$C_i$} & 1 & 1 & 2 \\
+        \textcolor{white}{$T_i$} & 3 & 5 & 13 \\
+        \bottomrule
+      \end{NiceTabular}
     \begin{itemize}
       \item what can be the maximum value of $U_s$ such that the whole set (i.e. periodic tasks and the \alert{TBS}) is schedulable with \alert{EDF}?
     \end{itemize}
@@ -31,19 +42,90 @@
   \end{solution}
 \end{frame}
 
-\begin{frame}[allowframebreaks]{}{}
-  \begin{solution}
+\begin{frame}[allowframebreaks]{Task 1}{Earliest Deadline First (EDF) and Total Bandwidth Server (TBS)}
+  \begin{tasknoinc}
     \begin{itemize}
-      \item First, we need to order the tasks by increasing release time $r_i: J_4, J_6, J_5$. Then, we calculate the deadlines with $d_i=\max \left(r_i, d_{k-1}\right)+\frac{C_k}{U_s}$, where $d_{k-1}$ denotes the previously calculated deadline $(k-1$ means the predecessor in the ordering according to the release time):
-  \begin{itemize}
-    \item $d_4=\max \left(r_4, d_0\right)+2 / 0.25=0+8=8$
-    \item $d_6=\max \left(r_6, d_4\right)+1 / 0.25=10+4=14$
-    \item $d_5=\max \left(r_5, d_6\right)+1 / 0.25=15+4=19$
-  \end{itemize}
+      \item construct \alert{EDF-Schedule}
+      \item assume $U_s = 0.25$
+      \item \alert{three aperiodic requests served by TBS:}
+      \begin{NiceTabular}{X[1,c]X[2,c]X[2,c]X[2,c]}[rules/color=SecondaryColor] % {\linewidth}{|C|C|L|L|}
+        \CodeBefore
+        \chessboardcolors{white}{BoxColor}
+        \rowcolor{SecondaryColor}{1}
+        \columncolor{SecondaryColor}{1}
+        \Body
+        & \textcolor{white}{$J_4$} & \textcolor{white}{$J_5$} & \textcolor{white}{$J_6$} \\
+        \textcolor{white}{$r_i$} & 0 & 15 & 10 \\
+        \textcolor{white}{$C_i$} & 2 & 1 & 1 \\
+        \bottomrule
+      \end{NiceTabular}
+      \item \alert{arrival time} of first instance is $0$:
+      \begin{NiceTabular}{X[1,c]X[2,c]X[2,c]X[2,c]}[rules/color=SecondaryColor] % {\linewidth}{|C|C|L|L|}
+        \CodeBefore
+        \chessboardcolors{white}{BoxColor}
+        \rowcolor{SecondaryColor}{1}
+        \columncolor{SecondaryColor}{1}
+        \Body
+        & \textcolor{white}{$\tau_1$} & \textcolor{white}{$\tau_2$} & \textcolor{white}{$\tau_3$} \\
+        \textcolor{white}{$a_i$} & 0 & 0 & 0 \\
+        \textcolor{white}{$C_i$} & 1 & 1 & 2 \\
+        \textcolor{white}{$T_i$} & 3 & 5 & 13 \\
+        \bottomrule
+      \end{NiceTabular}
     \end{itemize}
-  \end{solution}
+  \end{tasknoinc}
+  \begin{requirementsnoinc}
+    \begin{itemize}
+      \item $d_i=\max \left(r_i, d_{k-1}\right)+\frac{C_k}{U_s}$
+        \begin{itemize}
+          \item $d_{k-1}$ denotes the previously calculated deadline $(k-1$ means the predecessor in the ordering according to the release time)
+        \end{itemize}
+    \end{itemize}
+  \end{requirementsnoinc}
+  \begin{solutionnoinc}
+    \begin{itemize}
+      \item order the aperiodic tasks by \alert{increasing release time} $r_i: J_4, J_6, J_5$
+      \item calculate the deadlines:
+  \begin{itemize}
+    \item $d_4=\max\left(r_4, d_0\right)+ \frac{2}{0.25}=\max(0,0)+8=8$
+    \item $d_6=\max\left(r_6, d_4\right)+ \frac{1}{0.25}=\max(10, 8)+4=14$
+    \item $d_5=\max\left(r_5, d_6\right)+ \frac{1}{0.25}=\max(15, 14)+4=19$
+  \end{itemize}
+    \item periodic tasks already ordererd by \alert{increasing period}: $t_i: \tau_1,\tau_2,\tau_3$
+    \end{itemize}
+  \end{solutionnoinc}
   \begin{solution}
-    \centering
-    \includegraphics[height=0.6\paperheight]{./figures/1_sol.png}
+      \begin{NiceTabular}{X[1,c]X[2,c]X[2,c]X[2,c]}[rules/color=PrimaryColor] % {\linewidth}{|C|C|L|L|}
+        \CodeBefore
+        \chessboardcolors{white}{BoxColor}
+        \rowcolor{PrimaryColor}{1}
+        \columncolor{PrimaryColor}{1}
+        \Body
+        & \textcolor{white}{$\tau_1$} & \textcolor{white}{$\tau_2$} & \textcolor{white}{$\tau_3$} \\
+        \textcolor{white}{$a_i$} & 0 & 0 & 0 \\
+        \textcolor{white}{$C_i$} & 1 & 1 & 2 \\
+        \textcolor{white}{$T_i$} & 3 & 5 & 13 \\
+        \bottomrule
+      \end{NiceTabular}
+      \begin{NiceTabular}{X[1,c]X[2,c]X[2,c]X[2,c]}[rules/color=PrimaryColor] % {\linewidth}{|C|C|L|L|}
+        \CodeBefore
+        \chessboardcolors{white}{BoxColor}
+        \rowcolor{PrimaryColor}{1}
+        \columncolor{PrimaryColor}{1}
+        \Body
+        & \textcolor{white}{$J_4$} & \textcolor{white}{$J_5$} & \textcolor{white}{$J_6$} \\
+        \textcolor{white}{$r_i$} & 0 & 15 & 10 \\
+        \textcolor{white}{$d_i$} & 8 & 19 & 14 \\
+        \textcolor{white}{$C_i$} & 2 & 1 & 1 \\
+        \bottomrule
+      \end{NiceTabular}
   \end{solution}
+    \begin{figure}
+        \centering
+        \includegraphics[height=0.6\paperheight]{./figures/1_sol_empty.png}
+    \end{figure}
+    \begin{figure}
+      \centering
+      \includegraphics[height=0.6\paperheight]{./figures/1_sol.png}
+    \end{figure}
 \end{frame}
