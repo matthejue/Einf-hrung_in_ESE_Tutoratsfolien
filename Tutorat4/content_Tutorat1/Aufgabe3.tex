@@ -28,14 +28,14 @@
       \begin{itemize}
           \item As reminder: The polling server itself acts like a \alert{periodic} task, that uses its capacity to serve \alert{aperiodic} tasks. If the polling server has the current highest priority it begins to serve any pending aperiodic requests within the limits of its capacity.
           \item If there are no pending aperioidic tasks at that time it \alert{suspends} its entire capacity! (until the beginning of the next period)
-          \item Therefore, the worst possible case occurs when $J_a$ appears slightly later than the polling server checks for pending aperiodic tasks. Meaning, the polling server suspends its capacity and $J_a$ has to wait $T_s + \lceil \frac{C_a}{T_s}\rceil T_s = (1 + \lceil \frac{C_a}{T_s}\rceil)T_s$
+          \item Therefore, the worst possible case occurs when $J_a$ appears slightly later than the polling server checks for pending aperiodic tasks. Meaning, the polling server suspends its capacity and $J_a$ has to wait $T_s + \lceil \frac{C_a}{C_s}\rceil T_s = (1 + \lceil \frac{C_a}{C_s}\rceil)T_s$
       \end{itemize}
     \end{solutionnoinc}
     \framebreak
     \begin{solution}
       \begin{itemize}
-          \item To guarantee to not miss the deadline $D_a$ the condition $(1 + \lceil \frac{C_a}{T_s}\rceil)T_s \leq D_a$ needs to hold.
-          \item Entering the values for the exercise gives us $D_a = 50$
+          \item To guarantee to not miss the deadline $D_a$ the condition $(1 + \lceil \frac{C_a}{C_s}\rceil)T_s \leq D_a$ needs to hold.
+          \item Entering the values for the exercise gives us $D_a = (1 + \frac{1}{1})\cdot 25 = 50$
       \end{itemize}
     \end{solution}
     \begin{Sidenote}
@@ -46,6 +46,11 @@
     \begin{tasknoinc}
     Using the sufficient test of RM, test if the polling server of task 3.1 is schedulable along with the periodic task-set.
     \end{tasknoinc}
+    \begin{requirementsnoinc}
+      \begin{itemize}
+        \item \alert{Schedulability Test:} $\displaystyle\sum_{i=1}^n \frac{C_i}{T_i}+\frac{C_s}{T_s}\leq(n+1)\left[2^{1 /(n+1)}-1\right]$
+      \end{itemize}
+    \end{requirementsnoinc}
 \end{frame}
 \begin{frame}{Task 3}{Scheduling with Polling Server}
     \begin{solutionnoinc}
@@ -60,7 +65,7 @@
 \begin{frame}{Task 3}{Scheduling with Polling Server}
     \begin{solution}
     \begin{itemize}
-        \item Putting in values we obtain: $0.748 \leq 0.76$. Since this is true, we know (as this is a sufficient condition) that the RM schedule meets all deadlines!
+      \item \alert{Putting in values we obtain:} $\frac{2}{6} + \frac{2}{8} + \frac{2}{16} + \frac{1}{25} \le (3+1)(2^{\frac{1}{3+1}}-1) \Leftrightarrow \frac{449}{600}\le \sqrt[4]{256}\cdot \sqrt[4]{2} - 4 \Leftrightarrow 0.75 \leq 0.76$. Since this is true, we know (as this is a sufficient condition) that the RM schedule meets all deadlines!
     \end{itemize}
     \end{solution}
 \end{frame}
