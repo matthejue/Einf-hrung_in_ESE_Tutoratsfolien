@@ -11,6 +11,7 @@
 \setcounter{task}{1}
 
 \begin{frame}[allowframebreaks]{Task 2}{Schedulability Test for Fixed Priorities – Rate Monotonic (RM)}
+  % task 1
   \begin{tasknoinc}
     \begin{itemize}
       \item task-set schedulable with \alert{RM}
@@ -40,6 +41,7 @@
     \end{itemize}
   \end{solution}
   \framebreak
+  % task 2
   \begin{tasknoinc}
     \begin{itemize}
       \item task-set schedulable with \alert{RM}
@@ -65,7 +67,14 @@
       \begin{itemize}
         \item a \alert{critical instance} of a task occurs whenever the task is \alert{released simultaneously} with \alert{all higher priority tasks}
       \end{itemize}
+      \item \alert{Schedulability Test:} For all tasks $\tau_i$ smallest $R_i$ that satisfies $\displaystyle R_i=C_i+\sum_{j=1}^{i-1}\left\lceil\frac{R_i}{T_j}\right\rceil C_j$ and $R_i \le D_i$ (necessary and sufficient)
     \end{itemize}
+  \end{requirementsnoinc}
+  \begin{requirementsnoinc}
+    \begin{figure}
+      \centering
+      \includegraphics[height=0.5\paperheight]{./figures/2_algorithm.png}
+    \end{figure}
   \end{requirementsnoinc}
   \begin{solutionnoinc}
     \begin{itemize}
@@ -104,6 +113,7 @@
     \end{itemize}
   \end{solution}
   \framebreak
+  % task 3
   \begin{tasknoinc}
     \begin{itemize}
       \item first job of each task arrives at time $0$
