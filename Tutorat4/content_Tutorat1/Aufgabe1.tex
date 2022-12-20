@@ -26,6 +26,7 @@
         \bottomrule
       \end{NiceTabular}
     \begin{itemize}
+      \item \alert{TBS} executes along with the \alert{periodic tasks} above
       \item what can be the maximum value of $U_s$ such that the whole set (i.e. periodic tasks and the \alert{TBS}) is schedulable with \alert{EDF}?
     \end{itemize}
   \end{tasknoinc}
@@ -59,7 +60,7 @@
         \textcolor{white}{$C_i$} & 2 & 1 & 1 \\
         \bottomrule
       \end{NiceTabular}
-      \item \alert{arrival time} of first instance is $0$:
+      \item \alert{arrival time} of first instance of each \alert{periodic task} is $0$:
       \begin{NiceTabular}{X[1,c]X[2,c]X[2,c]X[2,c]}[rules/color=SecondaryColor] % {\linewidth}{|C|C|L|L|}
         \CodeBefore
         \chessboardcolors{white}{BoxColor}
@@ -91,7 +92,7 @@
     \item $d_6=\max\left(r_6, d_4\right)+ \frac{1}{0.25}=\max(10, 8)+4=14$
     \item $d_5=\max\left(r_5, d_6\right)+ \frac{1}{0.25}=\max(15, 14)+4=19$
   \end{itemize}
-    \item periodic tasks already ordererd by \alert{increasing period}: $t_i: \tau_1,\tau_2,\tau_3$
+    % \item periodic tasks already ordererd by \alert{increasing period}: $t_i: \tau_1,\tau_2,\tau_3$
     \end{itemize}
   \end{solutionnoinc}
   \begin{solution}
