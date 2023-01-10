@@ -96,7 +96,7 @@
 \end{frame}
 \begin{frame}{Task 1}{Dynamic Voltage Scaling and Dynamic Power Management}
     \begin{tasknoinc}
-    A workload-conserving schedule is deﬁned as a schedule that is always executing a job when the ready queue is not empty. For the three jobs above, provide the workload-conserving schedule that minimizes the energy consumption without violating the timing constraints. For this subquestion, all tasks are executed at critical frequency $f_crit = 100 MHz$. What is the energy consumption of this schedule?
+      A workload-conserving schedule is deﬁned as a schedule that is always executing a job when the ready queue is not empty. For the three jobs above, provide the workload-conserving schedule that minimizes the energy consumption without violating the timing constraints. For this subquestion, all tasks are executed at critical frequency $f_{crit} = 100 MHz$. What is the energy consumption of this schedule?
     \end{tasknoinc}
 \end{frame}
 \begin{frame}{Task 1}{Dynamic Voltage Scaling and Dynamic Power Management}
@@ -119,7 +119,7 @@
             \includegraphics[scale=0.5]{figures/scheduleD).PNG}
         \end{figure}
         \begin{itemize}
-            \item The energy consumption of the schedule is $E = \frac{C_{\tau_1}}{f_{crit}} + t_{idle,1} \cdot P(f_{min}) + \frac{C_{\tau_2}}{f_{crit}} \cdot P(f_{crit}) + E_{sleep} + E_{modechange} + \frac{C_{\tau_3}}{f_{crit}} \cdot P(f_{crit})$
+          \item The energy consumption of the schedule is $E = \frac{C_{\tau_1}}{f_{crit}} \cdot P(f_{crit})+ t_{idle,1} \cdot P(f_{min}) + \frac{C_{\tau_2}}{f_{crit}} \cdot P(f_{crit}) + E_{sleep} + E_{modechange} + \frac{C_{\tau_3}}{f_{crit}} \cdot P(f_{crit})$
         \end{itemize}
     \end{solutionnoinc}
 \end{frame}
@@ -145,7 +145,7 @@ schedule in (d).
 \begin{frame}{Task 1}{Dynamic Voltage Scaling and Dynamic Power Management}
     \begin{solutionnoinc}
         \begin{itemize}
-            \item Yes! The idea is to use the convex nature of the power consumption to slow down execution of tasks $\au_1$ and $\tau_3$ to avoid idle times after their executions.
+            \item Yes! The idea is to use the convex nature of the power consumption to slow down execution of tasks $\tau_1$ and $\tau_3$ to avoid idle times after their executions.
             \item Even though we execute tasks below the critical frequency, the overall consumption is lower.
             \item We calculate the frequencies for $\tau_1$ and $\tau_3$ to close the idle gaps. Thus, the new frequencies are $f_{\tau_1} = \frac{C_{\tau_1}}{t_{\tau_1}}$ and $f_{\tau_3} = \frac{C_{\tau_3}}{t_{\tau_3}}$ where $t_{\tau_1} = 2ms$ and $t_{\tau_3} = 1ms$.
         \end{itemize}
