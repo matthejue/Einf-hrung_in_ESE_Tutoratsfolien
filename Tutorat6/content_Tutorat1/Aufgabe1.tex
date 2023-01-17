@@ -36,10 +36,10 @@
     \centering
     \includegraphics[height=0.6\paperheight]{./figures/task1_schedule.png}
   \end{solutionnoinc}
-  \begin{solution}
+  \begin{solutionnoinc}
     \centering
     \includegraphics[height=0.6\paperheight]{./figures/task1_energy_empty.png}
-  \end{solution}
+  \end{solutionnoinc}
   \begin{solution}
     \centering
     \includegraphics[height=0.6\paperheight]{./figures/task1_energy.png}
@@ -54,7 +54,7 @@
   \begin{requirementsnoinc}
     \begin{itemize}
       \item \alert{processor utilization} $\displaystyle U_p = \sum_{i=1}^n \frac{C_i}{T_i}$
-      \item the given power consumption $P_{dynamic}(f)$ is a \alert{strictly convex} function of the frequency $f$
+      \item the given power consumption $P_{dynamic}(f)$ is a \alert{strictly convex} function ($f(\theta x+(1-\theta) y) \leq \theta f(x)+(1-\theta) f(y)$) of the frequency $f$
       \item The EDF scheduling algorithm where deadlines of tasks equal their periods guarantees a feasible schedule as long as the utilization of the processor is $U \le 1.0$
         \begin{itemize}
           \item this schedulability test is \alert{necessary} and \alert{sufficient}, i.e. if one reaches a utilization of exactly $U = 1.0$, then it has to be schedulable
@@ -90,4 +90,21 @@
       \item the above conditions (constant frequency during execution, processor executing all the time) lead to a schedule, where the maximum frequency of task execution can not be further reduced as the whole time interval where tasks can be executed is filled with execution and all tasks are executed with the same frequency.
     \end{itemize}
   \end{solutionnoinc}
+  \if\pascal0{
+    \framebreak
+    \begin{Sidenote}
+      \begin{itemize}
+        \item Power is \alert{polynomial} if you plot over voltage or frequency. So tasks with high frequency will consume polynomially more power than those with low frequency.
+        \item The example from the lecture assumes only \alert{two} different frequencies, but with more different frequencies the principle is similar.
+        \item The line we see is caused by the fact that there is a certain time share of tasks with the low frequency, namely $\alpha$, and a certain time share of tasks with the high frequency, namely ($1-\alpha$). Depending on how the time share $\alpha$ is composed, more or less time units of the tasks with the high or low frequency flow into the averaged total power.
+      \end{itemize}
+    \end{Sidenote}
+    \framebreak
+    \begin{Sidenote}
+      \begin{itemize}
+        \item If you leave the frequency constant, you don't have this situation with a certain time share of tasks with the high or low frequency, but you lie somewhere on this polynomial power curve, depending on how high or low the selected frequency is.
+        \item If, on the other hand, you have a mixture with a certain time share of the task with the high frequency and the task with the low frequency, then the time share of tasks with the high frequency dominates, which then ensures that you end up somewhere on this line between the task with the high frequency $y$ and the task with the low frequency $x$, i.e.: $\alpha \cdot P(x) + (1-\alpha) \cdot P(y)$
+      \end{itemize}
+    \end{Sidenote}
+  }\fi
 \end{frame}
