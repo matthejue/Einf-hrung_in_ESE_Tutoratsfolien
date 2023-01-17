@@ -1,11 +1,21 @@
+%!Tex Root = ../Tutorat6.tex
+% ./Packete.tex
+% ./Design.tex
+% ./Deklarationen.tex
+% ./Aufgabe1.tex
+% ./Aufgabe2.tex
+% ./Bonus.tex
+
 \section{Task 3}
 
 \setcounter{task}{1}
+
 \begin{frame}{Task 3}{Application control}
     \begin{tasknoinc}
         Consider the energy harvesting proﬁle p(t) given in Figure 4 that repeats daily. What is the maximum average power $u_{max}$ that can be used by the system?
     \end{tasknoinc}
 \end{frame}
+
 \begin{frame}{Task 3}{Application control}
     \begin{solutionnoinc}
         \begin{figure}
@@ -14,6 +24,7 @@
         \end{figure}
     \end{solutionnoinc}
 \end{frame}
+
 \begin{frame}{Task 3}{Application control}
     \begin{solution}
         \begin{itemize}
@@ -35,14 +46,14 @@
         \end{itemize}
     \end{solutionnoinc}
 \end{frame}
-\begin{frame}{Task 3}{Application control}
+\begin{frame}[allowframebreaks]{Task 3}{Application control}
   \begin{figure}
       \centering
       \includegraphics[scale=0.4]{figures/energyUsage.PNG}
   \end{figure}
   \begin{Sidenote}
     \begin{itemize}
-      \item asdf
+      \item We observe that in intervals $t \in[0,6]$ and $t \in[18,23]$ of a day $u(t)>p(t)$ and therefore energy is used from the battery. In intervals $t \in[7,17]$ the battery is not used and the extra input power of intervals $t \in[8,16]$ is stored to the battery, with the battery overflowing in interval $t=16$.
     \end{itemize}
   \end{Sidenote}
 \end{frame}
