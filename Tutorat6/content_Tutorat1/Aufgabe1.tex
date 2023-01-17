@@ -72,7 +72,7 @@
     \begin{itemize}
       \item The execution of all tasks with a constant frequency allows for a schedule where the utilization satisfies $U = 1.0$, i.e., the processor is constantly busy
         \begin{itemize}
-          \item determine right frequency by looking at schedule: $\frac{9}{12} = 0.75$
+          % \item determine right frequency by looking at schedule: $\frac{9 \cdot 10^{-3}}{12 \cdot 10^{-3}} = 0.75MHz$
           \item determine right frequency by calculation:
             \begin{itemize}
               \item $1 = \frac{\frac{2 kCycles}{f}}{6ms} + \frac{\frac{1 kCycles}{f}}{4ms}  + \frac{\frac{2 kCycles}{f}}{12ms} = \frac{\frac{4 kCycles + 3 kCycles + 2 kCycles}{f}}{12ms} \Leftrightarrow f = \frac{9 \cdot 10^3 Cycles}{12 \cdot 10^{-3} s} = 0.75 \cdot 10^{3 + 3} \cdot \frac{1}{s}  = 0.75MHz$
