@@ -15,12 +15,12 @@
     \centering
     \includegraphics[width=0.8\paperheight]{./figures/task2.png}
   \end{tasknoinc}
-  \begin{requirements}
+  \begin{requirementsnoinc}
     \begin{itemize}
       \item $V^{\prime}\left(\left[z, z^{\prime}\right]\right)=\left\{v_i \in V: z \leq a_i<d_i \leq z^{\prime}\right\}$
-      \item $G\left(\left[z, z^{\prime}\right]\right)=\sum_{v_i \in V^{\prime}\left(\left[z, z^{\prime}\right]\right)} c_i /\left(z^{\prime}-z\right)$
+      \item $G\left(\left[z, z^{\prime}\right]\right)=\sum_{v_i \in V^{\prime}\left(\left[z, z^{\prime}\right]\right)} cycles_i /\left(z^{\prime}-z\right)$
     \end{itemize}
-  \end{requirements}
+  \end{requirementsnoinc}
 \end{frame}
 
 \begin{frame}[allowframebreaks]{Task 2}{}
@@ -55,22 +55,22 @@
       \gantttitle{26}{2} \\
 
       \ganttgroup[inline=false]{$T_{1}$}{0}{1}
-      \ganttbar[bar/.style={fill=red, fill opacity=0.3}]{1 (n=1)}{0}{7}\\
+      \ganttbar[bar/.style={fill=red, fill opacity=0.3}]{cycles=1}{0}{7}\\
 
       \ganttgroup[inline=false]{$T_{2}$}{0}{1}
-      \ganttbar[bar/.style={fill=orange, fill opacity=0.3}]{2 (n=6)}{2}{11}\\
+      \ganttbar[bar/.style={fill=orange, fill opacity=0.3}]{cycles=6}{2}{11}\\
 
       \ganttgroup[inline=false]{$T_{3}$}{0}{1}
-      \ganttbar[bar/.style={fill=yellow, fill opacity=0.3}]{3 (n=8)}{6}{9}\\
+      \ganttbar[bar/.style={fill=yellow, fill opacity=0.3}]{cycles=8}{6}{9}\\
 
       \ganttgroup[inline=false]{$T_{4}$}{0}{1}
-      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{4 (n=2)}{8}{19}\\
+      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{cycles=2}{8}{19}\\
 
       \ganttgroup[inline=false]{$T_{5}$}{0}{1}
-      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{5 (n=5)}{10}{24}\\
+      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{cycles=5}{10}{24}\\
 
       \ganttgroup[inline=false]{$T_{6}$}{0}{1}
-      \ganttbar[bar/.style={fill=cyan, fill opacity=0.3}]{6 (n=3)}{11}{14}
+      \ganttbar[bar/.style={fill=cyan, fill opacity=0.3}]{cycles=3}{11}{14}
 
     \end{ganttchart}
   \end{solutionnoinc}
@@ -94,7 +94,7 @@
           \item $G([2, 20]) = \frac{6+8+2+3}{18} = 1.06$
           \item $G([2, 25]) = \frac{6+8+2+3+5}{23} = 1.04$
           \item $G([2, 15]) = \frac{6+8+3}{13} = 1.31$
-          \item $\boxed{G([6, 10]) = \frac{8}{4} = 2}$
+          \item $\boxed{G([6, 10]) = \frac{8 \cdot 10^3 cycles}{4 \cdot 10^{-3}s} = 2 MHz}$, $C_3 = \frac{8 \cdot 10^3 cycles}{2 \cdot 10^6 \frac{cycles}{s}} = 4ms$
           \item $G([6, 20]) = \frac{8+2+3}{14} = 0.93$
           \item $G([6, 25]) = \frac{8+2+3+5}{19} = 0.95$
         \end{itemize}
@@ -111,6 +111,26 @@
         \end{itemize}
       \end{column}
     \end{columns}
+  \end{solutionnoinc}
+  \begin{solutionnoinc}
+    \begin{tikzpicture}
+      \begin{axis}[x=0.4cm, y=2cm, xtick={0, 2, ..., 25}, ytick={0, 0.5, ...,2}, axis lines=left,
+        ymajorgrids=true, ymin=0, xmin=0, xmax=25, xlabel=$time (ms)$, xlabel style={at={(0.4,-0.1)}, anchor=west},
+        ylabel=$frequency (1 MHz)$, ylabel style={rotate=-90,at={(0.1,1)}, anchor=south}
+        ]
+      \addplot [
+        ybar interval,
+        xtick=data,
+        x tick label style={
+        rotate=90,
+        anchor=east,
+        },
+        color=yellow, fill=yellow, fill opacity=0.3
+      ] coordinates {
+        (6,2) (10,2)
+      };
+    \end{axis}
+    \end{tikzpicture}
   \end{solutionnoinc}
   \begin{solutionnoinc}
     \begin{ganttchart}[
@@ -141,19 +161,19 @@
       \gantttitle{22}{2} \\
 
       \ganttgroup[inline=false]{$T_{1}$}{0}{1}
-      \ganttbar[bar/.style={fill=red, fill opacity=0.3}]{1 (n=1)}{0}{5}\\
+      \ganttbar[bar/.style={fill=red, fill opacity=0.3}]{1 (cycles=1)}{0}{5}\\
 
       \ganttgroup[inline=false]{$T_{2}$}{0}{1}
-      \ganttbar[bar/.style={fill=orange, fill opacity=0.3}]{2 (n=6)}{2}{7}\\
+      \ganttbar[bar/.style={fill=orange, fill opacity=0.3}]{2 (cycles=6)}{2}{7}\\
 
       \ganttgroup[inline=false]{$T_{4}$}{0}{1}
-      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{4 (n=2)}{6}{15}\\
+      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{cycles=2}{6}{15}\\
 
       \ganttgroup[inline=false]{$T_{5}$}{0}{1}
-      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{5 (n=5)}{6}{20}\\
+      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{cycles=5}{6}{20}\\
 
       \ganttgroup[inline=false]{$T_{6}$}{0}{1}
-      \ganttbar[bar/.style={fill=cyan, fill opacity=0.3}]{6 (n=3)}{7}{10}
+      \ganttbar[bar/.style={fill=cyan, fill opacity=0.3}]{cycles=3}{7}{10}
     \end{ganttchart}
   \end{solutionnoinc}
   \begin{solutionnoinc}
@@ -173,7 +193,8 @@
       \end{column}
       \begin{column}[t]{0.5\textwidth}
         \begin{itemize}
-          \item $\boxed{G([2, 11]) = \frac{6+3}{9} = 1}$
+          \item $\boxed{G([2, 11]) = \frac{6+3 \cdot 10^3 cycles}{9 \cdot 10^{-3}s} = 1MHz}$, $C_{2, 6} = \frac{9 \cdot 10^3 cycles}{1 \cdot 10^6 \frac{cycles}{s}} = 9ms$, $d_2 = 12 < 15 = d_6 \Rightarrow$ Task 2 first
+            % \frac{6+3}{9} = 1}$
           \item $G([6, 16]) = \frac{2+3}{10} = 0.5$
           \item $G([6, 21]) = \frac{2+5+3}{15} = 0.67$
           \item $G([6, 11]) = \frac{3}{5} = 0.6$
@@ -181,6 +202,59 @@
         \end{itemize}
       \end{column}
     \end{columns}
+  \end{solutionnoinc}
+  \begin{solutionnoinc}
+    \begin{tikzpicture}
+      \begin{axis}[x=0.4cm, y=2cm, xtick={0, 2, ..., 25}, ytick={0, 0.5, ...,2}, axis lines=left,
+        ymajorgrids=true, ymin=0, xmin=0, xmax=25, xlabel=$time (ms)$, xlabel style={at={(0.4,-0.1)}, anchor=west},
+        ylabel=$frequency (1 MHz)$, ylabel style={rotate=-90,at={(0.1,1)}, anchor=south}
+        ]
+      \addplot [
+        ybar interval,
+        xtick=data,
+        x tick label style={
+        rotate=90,
+        anchor=east,
+        },
+        color=orange, fill=orange, fill opacity=0.3
+      ] coordinates {
+        (2,1) (6,1)
+      };
+      \addplot [
+        ybar interval,
+        xtick=data,
+        x tick label style={
+        rotate=90,
+        anchor=east,
+        },
+        color=yellow, fill=yellow, fill opacity=0.3
+      ] coordinates {
+        (6,2) (10,2)
+      };
+      \addplot [
+        ybar interval,
+        xtick=data,
+        x tick label style={
+        rotate=90,
+        anchor=east,
+        },
+        color=orange, fill=orange, fill opacity=0.3
+      ] coordinates {
+        (10,1) (12,1)
+      };
+      \addplot [
+        ybar interval,
+        xtick=data,
+        x tick label style={
+        rotate=90,
+        anchor=east,
+        },
+        color=cyan, fill=cyan, fill opacity=0.3
+      ] coordinates {
+        (12,1) (15,1)
+      };
+    \end{axis}
+    \end{tikzpicture}
   \end{solutionnoinc}
   \begin{solutionnoinc}
     \begin{ganttchart}[
@@ -206,13 +280,13 @@
       \gantttitle{12}{2} \\
 
       \ganttgroup[inline=false]{$T_{1}$}{0}{1}
-      \ganttbar[bar/.style={fill=red, fill opacity=0.3}]{1 (n=1)}{0}{1}\\
+      \ganttbar[bar/.style={fill=red, fill opacity=0.3}]{cycles=1}{0}{1}\\
 
       \ganttgroup[inline=false]{$T_{4}$}{0}{1}
-      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{4 (n=2)}{2}{6}\\
+      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{cycles=2}{2}{6}\\
 
       \ganttgroup[inline=false]{$T_{5}$}{0}{1}
-      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{5 (n=5)}{2}{11}\\
+      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{cycles=5}{2}{11}\\
     \end{ganttchart}
   \end{solutionnoinc}
   \begin{solutionnoinc}
@@ -221,8 +295,85 @@
       \item $G([0, 7]) = \frac{1+2}{7} = 0.43$
       \item $G([0, 12]) = \frac{1+2+5}{12} = 0.67$
       \item $G([2, 7]) = \frac{2}{5} = 0.4$
-      \item $\boxed{G([2, 12]) = \frac{2+5}{10} = 0.7}$
+      \item $\boxed{G([2, 12]) = \frac{2+5 \cdot 10^3 cycles}{10 \cdot 10^{-3}s} = 0.7MHz}$, $C_{4, 5} = \frac{7 \cdot 10^3 cycles}{0.7 \cdot 10^6 \frac{cycles}{s}} = 10ms$, $d_4 = 20 < 25 = d_5 \Rightarrow$ Task 4 first
+
+        % \frac{2+5}{10} = 0.7}$
     \end{itemize}
+  \end{solutionnoinc}
+  \begin{solutionnoinc}
+    \begin{tikzpicture}
+      \begin{axis}[x=0.4cm, y=2cm, xtick={0, 2, ..., 25}, ytick={0, 0.5, ...,2}, axis lines=left,
+        ymajorgrids=true, ymin=0, xmin=0, xlabel=$time (ms)$, xlabel style={at={(0.4,-0.1)}, anchor=west},
+        ylabel=$frequency (1 MHz)$, ylabel style={rotate=-90,at={(0.1,1)}, anchor=south}
+        ]
+      \addplot [
+        ybar interval,
+        xtick=data,
+        x tick label style={
+        rotate=90,
+        anchor=east,
+        },
+        color=orange, fill=orange, fill opacity=0.3
+      ] coordinates {
+        (2,1) (6,1)
+      };
+      \addplot [
+        ybar interval,
+        xtick=data,
+        x tick label style={
+        rotate=90,
+        anchor=east,
+        },
+        color=yellow, fill=yellow, fill opacity=0.3
+      ] coordinates {
+        (6,2) (10,2)
+      };
+      \addplot [
+        ybar interval,
+        xtick=data,
+        x tick label style={
+        rotate=90,
+        anchor=east,
+        },
+        color=orange, fill=orange, fill opacity=0.3
+      ] coordinates {
+        (10,1) (12,1)
+      };
+      \addplot [
+        ybar interval,
+        xtick=data,
+        x tick label style={
+        rotate=90,
+        anchor=east,
+        },
+        color=cyan, fill=cyan, fill opacity=0.3
+      ] coordinates {
+        (12,1) (15,1)
+      };
+      \addplot [
+        ybar interval,
+        xtick=data,
+        x tick label style={
+        rotate=90,
+        anchor=east,
+        },
+        color=green, fill=green, fill opacity=0.3
+      ] coordinates {
+        (15,0.7) (18,.07)
+      };
+      \addplot [
+        ybar interval,
+        xtick=data,
+        x tick label style={
+        rotate=90,
+        anchor=east,
+        },
+        color=blue, fill=blue, fill opacity=0.3
+      ] coordinates {
+        (18,0.7) (25,0.7)
+      };
+    \end{axis}
+    \end{tikzpicture}
   \end{solutionnoinc}
   \begin{solutionnoinc}
     \begin{ganttchart}[
@@ -243,10 +394,12 @@
       \gantttitle{2}{2} \\
 
       \ganttgroup[inline=false]{$T_{1}$}{0}{1}
-      \ganttbar[bar/.style={fill=red, fill opacity=0.3}]{1 (n=1)}{0}{1}\\
+      \ganttbar[bar/.style={fill=red, fill opacity=0.3}]{cycles=1}{0}{1}\\
     \end{ganttchart}
   \begin{itemize}
-    \item $\boxed{G([0, 2]) = \frac{1}{2} = 0.5}$
+    \item $\boxed{G([0, 2]) =  \frac{1 \cdot 10^3 cycles}{2 \cdot 10^{-3}s} = 0.5MHz}$, $C_{1} = \frac{1 \cdot 10^3 cycles}{0.5 \cdot 10^6 \frac{cycles}{s}} = 2ms$
+
+        % \frac{1}{2} = 0.5 }$
   \end{itemize}
   \end{solutionnoinc}
 \end{frame}
@@ -340,6 +493,7 @@
   \end{solution}
 \end{frame}
 
+% b)
 \begin{frame}[allowframebreaks]{Task 2}{}
   \begin{solutionnoinc}
     \begin{ganttchart}[
@@ -372,22 +526,22 @@
       \gantttitle{26}{2} \\
 
       \ganttgroup[inline=false]{$T_{1}$}{0}{1}
-      \ganttbar[bar/.style={fill=red, fill opacity=0.3}]{1 (n=1)}{0}{7}\\
+      \ganttbar[bar/.style={fill=red, fill opacity=0.3}]{cycles=1}{0}{7}\\
 
       \ganttgroup[inline=false]{$T_{2}$}{0}{1}
-      \ganttbar[bar/.style={fill=orange, fill opacity=0.3}]{2 (n=6)}{2}{11}\\
+      \ganttbar[bar/.style={fill=orange, fill opacity=0.3}]{cycles=6}{2}{11}\\
 
       \ganttgroup[inline=false]{$T_{3}$}{0}{1}
-      \ganttbar[bar/.style={fill=yellow, fill opacity=0.3}]{3 (n=8)}{6}{9}\\
+      \ganttbar[bar/.style={fill=yellow, fill opacity=0.3}]{cycles=8}{6}{9}\\
 
       \ganttgroup[inline=false]{$T_{4}$}{0}{1}
-      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{4 (n=2)}{8}{19}\\
+      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{cycles=2}{8}{19}\\
 
       \ganttgroup[inline=false]{$T_{5}$}{0}{1}
-      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{5 (n=5)}{10}{24}\\
+      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{cycles=5}{10}{24}\\
 
       \ganttgroup[inline=false]{$T_{6}$}{0}{1}
-      \ganttbar[bar/.style={fill=cyan, fill opacity=0.3}]{6 (n=3)}{11}{14}
+      \ganttbar[bar/.style={fill=cyan, fill opacity=0.3}]{cycles=3}{11}{14}
     \end{ganttchart}
   \end{solutionnoinc}
   \begin{solutionnoinc}
@@ -424,10 +578,10 @@
       \gantttitle{20}{2} \\
 
       \ganttgroup[inline=false]{$T_{1}$}{0}{1}
-      \ganttbar[bar/.style={fill=red, fill opacity=0.3}]{1 (n=0.75)}{2}{7}\\
+      \ganttbar[bar/.style={fill=red, fill opacity=0.3}]{cycles=0.75}{2}{7}\\
 
       \ganttgroup[inline=false]{$T_{2}$}{0}{1}
-      \ganttbar[bar/.style={fill=orange, fill opacity=0.3}]{2 (n=6)}{2}{11}\\
+      \ganttbar[bar/.style={fill=orange, fill opacity=0.3}]{cycles=6}{2}{11}\\
     \end{ganttchart}
   \end{solutionnoinc}
   \framebreak
@@ -464,10 +618,10 @@
       \gantttitle{12}{2} \\
 
       \ganttgroup[inline=false]{$T_{2}$}{0}{1}
-      \ganttbar[bar/.style={fill=orange, fill opacity=0.3}]{2 (n=4.05)}{6}{11}\\
+      \ganttbar[bar/.style={fill=orange, fill opacity=0.3}]{cycles=4.05}{6}{11}\\
 
       \ganttgroup[inline=false]{$T_{3}$}{0}{1}
-      \ganttbar[bar/.style={fill=yellow, fill opacity=0.3}]{3 (n=8)}{6}{9}\\
+      \ganttbar[bar/.style={fill=yellow, fill opacity=0.3}]{cycles=8}{6}{9}\\
     \end{ganttchart}
   \end{solutionnoinc}
   \framebreak
@@ -509,11 +663,11 @@
       \gantttitle{20}{2}\\
 
       \ganttgroup[inline=false]{$T_{2+3}$}{0}{1}
-      \ganttbar[bar/.style={fill=yellow, fill opacity=0.3}]{\qquad 2+3 (n=2.01)}{8}{9}
+      \ganttbar[bar/.style={fill=yellow, fill opacity=0.3}]{cycles=2.01}{8}{9}
       \ganttbar[bar/.style={fill=orange, fill opacity=0.3}]{}{10}{11}\\
 
       \ganttgroup[inline=false]{$T_{4}$}{0}{1}
-      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{4 (n=2)}{8}{19}\\
+      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{cycles=2}{8}{19}\\
     \end{ganttchart}
   \end{solutionnoinc}
   \framebreak
@@ -556,13 +710,13 @@
       \gantttitle{26}{2} \\
 
       \ganttgroup[inline=false]{$T_{3}$}{0}{1}
-      \ganttbar[bar/.style={fill=orange, fill opacity=0.3}]{3 (n=2.01)}{10}{11}\\
+      \ganttbar[bar/.style={fill=orange, fill opacity=0.3}]{cycles=2.01}{10}{11}\\
 
       \ganttgroup[inline=false]{$T_{4}$}{0}{1}
-      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{4 (n=2)}{10}{19}\\
+      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{cycles=2}{10}{19}\\
 
       \ganttgroup[inline=false]{$T_{5}$}{0}{1}
-      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{5 (n=5)}{10}{24}\\
+      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{cycles=5}{10}{24}\\
     \end{ganttchart}
   \end{solutionnoinc}
   \framebreak
@@ -605,16 +759,16 @@
       \gantttitle{26}{2} \\
 
       \ganttgroup[inline=false]{$T_{3}$}{0}{1}
-      \ganttbar[bar/.style={fill=orange, fill opacity=0.3}]{3 (n=2.01)}{11}{11}\\
+      \ganttbar[bar/.style={fill=orange, fill opacity=0.3}]{3 (cycles=2.01)}{11}{11}\\
 
       \ganttgroup[inline=false]{$T_{4}$}{0}{1}
-      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{4 (n=2)}{11}{19}\\
+      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{4 (cycles=2)}{11}{19}\\
 
       \ganttgroup[inline=false]{$T_{5}$}{0}{1}
-      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{5 (n=5)}{11}{24}\\
+      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{5 (cycles=5)}{11}{24}\\
 
       \ganttgroup[inline=false]{$T_{6}$}{0}{1}
-      \ganttbar[bar/.style={fill=cyan, fill opacity=0.3}]{6 (n=6)}{11}{14}\\
+      \ganttbar[bar/.style={fill=cyan, fill opacity=0.3}]{6 (cycles=6)}{11}{14}\\
     \end{ganttchart}
   \end{solutionnoinc}
   \framebreak
@@ -657,13 +811,13 @@
       \gantttitle{26}{2} \\
 
       \ganttgroup[inline=false]{$T_{4}$}{0}{1}
-      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{4 (n=2)}{12}{19}\\
+      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{4 (cycles=2)}{12}{19}\\
 
       \ganttgroup[inline=false]{$T_{5}$}{0}{1}
-      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{5 (n=5)}{12}{24}\\
+      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{5 (cycles=5)}{12}{24}\\
 
       \ganttgroup[inline=false]{$T_{6}$}{0}{1}
-      \ganttbar[bar/.style={fill=cyan, fill opacity=0.3}]{6 (n=6)}{12}{14}\\
+      \ganttbar[bar/.style={fill=cyan, fill opacity=0.3}]{6 (cycles=6)}{12}{14}\\
     \end{ganttchart}
   \end{solutionnoinc}
   \framebreak
@@ -706,10 +860,10 @@
       \gantttitle{26}{2} \\
 
       \ganttgroup[inline=false]{$T_{4}$}{0}{1}
-      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{4 (n=2)}{15}{19}\\
+      \ganttbar[bar/.style={fill=green, fill opacity=0.3}]{4 (cycles=2)}{15}{19}\\
 
       \ganttgroup[inline=false]{$T_{5}$}{0}{1}
-      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{5 (n=5)}{15}{24}\\
+      \ganttbar[bar/.style={fill=blue, fill opacity=0.3}]{5 (cycles=5)}{15}{24}\\
     \end{ganttchart}
   \end{solutionnoinc}
   \framebreak
