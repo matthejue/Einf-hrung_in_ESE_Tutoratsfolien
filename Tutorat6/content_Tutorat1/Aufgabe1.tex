@@ -21,10 +21,21 @@
     \begin{itemize}
       \item The execution times $C_i$ of tasks $\tau_i$ are: $C_1 = \frac{1 \cdot 10^3 Cyles}{1 \cdot 10^6 \frac{Cycles}{s}} =  2 ms$, $C_2 = \frac{1 \cdot 10^3 Cyles}{1 \cdot 10^6 \frac{Cycles}{s}} =  1 ms$, and $C_3 = \frac{1 \cdot 10^3 Cyles}{1 \cdot 10^6 \frac{Cycles}{s}}  = 2 ms$ ($T = \frac{N}{f}$).
       \item Applying EDF schedule, the processor is busy in $[0 ms, 9 ms]$
-      \item constant input power: $P_{in} = 0.5\mu J$
+      \if\pascal1{
+        \item constant input power: $P_{in} = 0.5 \mu J$
+      }\else{
+        \item constant input power: $P_{in} = 0.5 mW$
+      }\fi
       \item We use $1MHz$ for processing tasks, leading to $P_{\text{dynamic}}(1MHz) = 1mW$
-      \item This means we consume $1mW \cdot 1ms = 1\mu J$ per milisecond.
-      \item Since all our tasks take a multiple of 1ms, we know that while processing tasks, our battery empties with $0.5\mu J/ms - 1\mu J/ms = -0.5\mu J/ms$
+      \if\pascal1{
+        \item This means we consume $1mW \cdot 1ms = 1\mu J$ per milisecond.
+        \item Since all our tasks take a multiple of 1ms, we know that while processing tasks, our battery empties with $0.5\mu J/ms - 1\mu J/ms = -0.5\mu J/ms$
+      }
+      \else{
+        \item This means we consume $1mW \cdot 1ms = 1\mu J$
+        \item Since all our tasks take a multiple of 1ms, we know that while processing tasks, our battery empties with $0.5\mu J - 1\mu J = -0.5\mu J$
+      }
+      \fi
       %and $P_{\text {dynamic }}(1MHz)=\left(\frac{1MHz}{1 \mathrm{MHz}}\right)^3 \mathrm{~mW} = 1 \cdot 10^{-3} W$ $\Rightarrow$ $0.5 \cdot 10^{-3}W - 1 \cdot 10^{-3}W = -0.5 mW$ and $-0.5 \cdot 10^{-3}W \cdot 2 \cdot 10^{-3}s = -1 \cdot 10^{-6}J = -1\mu J$ lost in first $2ms$ of the schedule.
     \end{itemize}
   \end{solutionnoinc}
