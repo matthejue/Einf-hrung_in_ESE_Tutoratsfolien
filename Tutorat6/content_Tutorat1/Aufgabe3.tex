@@ -83,9 +83,9 @@
       \begin{itemize}
         \item increase all used energy values until battery size and correctness constraints not satisfied anymore
         \item to service the night we need $b(18)=11=B$
-        \item battery depleted completely in between $[6, 7]$
-        \item battery reaches full capacity of $11Wh$ around time $11$
-        \item harvested energy wasted around time intervall $[11, 18]$, because it can't be stored
+        \item battery depleted completely at interval $6$
+        \item battery reaches full capacity of $11Wh$ around interval $11$
+        \item harvested energy wasted around time intervals $11$ to $18$, because it can't be stored
       \end{itemize}
     \end{itemize}
   \end{solutionnoinc}
@@ -107,7 +107,7 @@
   \end{solutionnoinc}
   \begin{solutionnoinc}
     \begin{itemize}
-      \item \alert{Step 3:} incrase energy up to a value that guarantees $b(16)=B$, determine appropriate value $u(t)$ to the the battery fully charged at this time by solving a equation for the time interval $[9, 15]$
+      \item \alert{Step 3:} incrase energy up to a value that guarantees $b(16)=B$, determine appropriate value $u(t)$ for the battery to be fully charged at this time interval by solving a equation for the time intervals $[9, 15]$
       \begin{itemize}
         \item $(7-u)+2 \cdot(6-u)+2 \cdot(5-u)+2 \cdot(4-u)=11 \mathrm{Wh} \Rightarrow u=\frac{26}{7} \mathrm{Wh}$
         \item the resulting battery level is summarized in:
@@ -150,20 +150,20 @@
   \begin{solution}
     \begin{itemize}
        \item If $p(t)=0$ for any interval $t \in[6,11]$, then there will be an immediate energy failure as the demand surpasses the available energy in the interval $[t, t+1]$.
-      \item If $p(t)=0$ for any interval $t \in[12,18]$, the violation will happen some time during the night as the battery is not completely full in the afternoon.
+      \item If $p(t)=0$ for any interval $t \in[12,18]$, the violation will happen at some time interval during the night as the battery is not completely full in the afternoon.
     \end{itemize}
   \end{solution}
   \framebreak
   \begin{tasknoinc}
     \begin{itemize}
       \item use finite horizon control scheme for application control
-      \item $p(12) = 0$ at time $t = 12$
+      \item $p(12) = 0$ at interval $t = 12$
     \end{itemize}
   \end{tasknoinc}
   \begin{solutionnoinc}
     \begin{itemize}
-      \item for all times $t\le 12$ we have $\hat u^*(t) = u^*(t)$
-      \item at time $t=13$ we have now $\hat b(t)= 4 - \frac{26}{7} + 5 - \frac{26}{7} + 6 - \frac{26}{7} - \frac{26}{7} =\frac{1}{7}$ instead of $\frac{50}{7}$
+      \item for all intervals $t\le 12$ we have $\hat u^*(t) = u^*(t)$
+      \item at interval $t=13$ we have now $\hat b(t)= 4 - \frac{26}{7} + 5 - \frac{26}{7} + 6 - \frac{26}{7} - \frac{26}{7} =\frac{1}{7}$ instead of $\frac{50}{7}$
       \item new use function computed $u^*(t)$ which will determine the function $\hat u^*(t)$ from now on
       \item in order to achieve minimal used energy of $1Wh$ we need a full battery at $t=18$
       \item the new value of the used energy that guarantees a full battery level at t = 18 is computed while considering the energy balance equations for $t\in [13, 17]$:
@@ -185,7 +185,7 @@
     \begin{figure}
       \centering
       \includegraphics[width=0.7\textwidth]{./figures/task5_battery.png}
-      \caption{The zero energy input at $t = 12$ results in a depleted battery at time $t = 13$. Consequently, the control scheme calculates an $\hat u^*(t)$ that is different from the initial $u^*(t)$ between $t \in [13, 17]$}
+      \caption{The zero energy input at $t = 12$ results in a depleted battery at time interval $t = 13$. Consequently, the control scheme calculates an $\hat u^*(t)$ that is different from the initial $u^*(t)$ between $t \in [13, 17]$}
     \end{figure}
   \end{solutionnoinc}
 \end{frame}
