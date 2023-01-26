@@ -1,0 +1,61 @@
+%!Tex Root = ../Tutorat6.tex
+% ./Packete.tex
+% ./Design.tex
+% ./Deklarationen.tex
+% ./Aufgabe1.tex
+% ./Aufgabe2.tex
+
+\section{Task 3}
+
+\setcounter{task}{1}
+
+\begin{frame}[allowframebreaks]{Tasks 3}{Iterative Algorithms}
+  \begin{tasknoinc}
+    \includegraphics[width=.5\textwidth]{./figures/task3_marked_graph_representation.png}
+    \includegraphics[width=.4\textwidth]{./figures/task3_execution_time_of_each_function.png}
+  \end{tasknoinc}
+  \begin{solution}
+    \begin{itemize}
+      \item $\tau\left(\nu_2\right)-\tau\left(\nu_1\right) \geq 10$
+      \item $\tau\left(\nu_3\right)-\tau\left(\nu_2\right) \geq 10$
+      \item $\tau\left(\nu_4\right)-\tau\left(\nu_3\right) \geq 10$
+      \item $\tau\left(\nu_5\right)-\tau\left(\nu_4\right) \geq 5$
+      \item $\tau\left(\nu_1\right)-\tau\left(\nu_5\right) \geq 5-1 \cdot P$
+    \end{itemize}
+  \end{solution}
+  \framebreak
+  \begin{solutionnoinc}
+    \begin{itemize}
+      \item solve system of inequalities for $P$:
+        \begin{itemize}
+          \item $0 - 25 \geq 5 - P  \Leftrightarrow P_{min} = 30$
+          \item $L = 30$
+        \end{itemize}
+    \end{itemize}
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.5\textwidth]{./figures/task3_empty_schedule.png}
+    \end{figure}
+  \end{solutionnoinc}
+  \framebreak
+  \begin{solution}
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.5\textwidth]{./figures/task3_scheduling_result_video_codec.png}
+    \end{figure}
+  \end{solution}
+  \framebreak
+  \begin{solutionnoinc}
+    \begin{itemize}
+      \item $\tau\left(\nu_1\right)-\tau\left(\nu_5\right) \geq 5-n \cdot 10 \Leftrightarrow n_{min} = 3$
+      \item we have to add $2$ more tokens on the edge between $v_5$ and $v_1$
+      \item $L = 30$
+    \end{itemize}
+    \centering
+    \includegraphics[width=0.5\textwidth]{./figures/task3_empty_schedule.png}
+  \end{solutionnoinc}
+  \begin{solutionnoinc}
+    \centering
+    \includegraphics[width=0.5\textwidth]{./figures/task3_scheudling_result_video_codec_pipelined.png}
+  \end{solutionnoinc}
+\end{frame}

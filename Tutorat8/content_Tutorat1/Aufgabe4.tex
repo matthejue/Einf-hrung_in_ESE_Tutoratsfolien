@@ -1,0 +1,174 @@
+%!Tex Root = ../Tutorat7.tex
+% ./Packete.tex
+% ./Design.tex
+% ./Deklarationen.tex
+% ./Aufgabe1.tex
+% ./Aufgabe2.tex
+% ./Aufgabe3.tex
+% ./Bonus.tex
+
+\section{Task 4}
+
+\setcounter{task}{1}
+
+\begin{frame}[allowframebreaks]{Task 4}{List Scheduling}
+  \begin{tasknoinc}
+    \begin{figure}
+      \centering
+      \includegraphics[height=0.6\paperheight]{./figures/task4_sequence_graph.png}
+    \end{figure}
+  \end{tasknoinc}
+  \framebreak
+  \begin{solutionnoinc}
+    \begin{figure}
+      \centering
+      \includegraphics[height=0.5\paperheight]{./figures/task4_schedule_empty.png}
+    \end{figure}
+  \end{solutionnoinc}
+  \framebreak
+  \begin{solution}
+    \begin{figure}
+      \centering
+      \includegraphics[height=0.5\paperheight]{./figures/task4_schedule.png}
+    \end{figure}
+  \end{solution}
+  \framebreak
+  \begin{solution}
+    \begin{itemize}
+      \item $L=8$
+    \end{itemize}
+  \end{solution}
+  \framebreak
+  \begin{solutionnoinc}
+    \begin{itemize}
+      \item Multiplier because the critical path ($1 \rightarrow 6 \rightarrow 8 \rightarrow 10 \rightarrow 11$) is not delayed by adder but multiplier.
+    \end{itemize}
+  \end{solutionnoinc}
+  \framebreak
+  \begin{solutionnoinc}
+    \centering
+    \tiny
+    \begin{tabular}{c|c|l|l|l|}
+    \hline$t$ & $k$ & $U_{t, k}$ & $T_{t, k}$ & $S_{t, k}$ \\
+    \hline \multirow{2}{*}{0} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline \multirow{2}{*}{1} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline \multirow{2}{*}{2} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline \multirow{2}{*}{3} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline \multirow{2}{*}{4} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline \multirow{2}{*}{5} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline \multirow{2}{*}{6} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline \multirow{2}{*}{7} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline
+    \end{tabular}
+  \end{solutionnoinc}
+\end{frame}
+
+\begin{frame}{Task 4}{List Scheduling}
+  \begin{solutionnoinc}
+    \centering
+    \tiny
+    \begin{tabular}{c|c|l|l|l|}
+    \hline$t$ & $k$ & $U_{t, k}$ & $T_{t, k}$ & $S_{t, k}$ \\
+    \hline \multirow{2}{*}{0} & $r_1$ & v1 v2 v3 v4 & - & v1 v2 \\
+    \cline { 2 - 5 } & $r_2$ & v5 & - & v5 \\
+    \hline \multirow{2}{*}{1} & $r_1$ & v3 v4 & - & v3 v4 \\
+    \cline { 2 - 5 } & $r_2$ & v6 & v5 & v6 \\
+    \hline \multirow{2}{*}{2} & $r_1$ & v7 & - & v7 \\
+    \cline { 2 - 5 } & $r_2$ & v9 & v6 & v9 \\
+    \hline \multirow{2}{*}{3} & $r_1$ & v8 & - & v8 \\
+    \cline { 2 - 5 } & $r_2$ & - & v9 & - \\
+    \hline \multirow{2}{*}{4} & $r_1$ & v10 & - & v10 \\
+    \cline { 2 - 5 }  & $r_2$ & - & - & - \\
+    \hline \multirow{2}{*}{5} & $r_1$ & - & - & - \\
+    \cline { 2 - 5 } & $r_2$ & v11 & - & v11 \\
+    \hline \multirow{2}{*}{6} & $r_1$ & - & - & - \\
+    \cline { 2 - 5 } & $r_2$ & - & v11 & - \\
+    \hline \multirow{2}{*}{7} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline
+    \end{tabular}
+  \end{solutionnoinc}
+\end{frame}
+
+\begin{frame}{Task 4}{List Scheduling}
+  \begin{solution}
+    \begin{itemize}
+      \item $L=7$
+    \end{itemize}
+  \end{solution}
+\end{frame}
+
+\begin{frame}{Task 4}{List Scheduling}
+  \begin{solutionnoinc}
+    \centering
+    \tiny
+    \begin{tabular}{c|c|l|l|l|}
+    \hline$t$ & $k$ & $U_{t, k}$ & $T_{t, k}$ & $S_{t, k}$ \\
+    \hline \multirow{2}{*}{0} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline \multirow{2}{*}{1} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline \multirow{2}{*}{2} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline \multirow{2}{*}{3} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline \multirow{2}{*}{4} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline \multirow{2}{*}{5} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline \multirow{2}{*}{6} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline \multirow{2}{*}{7} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline
+    \end{tabular}
+  \end{solutionnoinc}
+\end{frame}
+
+\begin{frame}{Task 4}{List Scheduling}
+  \begin{solutionnoinc}
+    \centering
+    \tiny
+    \begin{tabular}{c|c|l|l|l|}
+    \hline$t$ & $k$ & $U_{t, k}$ & $T_{t, k}$ & $S_{t, k}$ \\
+    \hline \multirow{2}{*}{0} & $r_1$ & v1 v2 v3 v4 & - & v1 v2 v3 v4\\
+    \cline { 2 - 5 } & $r_2$ & v5 & - & v5 \\
+    \hline \multirow{2}{*}{1} & $r_1$ & v7 & - & v7 \\
+    \cline { 2 - 5 } & $r_2$ & v6 & v5 & v6 \\
+    \hline \multirow{2}{*}{2} & $r_1$ & - & - & - \\
+    \cline { 2 - 5 } & $r_2$ & v9 & v6 & v9 \\
+    \hline \multirow{2}{*}{3} & $r_1$ & v8 & - & v8 \\
+    \cline { 2 - 5 } & $r_2$ & - & v9 & - \\
+    \hline \multirow{2}{*}{4} & $r_1$ & v10 & - & v10 \\
+    \cline { 2 - 5 }  & $r_2$ & - & - & - \\
+    \hline \multirow{2}{*}{5} & $r_1$ & - & - & - \\
+    \cline { 2 - 5 } & $r_2$ & v11 & - & v11 \\
+    \hline \multirow{2}{*}{6} & $r_1$ & - & - & - \\
+    \cline { 2 - 5 } & $r_2$ & - & v11 & - \\
+    \hline \multirow{2}{*}{7} & $r_1$ & & & \\
+    \cline { 2 - 5 } & $r_2$ & & & \\
+    \hline
+    \end{tabular}
+  \end{solutionnoinc}
+\end{frame}
+\begin{frame}[allowframebreaks]{Task 4}{List Scheduling}
+  \begin{solutionnoinc}
+    \begin{figure}
+      \centering
+      \includegraphics[height=0.6\paperheight]{./figures/task4_sequence_graph_edit.png}
+    \end{figure}
+  \end{solutionnoinc}
+  \begin{solution}
+    \begin{itemize}
+      \item $L=7$
+    \end{itemize}
+  \end{solution}
+\end{frame}

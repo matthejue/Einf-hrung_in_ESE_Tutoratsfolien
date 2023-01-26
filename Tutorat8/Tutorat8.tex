@@ -1,0 +1,148 @@
+\def\pascal{0}
+\def\preview{1}
+
+\input{./content_Tutorat1/Packete}
+\input{./content_Tutorat1/Design}
+\input{./content_Tutorat1/Deklarationen}
+
+\includeonly{
+  ./content_Tutorat1/Aufgabe1,
+  ./content_Tutorat1/Aufgabe2,
+  ./content_Tutorat1/Aufgabe3,
+  % ./content_Tutorat1/Aufgabe4,
+  % ./content_Tutorat1/Appendix,
+  % ./content_Tutorat1/Bonus,
+}
+
+\begin{document}
+
+\begin{withoutheadline}
+  \begin{withoutfootline}
+    \begin{frame}
+      \titlepagesecond
+    \end{frame}
+  \end{withoutfootline}
+
+  \begin{frame}[shrink=10]{Gliederung}
+    \tableofcontents[hideallsubsections]
+  \end{frame}
+\end{withoutheadline}
+
+\setcounter{section}{-1}
+
+\section{Organisation}
+
+\if\pascal0{
+  \begin{frame}[allowframebreaks, fragile]{Organisation}
+    \begin{itemize}
+      \item \alert{feedback for lecture until February 29}
+      \item \alert{feedback for me:} \url{https://forms.gle/f3YN8EFrZ1vsfPoC6}
+      \begin{figure}
+        \centering
+        \includegraphics[height=0.3\paperheight]{./figures/feedback.png}
+      \end{figure}
+    \end{itemize}
+  \end{frame}
+}\fi
+
+% \section{Overview}
+
+% https://latexdraw.com/mind-map-latex-tutorial/
+% \begin{frame}[shrink]{Overview Scheduling\hspace{0.5cm}}{}
+%   \begin{tikzpicture}[
+%       auto,
+%       mindmap,
+%       concept color = PrimaryColorDimmed,
+%       every node/.style = {concept},
+%       grow cyclic,
+%       % level 1/.append style = {
+%       %     level distance = 4.5cm,
+%       %     sibling angle = 120
+%       % },
+%       % level 2/.append style = {
+%       %     level distance = 3cm,
+%       %     sibling angle = 45}
+%       every annotation/.append style = {
+%              fill = BoxColor,
+%              text width = 2.6cm
+%       },
+%   ]
+%
+%   \node (root) [] {Power and Energy}
+%     child [concept color = SecondaryColorDimmed] {
+%       node {Energy Harvesting}
+%         child [concept color = PrimaryColorDimmed] {
+%           node {MPPT}
+%         }
+%         child [concept color = PrimaryColorDimmed] {
+%           node {Application Control}
+%         }
+%     }
+%     child [concept color = SecondaryColorDimmed] {
+%       node {Power Reduction}
+%         child [concept color = PrimaryColorDimmed] {
+%           node {Static Power Reduction}
+%             child [concept color = SecondaryColorDimmed] {
+%               node {Power Supply Gating}
+%                 child [concept color = PrimaryColorDimmed] {
+%                   node {Parallelism}
+%                     child [concept color = SecondaryColorDimmed] {
+%                       node {VLIW}
+%                     }
+%                 }
+%                 child [concept color = PrimaryColorDimmed] {
+%                   node {Pipelining}
+%                 }
+%             }
+%         }
+%         child [concept color = PrimaryColorDimmed] {
+%           node {Dynamic Power Reduction}
+%             child [concept color = SecondaryColorDimmed] {
+%               node {DVFS}
+%                 child [concept color = PrimaryColorDimmed] {
+%                   node {YDS}
+%                 }
+%                 child [concept color = PrimaryColorDimmed] {
+%                   node {DPM}
+%                 }
+%               }
+%         }
+%     };
+%   \node[annotation] at ($(root.east) + (1.5,0)$) {
+%     \begin{itemize}
+%       \item $\begin{aligned}[t]P \sim \alpha C_L V_{d d}^2 f\end{aligned}$
+%       \item $\begin{aligned}[t]f_{\max } \sim \frac{1}{\tau} \sim \frac{V_{d d}}{C_L}\end{aligned}$
+%     \end{itemize}
+%   };
+%   \end{tikzpicture}
+% \end{frame}
+
+\include{./content_Tutorat1/Aufgabe1}
+\include{./content_Tutorat1/Aufgabe2}
+\include{./content_Tutorat1/Aufgabe3}
+% \include{./content_Tutorat1/Aufgabe4}
+\include{./content_Tutorat1/Appendix}
+\include{./content_Tutorat1/Bonus}
+
+% \section{Literature}
+%
+% \begin{frame}{Bücher}
+%   \printbibliography[type=book,heading=subbibliography,title={Bücher}]
+% \end{frame}
+%
+% \begin{frame}{Artikel}
+%   \printbibliography[type=article,heading=subbibliography,title={Artikel}]
+% \end{frame}
+%
+% \begin{frame}{Vorlesungen}
+%   \printbibliography[type=unpublished,heading=subbibliography,title={Vorlesungen}]
+% \end{frame}
+%
+% \begin{frame}{Online}
+%   \printbibliography[type=online,heading=subbibliography,title={Online}]
+% \end{frame}
+%
+% \begin{frame}{Sonstiges}
+%   \printbibliography[nottype=book, nottype=article, nottype=online, nottype=unpublished,heading=subbibliography,keyword=wikikeyword,title={Sonstige Quellen}]
+% \end{frame}
+\end{document}
