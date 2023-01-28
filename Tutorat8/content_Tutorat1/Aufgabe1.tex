@@ -27,15 +27,22 @@
 \end{frame}
 \begin{frame}[fragile]{Task 1}{Scheduling with Pipeline Resources}
   \begin{solutionnoinc}
-      \begin{algorithm}[H]
-      [...]\;
-      Determine candidates $U_{t, k}$ to be scheduled\;
-      Determine set of occupied resources $O_{t, k}$\;
-      Choose subset $S_t \subseteq U_{t, k}$ with maximal priority and $\left|S_{t, k}\right|+\left|O_{t, k}\right| \leq \alpha\left(v_k\right)$\;
-      [...]\;
-      \end{algorithm}
+    \centering
+    \includegraphics[width=0.6\textwidth]{./figures/list_scheduling.png}
+  \end{solutionnoinc}
+\end{frame}
+\begin{frame}[fragile]{Task 1}{Scheduling with Pipeline Resources}
+  \begin{solutionnoinc}
+      % \begin{algorithm}[H]
+      % [...]\;
+      % Determine candidates $U_{t, k}$ to be scheduled\;
+      % Determine set of occupied resources $O_{t, k}$\;
+      % Choose subset $S_t \subseteq U_{t, k}$ with maximal priority and $\left|S_{t, k}\right|+\left|O_{t, k}\right| \leq \alpha\left(v_k\right)$\;
+      % [...]\;
+      % \end{algorithm}
     \begin{itemize}
       \item $O_{t, k}$ is the set of resources of type $k$ that are occupied in the time slot $t$ and are not yet available for the following operation. On each of these resources exactly one operation is executed in a pipeline-interval.
+      \item $\left\{v_s: \beta\left(v_s\right)=v_t \wedge \tau\left(v_s\right)<t<\tau\left(v_s\right)+PI\right\}$ instead of $\left\{v_s: \beta\left(v_s\right)=v_t \wedge \tau\left(v_s\right)<t<\tau\left(v_s\right)+w\left(v_s, v_t\right)\right\}$
     \end{itemize}
   \end{solutionnoinc}
 \end{frame}
