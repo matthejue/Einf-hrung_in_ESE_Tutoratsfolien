@@ -11,5 +11,5 @@
 ---
 - pipelining erhöht throughput
 - 30 ist wegen 10 + 10 + 5 + 5
-- mit 3 Tokens kann man direkt wieder und muss nicht warten
+- mit 3 Tokens kann man direkt wieder feuern und muss nicht warten
 - Maschmaschinen Beispiel
