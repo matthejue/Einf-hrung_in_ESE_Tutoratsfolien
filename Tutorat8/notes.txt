@@ -1,10 +1,10 @@
 - Algorithmen einfügen: ASAP und ALAP
 - task 2.1 folie 13: 10 und 11Abgschnitten
 - Folie 22: a nach rechts
-----
+---
 - bei Task 2.1 Beispiel, was wäre wenn v2 addierer wäre
 - Pipelining macht es schneller, dass Ressouce wieder frei ist, aber fertigstellung dauert trotzdem länger
-- T wird durch O ersetzt (occupied), nue definierte Menge mit PI
+- T wird durch O ersetzt (occupied), neu definierte Menge mit PI
 - ASAP max, ALAP min, warum es so ist, keine ressourenconstraints, nur für die Intervalle
 - resource limitations, benutzt man nur die beresits definieren x_r_i und muss die execution time noch berücksichtigen
 - bei introduction of binary variables, nur die Anfangszeitpunkte
