@@ -28,7 +28,7 @@
   \end{frame}
 \end{withoutheadline}
 
-\setcounter{section}{-1}
+\setcounter{section}{-2}
 
 \section{Organisation}
 
@@ -51,77 +51,63 @@
   \end{frame}
 }\fi
 
-% \section{Overview}
+\section{Overview}
 
 % https://latexdraw.com/mind-map-latex-tutorial/
-% \begin{frame}[shrink]{Overview Scheduling\hspace{0.5cm}}{}
-%   \begin{tikzpicture}[
-%       auto,
-%       mindmap,
-%       concept color = PrimaryColorDimmed,
-%       every node/.style = {concept},
-%       grow cyclic,
-%       % level 1/.append style = {
-%       %     level distance = 4.5cm,
-%       %     sibling angle = 120
-%       % },
-%       % level 2/.append style = {
-%       %     level distance = 3cm,
-%       %     sibling angle = 45}
-%       every annotation/.append style = {
-%              fill = BoxColor,
-%              text width = 2.6cm
-%       },
-%   ]
-%
-%   \node (root) [] {Power and Energy}
-%     child [concept color = SecondaryColorDimmed] {
-%       node {Energy Harvesting}
-%         child [concept color = PrimaryColorDimmed] {
-%           node {MPPT}
-%         }
-%         child [concept color = PrimaryColorDimmed] {
-%           node {Application Control}
-%         }
-%     }
-%     child [concept color = SecondaryColorDimmed] {
-%       node {Power Reduction}
-%         child [concept color = PrimaryColorDimmed] {
-%           node {Static Power Reduction}
-%             child [concept color = SecondaryColorDimmed] {
-%               node {Power Supply Gating}
-%                 child [concept color = PrimaryColorDimmed] {
-%                   node {Parallelism}
-%                     child [concept color = SecondaryColorDimmed] {
-%                       node {VLIW}
-%                     }
-%                 }
-%                 child [concept color = PrimaryColorDimmed] {
-%                   node {Pipelining}
-%                 }
-%             }
-%         }
-%         child [concept color = PrimaryColorDimmed] {
-%           node {Dynamic Power Reduction}
-%             child [concept color = SecondaryColorDimmed] {
-%               node {DVFS}
-%                 child [concept color = PrimaryColorDimmed] {
-%                   node {YDS}
-%                 }
-%                 child [concept color = PrimaryColorDimmed] {
-%                   node {DPM}
-%                 }
-%               }
-%         }
-%     };
-%   \node[annotation] at ($(root.east) + (1.5,0)$) {
-%     \begin{itemize}
-%       \item $\begin{aligned}[t]P \sim \alpha C_L V_{d d}^2 f\end{aligned}$
-%       \item $\begin{aligned}[t]f_{\max } \sim \frac{1}{\tau} \sim \frac{V_{d d}}{C_L}\end{aligned}$
-%     \end{itemize}
-%   };
-%   \end{tikzpicture}
-% \end{frame}
+% https://tikz.dev/library-mindmaps
+\begin{frame}[shrink]{Overview Scheduling\hspace{0.5cm}}{}
+  \begin{tikzpicture}[
+      auto,
+      mindmap,
+      concept color = SecondaryColorDimmed,
+      every node/.style = {concept},
+      every child/.style={concept},
+      grow cyclic,
+      level 1/.append style = {
+        concept color=PrimaryColorDimmed
+      },
+      level 2/.append style = {
+        concept color=SecondaryColorDimmed
+      },
+      level 3/.append style = {
+        concept color=PrimaryColorDimmed
+      },
+      every annotation/.append style = {
+             fill = BoxColor,
+             text width = 2.6cm
+      },
+  ]
+
+  \node (root) [] {Architecture Synthesis}
+    child [] {
+      node {without resource constraints}
+      child [] {
+        node {ASAP}
+      }
+      child [] {
+        node {ALAP}
+      }
+    }
+    child [] {
+      node {with resource constraints}
+        child [] {
+          node {Integer Linear Programming}
+            child [] {
+              node {for Iterative Algorithms and Marked Graphs}
+            }
+        }
+        child [] {
+          node {List Scheduling}
+        }
+    };
+  % \node[annotation] at ($(root.east) + (1.5,0)$) {
+  %   \begin{itemize}
+  %     \item $\begin{aligned}[t]P \sim \alpha C_L V_{d d}^2 f\end{aligned}$
+  %     \item $\begin{aligned}[t]f_{\max } \sim \frac{1}{\tau} \sim \frac{V_{d d}}{C_L}\end{aligned}$
+  %   \end{itemize}
+  % };
+  \end{tikzpicture}
+\end{frame}
 
 \include{./content_Tutorat1/Aufgabe1}
 \include{./content_Tutorat1/Aufgabe2}
