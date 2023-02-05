@@ -14,7 +14,7 @@
 - mit 3 Tokens kann man direkt wieder feuern und muss nicht warten
 - Maschmaschinen Beispiel
 ---
-Estmal gilt PI = (-r(r5) + r(v0) + w(v5))/d_{ij}. PI ist der Abstand zwischen zwei Iterationen eines Algorithmus. Wenn mehrere Token zwischcen v5 und v1 liegen, ist PI kleiner, diese Iterationen werden dann in kürzeren Abständne voneinander ausgeführt.
+Estmal gilt P = (-r(r5) + r(v0) + w(v5))/d_{ij}. PI ist der Abstand zwischen zwei Iterationen eines Algorithmus. Wenn mehrere Token zwischcen v5 und v1 liegen, ist PI kleiner, diese Iterationen werden dann in kürzeren Abständne voneinander ausgeführt.
 Gibt es kein Token ist ein Iterative Ausführung garnicht möglich da man eine 0 im Nenner hat in: PI = (-r(r0) + r(v5) + w(v5))/0 => error.
 Der grundsätzlich Fall ist also schonmal ein Token also: PI = (-r(r0) + r(v5) + w(v5))/1
 Hier erklärt sich das PI so: man will ja die Zeit, die es braucht bis wieder gefeuert werden kann und genau das ist eben r(v5) - r(v0) + w(v5). Da man r(v5) - r(v0) rechnet hat man hier nur die Zeit, die es braucht, bis das Token eine Operationsausführung eine Position vor seiner ursprünglichen Position steht. Man muss daher noch w(v5) draufaddieren, also die Operationsausführungsezit von Operation v5, damit das Token wieder an seiner ursprünglichen Position ist.
@@ -23,3 +23,5 @@ Und mit 3 Tokens das gleiche usw.
 ---
 - diskrete Funktion:
   - ein Zeitpunkt z.B. 11 gibt für das vorherige Intervall von 10 bis 11 an, wieviel Energie zusammengekommen ist
+
+P = (-r(r5) + r(v0) + w(v5))/d_{ij}

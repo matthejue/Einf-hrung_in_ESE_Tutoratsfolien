@@ -1,0 +1,2 @@
+\beamer@sectionintoc {1}{Introduction to Embedded Systems}{1}{0}{1}
+\babel@toc {english}{}\relax 

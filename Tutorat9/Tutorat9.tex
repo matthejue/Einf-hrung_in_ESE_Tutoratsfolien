@@ -1,0 +1,359 @@
+\documentclass{article}
+\usepackage[english]{babel}
+
+\usepackage[paperwidth=50cm, paperheight=50cm]{geometry}
+
+\usepackage{xcolor}
+% \usepackage{anyfontsize}
+\usepackage{adjustbox}
+% \usepackage[]{enumitem}
+\usepackage{tikz}
+\usepackage{nicematrix}
+\usetikzlibrary{arrows.meta,positioning}
+\usetikzlibrary{graphs}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shadings}
+\usetikzlibrary{mindmap, backgrounds, calc}
+
+% \newcommand\linewidth{\TX@col@width}
+
+\definecolor{PrimaryColor}{HTML}{5E3072}
+\definecolor{PrimaryColorDimmed}{HTML}{a991cc}
+\definecolor{SecondaryColor}{HTML}{EC6301}
+\definecolor{SecondaryColorDimmed}{HTML}{ffbe99}
+\colorlet{BoxColor}{gray!10!white}
+
+\begin{document}
+  \resizebox{\linewidth}{!}{
+    \begin{tikzpicture}[
+        auto,
+        huge mindmap,
+        concept color = SecondaryColorDimmed,
+        every node/.style = {concept},
+        every child/.style={concept},
+        grow cyclic,
+        level 1/.append style = {
+          concept color=PrimaryColorDimmed,
+          sibling angle = 120,
+          % sibling distance = 120,
+          % font=\tiny
+        },
+        level 2/.append style = {
+          concept color=SecondaryColorDimmed
+        },
+        level 3/.append style = {
+          concept color=PrimaryColorDimmed
+        },
+        level 4/.append style = {
+          concept color=SecondaryColorDimmed
+        },
+        level 5/.append style = {
+          concept color=PrimaryColorDimmed
+        },
+        level 6/.append style = {
+          concept color=SecondaryColorDimmed
+        },
+        level 7/.append style = {
+          concept color=PrimaryColorDimmed
+        },
+        level 8/.append style = {
+          concept color=SecondaryColorDimmed
+        },
+        every annotation/.append style = {
+               fill = BoxColor,
+               text width = 2.6cm
+        },
+    ]
+
+    \node (root) at (current page.center) {Introduction to Embedded Systems}
+    child {
+      node {Architecture Synthesis}
+        child {
+          node {without resource constraints}
+          child {
+            node {ASAP}
+          }
+          child {
+            node {ALAP}
+          }
+        }
+        child {
+          node {with resource constraints}
+            child {
+              node {Integer Linear Programming}
+                child {
+                  node {for Iterative Algorithms and Marked Graphs}
+                }
+            }
+            child {
+              node {List Scheduling}
+            }
+        }
+    }
+    child {
+      node {Power and Energy
+        \resizebox{\textwidth}{!}{
+          \begin{minipage}[t]{6cm}
+            \begin{itemize}
+              \item $\begin{aligned}[t]P \sim \alpha C_L V_{d d}^2 f\end{aligned}$
+              \item $\begin{aligned}[t]f_{\max } \sim \frac{1}{\tau} \sim \frac{V_{d d}}{C_L}\end{aligned}$
+            \end{itemize}
+          \end{minipage}
+        }
+      }
+        child {
+          node {Energy Harvesting}
+            child {
+              node {MPPT}
+            }
+            child {
+              node {Application Control}
+            }
+        }
+        child {
+          node {Power Reduction}
+            child {
+              node {Static Power Reduction}
+                child {
+                  node {Power Supply Gating}
+                    child {
+                      node {Parallelism}
+                        child {
+                          node {VLIW}
+                        }
+                    }
+                    child {
+                      node {Pipelining}
+                    }
+                }
+            }
+            child {
+              node {Dynamic Power Reduction}
+                child {
+                  node {DVFS}
+                    child {
+                      node {YDS}
+                    }
+                    child {
+                      node {DPM}
+                    }
+                  }
+            }
+          }
+    }
+    child {
+      node {Scheduling}
+        child {
+          node {Aperiodic
+            \resizebox{\textwidth}{!}{
+              \begin{minipage}[t]{8cm}
+                \tiny
+                \begin{itemize}
+                  \item event-driven
+                  \item can arrive at any point in time
+                  \item Optimality: Minimize the maximum lateness of the task set precedence relations between tasks can be described through an acyclic directed graph G where tasks are represented by nodes and precedence relations by arrows. G induces a partial order on the task set
+                  \item 2 types of aperiodic tasks:
+                  \begin{itemize}
+                    \tiny
+                    \item sporadic task: has a minimum inter-arrival time between consecutive instances of the task
+                    \item firm task: minimum inter-arrival time between consecutive instances of the task cannot be bounded
+                  \end{itemize}
+                \end{itemize}
+              \end{minipage}
+            }
+          }
+          child {
+            node {Independent Tasks}
+            child {
+              node {Equal arrival times, Non-preempive}
+              child {
+                node {EDD
+                  \resizebox{\textwidth}{!}{
+                    \begin{minipage}[t]{6cm}
+                      \begin{itemize}
+                        \item priority determined by $min(D_i)$ for all remaining $J_i$
+                        \item Schedulability Test: $\sum_{k=1}^i C_k \leq d_i$ for each task $J_i$
+                      \end{itemize}
+                    \end{minipage}
+                  }
+                }
+              }
+            }
+            child {
+              node {Arbitrary arrival times, Preemptive}
+              child {
+                node {EDF
+                  \resizebox{\textwidth}{!}{
+                    \begin{minipage}[t]{8cm}
+                      \begin{itemize}
+                        \item priority determined by $min(d_i)$ for all remaining $J_i$ that have already arrived (are ready) and not finished every time the arrival time of a task is reached
+                        \item Schedulability Test: $t+\sum_{k=1}^i c_k(t) \leq d_i$ for all active tasks $J_i$
+                          \begin{itemize}
+                            \item $c_k(t)$ is the remaining worst-case execution time of task $J_k$
+                          \end{itemize}
+                      \end{itemize}
+                    \end{minipage}
+                  }
+                }
+              }
+            }
+          }
+          child {
+            node {Dependent Tasks}
+            child {
+              node {Equal arrival times, Non-preempive}
+              child {
+                node {LDF
+                  \resizebox{\textwidth}{!}{
+                    \begin{minipage}[t]{8cm}
+                      \begin{itemize}
+                        \item priority determined by $max(D_i)$ for all $J_i$ without successors or whose successors have been all selected in the precedence graph inserted into the queue to be executed last
+                        \item at runtime, tasks are extracted from the head of the queue: the first task inserted in the queue will be executed last
+                      \end{itemize}
+                    \end{minipage}
+                  }
+                }
+              }
+            }
+            child {
+              node {Arbitrary arrival times, Preemptive}
+              child {
+                node {EDF$^*$
+                  \resizebox{\textwidth}{!}{
+                    \begin{minipage}[t]{8cm}
+                      \begin{itemize}
+                        \item release time and deadline of individual tasks are modified such that all the precedence constraints are satisfied
+                          \begin{itemize}
+                            \item $r_j^* = max(r_j, max(r_i^* + C_i : J_i \rightarrow J_j))$
+                            \item $d_i^* = min(d_i, min(d_j^* - C_j : J_i \rightarrow J_j))$
+                          \end{itemize}
+                        \item scheduling problem is transformed into a problem without precedence constraints, which can then be handled by a ”normal” EDF scheduler
+                      \end{itemize}
+                    \end{minipage}
+                  }
+                }
+              }
+            }
+          }
+        }
+        child {
+          node {Periodic
+            \resizebox{\textwidth}{!}{
+              \begin{minipage}[t]{8cm}
+                \begin{itemize}
+                  \item time-driven
+                  \item regularly activated with a constant period
+                  \item Optimality of fixed-priority assignments: every task set schedulable by another fixed-priority algorithm can also be scheduled by RM and DM
+                \end{itemize}
+              \end{minipage}
+            }
+          }
+          child {
+            node {Static Priority}
+            child {
+              node {$D_i = T_i$}
+              child {
+                node {RM
+                  \resizebox{\textwidth}{!}{
+                    \begin{minipage}[t]{8cm}
+                      \begin{itemize}
+                        \item priority determined by $min(T_i)$ for all remaining $J_i$
+                        \item Schedulability Test 1: $U=\sum_{i=1}^n \frac{C_i}{T_i} \leq n\left(2^{1 / n}-1\right)$ (sufficient but not necessary)
+                        \item Schedulability Test 2: same as Schedulability Test 2 for DM
+                      \end{itemize}
+                    \end{minipage}
+                  }
+                }
+                  child {
+                    node {BS (Mixed Task Sets)
+                      \resizebox{\textwidth}{!}{
+                        \begin{minipage}[t]{6cm}
+                          \begin{itemize}
+                             \item aperiodic tasks scheduled after FCFS when no periodic task ready to execute
+                          \end{itemize}
+                        \end{minipage}
+                      }
+                    }
+                  }
+                  child {
+                    node {PS (Mixed Task Sets)
+                      \resizebox{\textwidth}{!}{
+                        \begin{minipage}[t]{10cm}
+                          \begin{itemize}
+                            \item PS scheduled as periodic task, it serves any pending aperiodic requests until its capacity (execution time) Cs is exhausted
+                            \item If no aperiodic requests are pending, PS suspends itself until the beginning of its next period, and the budget originally allocated for aperiodic service is freed up and assigned to periodic tasks
+                            \item Schedulability Test 1: $\sum_{i=1}^n \frac{C_i}{T_i}+\frac{C_s}{T_s}\leq(n+1)\left[2^{1 /(n+1)}-1\right]$ (sufficient but not necessary)
+                            \item Schedulability Test 2: If $C_a\le C_s$ and $2T_s\le D_a$ (necessary and sufficient, fitting computation time)
+                            \item Schedulability Test 3: $T_S+\left\lceil \frac{C_a}{C_s}\right\rceil T_s \leq D_a$ (necessary and sufficient, not fitting computation time)
+                          \end{itemize}
+                        \end{minipage}
+                      }
+                    }
+                  }
+              }
+            }
+            child {
+              node {$D_i\le T_i$}
+              child {
+                node {DM
+                  \resizebox{\textwidth}{!}{
+                    \begin{minipage}[t]{8cm}
+                      \begin{itemize}
+                        \item priority determined by $min(D_i)$ for all remaining $J_i$
+                        \item Schedulability Test 1: $\displaystyle\sum_{i=1}^n \frac{C_i}{D_i} \leq n\left(2^{1 / n}-1\right)$ (sufficient but not necessary)
+                        \item Schedulability Test 2: for all tasks $\tau_i$ smallest $R_i$ that satisfies $R_i=C_i+\sum_{j=1}^{i-1}\left\lceil\frac{R_i}{T_j}\right\rceil C_j$ and $R_i \le D_i$ (necessary and sufficient)
+                      \end{itemize}
+                    \end{minipage}
+                  }
+                }
+              }
+            }
+          }
+          child {
+            node {Dynamic Priority}
+            child {
+              node {$D_i = T_i$}
+              child {
+                node {EDF
+                  \resizebox{\textwidth}{!}{
+                    \begin{minipage}[t]{6cm}
+                      \begin{itemize}
+                        \item Schedulability Test: $\displaystyle\sum_{i=1}^n \frac{C_i}{T_i}=U \leq 1$
+                      \end{itemize}
+                    \end{minipage}
+                  }
+                }
+                child {
+                  node {TBS (Mixed Task Sets)
+                    \resizebox{\textwidth}{!}{
+                      \begin{minipage}[t]{6cm}
+                        \begin{itemize}
+                          \item $d_k=\max \left(r_k, d_{k-1}\right)+\frac{C_k}{U_s}$
+                          \item Schedulability Test: $U_p + U_s \le 1$ (necessary and sufficient)
+                        \end{itemize}
+                      \end{minipage}
+                    }
+                  }
+                }
+              }
+            }
+            child {
+              node {$D_i\le T_i$}
+              child {
+                node {EDF
+                  \resizebox{\textwidth}{!}{
+                    \begin{minipage}[t]{6cm}
+                      \begin{itemize}
+                        \item Schedulability Test: Buttazzo, Hard real-time computing systems: predictable scheduling
+                      \end{itemize}
+                    \end{minipage}
+                  }
+                }
+              }
+            }
+          }
+        }
+    };
+    \end{tikzpicture}
+  }
+\end{document}
