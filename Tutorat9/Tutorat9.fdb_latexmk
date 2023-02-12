@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1676223414 "Tutorat9.tex" "Tutorat9.pdf" "Tutorat9" 1676223416
+["pdflatex"] 1676228304 "Tutorat9.tex" "Tutorat9.pdf" "Tutorat9" 1676228306
   "/dev/null" 0 -1 0 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1650183167 1004 54797486969f23fa377b128694d548df ""
@@ -170,8 +170,8 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1650183167 39911 2da6c67557ec033436fe5418a70a8a61 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1670481796 4278762 af3ac1370db81a450c1118eabf1fe718 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1670481791 2927659 14cf2c18eb5bc4e1f72cace8f2f5bc89 ""
-  "Tutorat9.aux" 1676223416 149 f39c6b536e8225be0fb0aab76f7a34fe "pdflatex"
-  "Tutorat9.tex" 1676223414 19080 f915b2963d54c8fe283c823692772b87 ""
+  "Tutorat9.aux" 1676228306 149 f39c6b536e8225be0fb0aab76f7a34fe "pdflatex"
+  "Tutorat9.tex" 1676228300 20618 176153c8604129b0cbfa364abc89821f ""
   (generated)
   "Tutorat9.aux"
   "Tutorat9.log"

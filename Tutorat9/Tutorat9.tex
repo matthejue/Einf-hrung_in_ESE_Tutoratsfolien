@@ -48,7 +48,7 @@
       level 2/.append style = {
         concept color=SecondaryColorDimmed,
         level distance=\leveldistance / 2,
-        sibling angle=40,
+        sibling angle=35,
         execute at begin node=\definecolor{SwitchColor}{named}{SecondaryColor},
       },
       level 3/.append style = {
@@ -164,29 +164,62 @@
       }
   }
   child {
-    node {Architecture Synthesis}
+    node (architecturesynthesis) {Architecture Synthesis}
       child {
-        node {without resource constraints}
+        node {Multiobjective Optimization}
         child {
-          node {ASAP}
+          node {Pareto-Dominance}
         }
         child {
-          node {ALAP}
+          node {Pareto-optimal Set}
         }
       }
       child {
-        node {with resource constraints}
+        node {Specification Models}
           child {
-            node {Integer Linear Programming}
+            node (dg) {Dependence Graph}
               child {
-                node {for Iterative Algorithms and Marked Graphs}
+                node {Sequence Graph}
+                  child {
+                    node {Resource Graph}
+                  }
+                  child {
+                    node {Weighted Constraint Graph}
+                  }
+              }
+              child {
+                node {Single Assignment Form}
               }
           }
           child {
-            node (listscheduling) {List Scheduling}
+            node (mg) {Marked Graph}
+          }
+      }
+      child {
+        node (synthesisalgorithms) {Synthesis Algorithms}
+          child {
+            node {without resource constraints}
             child {
-              node {considering pipeline resources}
+              node {ASAP}
             }
+            child {
+              node {ALAP}
+            }
+          }
+          child {
+            node {with resource constraints}
+              child {
+                node {Integer Linear Programming}
+                  child {
+                    node (foriaandmg) {for Iterative Algorithms and Marked Graphs}
+                  }
+              }
+              child {
+                node (listscheduling) {List Scheduling}
+                child {
+                  node {considering pipeline resources}
+                }
+              }
           }
       }
   }
@@ -248,36 +281,36 @@
     node (scheduling) {Scheduling}
       child {
         node (resourcesharing) {Resource Sharing}
-        child {
-          node {Mutual exlcusion by protecting critical sections with semaphores.}
-        }
-        child {
-          node (resourcesharingprotocols) {Resource Access Protocols}
-            child {
-              node {NPP}
-            }
-            child {
-              node {PIP}
-            }
-        }
+          child {
+            node {Communication Between Tasks}
+              child {
+                node {Synchronous Communication}
+              }
+              child {
+                node {Asynchronous Communication}
+                  child {
+                    node {Mailbox Mechanism}
+                  }
+                  child {
+                    node {CAB}
+                  }
+              }
+          }
+          child {
+            node {Mutual exlcusion by protecting critical sections with semaphores.}
+          }
+          child {
+            node (resourcesharingprotocols) {Resource Access Protocols}
+              child {
+                node {NPP}
+              }
+              child {
+                node {PIP}
+              }
+          }
       }
       child {
         node (schedulinganomalies) {Scheduling Anomalies}
-      }
-      child {
-        node {Communication Between Tasks}
-          child {
-            node {Synchronous Communication}
-          }
-          child {
-            node {Asynchronous Communication}
-              child {
-                node {Mailbox Mechanism}
-              }
-              child {
-                node {CAB}
-              }
-          }
       }
       child {
         node (periodic) {Periodic
@@ -497,7 +530,8 @@
   \begin{pgfonlayer}{background}
   \draw [concept connection]
       (yds) edge (scheduling)
-      (listscheduling) edge (scheduling);
+      (listscheduling) edge (scheduling)
+      (foriaandmg) edge (mg);
   \end{pgfonlayer}
   % ┌──────────────┐
   % │ Annotationen │
@@ -509,5 +543,8 @@
   \path (scheduling) -- node[annotation, above, align=center, pos=0.2] {A scheduling algorithm can be either online or offline. An algorithm is said to be heuristic if it tends toward the optimal schedule, but does not guarantee finding it.} (ese);
   \path (resourcesharingprotocols) -- node[annotation, above, align=center, pos=0.1] {Several approaches, so-called resource access protocols, have been developed to avoid the unbounded Priority Inversion problem.} (ese);
   \path (schedulinganomalies) -- node[annotation, above, align=center, pos=0.1] {Making a part of the system operate faster does not generally lead to a faster system execution.} (ese);
+  \path (dg) -- node[annotation, above, align=center, pos=0.01] {short (DG), also called Task Graph.} (ese);
+  \path (architecturesynthesis) -- node[annotation, above, align=center, pos=0.01] {With major tasks: Allocation, Scheduling and Binding.} (ese);
+  \path (synthesisalgorithms) -- node[annotation, above, align=center, pos=0.01] {There are Iterative Algorithms, Constructive Algorithms and Transformative Algorithms. Can be classified as heuristics or exact methods.} (ese);
   \end{tikzpicture}
 \end{document}
