@@ -186,6 +186,9 @@
                   child {
                     node {Weighted Constraint Graph}
                   }
+                  child {
+                    node (esq) {Extented Sequence Graph}
+                  }
               }
               child {
                 node {Single Assignment Form}
@@ -531,7 +534,8 @@
   \draw [concept connection]
       (yds) edge (scheduling)
       (listscheduling) edge (scheduling)
-      (foriaandmg) edge (mg);
+      (foriaandmg) edge (esq)
+      (esq) edge (mg);
   \end{pgfonlayer}
   % ┌──────────────┐
   % │ Annotationen │
