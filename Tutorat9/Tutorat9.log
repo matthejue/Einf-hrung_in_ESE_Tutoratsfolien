@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.8)  12 FEB 2023 23:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.8)  14 FEB 2023 04:26
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -699,29 +699,34 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 528
+LaTeX Font Info:    Trying to load font information for U+msa on input line 538
 .
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 528
+LaTeX Font Info:    Trying to load font information for U+msb on input line 538
 .
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (1.88701pt too wide) in paragraph at lines 528--528
+Overfull \hbox (3.8957pt too wide) in paragraph at lines 538--538
+ [][]\OT1/cmr/m/n/7 Dynamically 
+ []
+
+
+Overfull \hbox (1.88701pt too wide) in paragraph at lines 538--538
  [][]\OT1/cmr/m/n/8 Communication 
  []
 
 
-Overfull \hbox (4.05681pt too wide) in paragraph at lines 528--528
+Overfull \hbox (4.05681pt too wide) in paragraph at lines 538--538
  [][]\OT1/cmr/m/n/7 Synchronous 
  []
 
 
-Overfull \hbox (8.71101pt too wide) in paragraph at lines 528--528
+Overfull \hbox (8.71101pt too wide) in paragraph at lines 538--538
  [][]\OT1/cmr/m/n/7 Asynchronous 
  []
 
@@ -729,10 +734,10 @@ Overfull \hbox (8.71101pt too wide) in paragraph at lines 528--528
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Tutorat9.aux) ) 
 Here is how much of TeX's memory you used:
- 21302 strings out of 478238
- 471237 string characters out of 5850456
- 1224228 words of memory out of 5000000
- 39190 multiletter control sequences out of 15000+600000
+ 21328 strings out of 478238
+ 471806 string characters out of 5850456
+ 1239162 words of memory out of 5000000
+ 39216 multiletter control sequences out of 15000+600000
  475902 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,23n,93p,482b,2600s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -751,7 +756,7 @@ ts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbo
 ls/msam5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.p
 fb>
-Output written on Tutorat9.pdf (1 page, 256014 bytes).
+Output written on Tutorat9.pdf (1 page, 259075 bytes).
 PDF statistics:
  122 PDF objects out of 1000 (max. 8388607)
  67 compressed objects within 1 object stream

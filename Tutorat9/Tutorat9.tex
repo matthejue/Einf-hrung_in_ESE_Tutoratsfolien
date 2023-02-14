@@ -138,7 +138,7 @@
           node (activationrecord) {Activation record}
         }
         child {
-          node {Context Switch}
+          node (contextswitch) {Context Switch}
         }
       }
       child {
@@ -248,37 +248,46 @@
       }
       child {
         node {Power Reduction}
-          child {
-            node {Static Power Reduction}
-              child {
-                node {Power Supply Gating}
-                  child {
-                    node {Parallelism}
+            child {
+              node {Reduce Static Power Consumption}
+                child {
+                  node {Power Supply Gating}
+                }
+            }
+            child {
+              node {Reduce Dynamic Power Consumption}
+                child {
+                  node {Statically decrease voltage and freqency}
+                    child {
+                      node {Parallelism}
+                        child {
+                          node {VLIW}
+                        }
+                    }
+                    child {
+                      node {Pipelining}
+                    }
+                }
+                child {
+                  node {Dynamically decrease voltage and freqency (DVFS)}
+                    child {
+                      node (yds) {YDS}
                       child {
-                        node {VLIW}
+                        node {Online}
                       }
-                  }
-                  child {
-                    node {Pipelining}
-                  }
-              }
-          }
-          child {
-            node {Dynamic Power Reduction}
-              child {
-                node {DVFS}
-                  child {
-                    node (yds) {YDS}
-                  }
-                  child {
-                    node {DPM}
                       child {
-                        node {Break-Even Time}
+                        node {Offline}
                       }
+                    }
+                    child {
+                      node {DPM}
+                        child {
+                          node {Break-Even Time}
+                        }
+                    }
                   }
                 }
-          }
-        }
+            }
   }
   child {
     node (scheduling) {Scheduling}
@@ -440,7 +449,8 @@
               \begin{itemize}
                 \item event-driven
                 \item can arrive at any point in time
-                \item Optimality: Minimize the maximum lateness of the task set precedence relations between tasks can be described through an acyclic directed graph G where tasks are represented by nodes and precedence relations by arrows. G induces a partial order on the task set
+                \item Optimality: Minimize the maximum lateness of the task set
+                \item precedence relations between tasks can be described through an acyclic directed graph G called Precedence Graph where tasks are represented by nodes and precedence relations by arrows. G induces a partial order on the task set
                 \item 2 types of aperiodic tasks:
                 \begin{itemize}
                   \tiny
@@ -488,7 +498,7 @@
           }
         }
         child {
-          node {Dependent Tasks}
+          node (dependanttasks) {Dependent Tasks}
           child {
             node {Equal arrival times, Non-preempive}
             child {
@@ -550,5 +560,7 @@
   \path (dg) -- node[annotation, above, align=center, pos=0.01] {short (DG), also called Task Graph.} (ese);
   \path (architecturesynthesis) -- node[annotation, above, align=center, pos=0.01] {With major tasks: Allocation, Scheduling and Binding.} (ese);
   \path (synthesisalgorithms) -- node[annotation, above, align=center, pos=0.01] {There are Iterative Algorithms, Constructive Algorithms and Transformative Algorithms. Can be classified as heuristics or exact methods.} (ese);
+  \path (dependanttasks) -- node[annotation, above, align=center, pos=0.06] {Tasks are dependant to each other as specified by a Precedence Graph.} (ese);
+  \node [annotation, below] at (ese.south) {This mindmap is provided without guarantee of correctness and completeness!};
   \end{tikzpicture}
 \end{document}
